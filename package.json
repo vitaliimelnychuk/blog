@@ -1,0 +1,22 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "My personal blog, Trying things, sharing them with the world",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melnychukvitaliy/blog.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Vitalii Melnychuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/melnychukvitaliy/blog/issues"
+  },
+  "homepage": "https://github.com/melnychukvitaliy/blog#readme"
+}
