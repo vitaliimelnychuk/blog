@@ -10,7 +10,7 @@ interface IMetaProps {
   children: ReactChild;
 }
 export default ({ children }: IMetaProps) => (
-  <div>
+  <div className="container">
     <Head>
       <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
       <title>Vitalii Melnychuk :: Personal Blog</title>
@@ -38,6 +38,12 @@ export default ({ children }: IMetaProps) => (
       }
       body {
         font-size: 14px;
+      }
+    `}</style>
+    <style jsx>{`
+    .container {
+        max-width:1200px;
+        margin: 0 auto;
       }
     `}</style>
   </div>
