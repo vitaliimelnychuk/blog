@@ -20,5 +20,25 @@ export default ({ children }: IMetaProps) => (
     <Meta />
     {children}
     <Footer />
+    <style jsx global>{`
+      a:link {
+        color: black;
+        text-decoration: none;
+      }
+      a:visited {
+      color: black;
+      }
+      button:hover {
+        cursor: pointer;
+      }
+      input:focus,
+      button:focus,
+      textarea:focus {
+        outline: none;
+      }
+      body {
+        font-size: 14px;
+      }
+    `}</style>
   </div>
 );
