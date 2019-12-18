@@ -21,7 +21,7 @@ const Header = () => (
         border-bottom: 1px solid black;
       }
       .links a {
-        font-size: 18px;
+        font-size: 16px;
       }
       .links a:hover{
         text-decoration: underline;
