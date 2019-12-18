@@ -14,9 +14,6 @@ const Home = () => (
           `}
           url='/posts/2019-12-17-deploy-your-blog' />
       </div>
-      <p>My personal blog</p>
-      <p>Deployed by now deployment</p>
-      <p>2019 ©</p>
     </div>
   </Layout>
 );
