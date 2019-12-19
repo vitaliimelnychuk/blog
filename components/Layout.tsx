@@ -44,6 +44,7 @@ export default ({ children }: IMetaProps) => (
     .container {
         max-width:1200px;
         margin: 0 auto;
+        padding: 5px;
       }
     `}</style>
   </div>
