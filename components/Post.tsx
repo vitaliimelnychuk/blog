@@ -34,6 +34,10 @@ function Post({ title, description, url }: IPostProps) {
         padding: 10px;
         border-bottom: 1px solid black;
       }
+      .container h2 {
+        padding: 0;
+        margin: 0;
+      }
       .container .description {
         text-align:justify;
         line-height: 2em;
