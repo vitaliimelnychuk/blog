@@ -13,6 +13,7 @@ function Button({ children }: IButtonProps) {
         text-align: center;
         padding: 10px 50px;
         border: 1px solid black;
+        background-color:#fff;
       }
       button:hover {
         cursor:pointer;
