@@ -10,8 +10,12 @@ interface IPostProps {
 
 function Post({ title, description, url }: IPostProps) {
   return <div className="container">
-    <h2>{title}</h2>
-    <p className="description">{description}</p>
+    <div>
+      <h2>{title}</h2>
+    </div>
+    <div className="description">
+      {description}
+    </div>
     <div>
       <Link href={url}>
         <a>
@@ -22,7 +26,6 @@ function Post({ title, description, url }: IPostProps) {
     <style jsx>{`
     .container {
         display: grid;
-        grid-auto-rows: 40px;
         grid-template-rows: auto;
         grid-template-columns: 1fr;
         grid-gap: 0px;
@@ -32,7 +35,9 @@ function Post({ title, description, url }: IPostProps) {
         border-bottom: 1px solid black;
       }
       .container .description {
+        text-align:justify;
         line-height: 2em;
+        padding: 10px 0;
       }
     `}</style>
   </div >;
