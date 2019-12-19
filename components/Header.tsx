@@ -4,9 +4,9 @@ const Header = () => (
   <div className='container'>
     <div className="logo"></div>
     <div className="links">
-      <Link href="/">
+      {/* <Link href="/">
         <a>Home</a>
-      </Link>
+      </Link> */}
     </div>
     <style jsx>{`
     .container {
