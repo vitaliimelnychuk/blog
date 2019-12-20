@@ -56,6 +56,11 @@ export default () => (
           font-size: 17px;
           line-height: 23px;
         }
+
+        .contact p {
+          margin: 0;
+          padding: 0;
+        }
         @media screen and (max-device-width: ${MOBILE_MAX_WITH}){
           .container {
           display: grid;
