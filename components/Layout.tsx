@@ -25,6 +25,9 @@ export default ({ children }: IMetaProps) => (
         color: black;
         text-decoration: none;
       }
+      a:hover {
+        text-decoration: underline;
+      }
       a:visited {
       color: black;
       }
@@ -57,6 +60,14 @@ export default ({ children }: IMetaProps) => (
         font-variant: normal;
         font-weight: 700;
         line-height: 22px;
+      }
+      blockquote {
+        font-size: 17px;
+        line-height: 23px;
+      }
+      p {
+        margin: 0;
+        padding; 0;
       }
     `}</style>
     <style jsx>{`
