@@ -1,9 +1,13 @@
+import articles from '../../content/articles'
+
 import Layout from '../../components/Layout'
 import ArticlePage from '../../components/layouts/ArticlePage'
 
+const article = articles['22-12-2019-deploy-your-blog']
+
 export default () => (
   <Layout >
-    <ArticlePage title='Deploy your blog' date='22 Dec 2019'>
+    <ArticlePage {...article}>
       <div>
         <p>You cannot to be sure when will be right time start your blog,
         what's tools should be used and what kind of articles you really what write.</p>

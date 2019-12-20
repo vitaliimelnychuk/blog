@@ -1,21 +1,21 @@
 
-import { MOBILE_MAX_WITH } from '../utils/media'
-
-import Button from './Button';
 import Link from 'next/link'
 
+import { MOBILE_MAX_WITH } from '../utils/media'
+import { getFormattedDate } from '../utils/date'
+import { Article } from '../content/articles'
+import Button from './Button';
+
 interface IPostProps {
-  title: string;
-  date: string;
   description: string;
-  url: string
 }
 
-function Post({ title, description, url, date }: IPostProps) {
+function Post({ title, description, url, date }: IPostProps & Article) {
+
   return <div className="container">
     <div className="title">
       <h3>{title}</h3>
-      <p>{date}</p>
+      <p>{getFormattedDate(date)}</p>
     </div>
     <div>
       <div className="description">

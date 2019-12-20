@@ -1,16 +1,17 @@
 
 import { ReactChild } from 'react';
 
+import { getFormattedDate } from '../../utils/date'
+import { Article } from '../../content/articles'
+
 interface IArticlePageProps {
-  title: string;
-  date: string;
   children: ReactChild;
 }
 
-export default ({ children, title, date }: IArticlePageProps) => (
+export default ({ children, title, date }: IArticlePageProps & Article) => (
   <div>
     <h1>{title}</h1>
-    <p>{date}</p>
+    <p>{getFormattedDate(date)}</p>
     <div className="content">
       {children}
     </div>
