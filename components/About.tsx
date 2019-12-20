@@ -1,4 +1,4 @@
-import { MOBILE_MAX_WITH} from '../utils/media'
+import { MOBILE_MAX_WITH } from '../utils/media'
 
 export default () => (
   <div className="container">
@@ -12,7 +12,16 @@ export default () => (
       <ul>
         <li>
           5+ years of job experience in development including 2 years of Team Leading experience.
-      </li>
+        </li>
+        <li>
+          Software development, primarily with <b>Python</b> and <b>NodeJS</b>
+        </li>
+        <li>
+          “DevOps”-style infrastructure automation and system administration for Linux and Unix
+        </li>
+        <li>
+          <b>Database design and optimisation</b>, particularly with relational databases
+        </li>
       </ul>
     </div>
     <style jsx>{`
