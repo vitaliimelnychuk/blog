@@ -1,9 +1,11 @@
 import Layout from '../components/Layout'
 import Post from '../components/Post'
+import About from '../components/About'
 
 const Home = () => (
   <Layout >
     <div>
+      <About />
       <div className="posts">
         <Post
           title='Deploy your blog'
