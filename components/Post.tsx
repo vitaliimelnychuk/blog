@@ -11,7 +11,7 @@ interface IPostProps {
 function Post({ title, description, url }: IPostProps) {
   return <div className="container">
     <div>
-      <h2>{title}</h2>
+      <h3>{title}</h3>
     </div>
     <div className="description">
       {description}
@@ -34,13 +34,12 @@ function Post({ title, description, url }: IPostProps) {
         padding: 10px;
         border-bottom: 1px solid black;
       }
-      .container h2 {
+      .container h3 {
         padding: 0;
         margin: 0;
       }
       .container .description {
         text-align:justify;
-        line-height: 2em;
         padding: 10px 0;
       }
     `}</style>

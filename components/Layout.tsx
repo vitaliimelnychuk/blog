@@ -37,7 +37,26 @@ export default ({ children }: IMetaProps) => (
         outline: none;
       }
       body {
+        font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
         font-size: 14px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        line-height: 20px;
+      }
+      h1 {
+        font-size: 24px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 26.4px;
+      }
+      h3 {
+        font-size: 18px;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 700;
+        line-height: 22px;
       }
     `}</style>
     <style jsx>{`
