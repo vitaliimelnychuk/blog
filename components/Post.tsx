@@ -1,4 +1,6 @@
 
+import { MOBILE_MAX_WITH } from '../utils/media'
+
 import Button from './Button';
 import Link from 'next/link'
 
@@ -48,6 +50,16 @@ function Post({ title, description, url, date }: IPostProps) {
       }
       .read-button {
         text-align: center;
+      }
+      @media screen and (max-device-width: ${MOBILE_MAX_WITH}){
+        .container {
+          display: grid;
+          grid-template-columns: 1fr;
+          padding-top: 20px;
+        }
+        h3 {
+          margin: 5px;
+        }
       }
     `}</style>
   </div >;

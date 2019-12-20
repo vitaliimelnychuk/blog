@@ -67,7 +67,7 @@ export default () => (
             padding-top:10px;
             text-align:center;
           }
-      }
+        }
       `}</style>
   </div>
 );
