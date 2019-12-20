@@ -4,43 +4,50 @@ import Link from 'next/link'
 
 interface IPostProps {
   title: string;
+  date: string;
   description: string;
   url: string
 }
 
-function Post({ title, description, url }: IPostProps) {
+function Post({ title, description, url, date }: IPostProps) {
   return <div className="container">
-    <div>
+    <div className="title">
       <h3>{title}</h3>
-    </div>
-    <div className="description">
-      {description}
+      <p>{date}</p>
     </div>
     <div>
-      <Link href={url}>
-        <a>
-          <Button >Read</Button>
-        </a>
-      </Link>
+      <div className="description">
+        {description}
+      </div>
+      <div className="read-button">
+        <Link href={url}>
+          <a>
+            <Button>Read</Button>
+          </a>
+        </Link>
+      </div>
+
     </div>
     <style jsx>{`
     .container {
         display: grid;
         grid-template-rows: auto;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
         grid-gap: 0px;
         justify-items: center;
-        align-items: center;
+        align-items: top;
         padding: 10px;
         border-bottom: 1px solid black;
       }
-      .container h3 {
-        padding: 0;
-        margin: 0;
-      }
-      .container .description {
+      .description {
         text-align:justify;
         padding: 10px 0;
+      }
+      .title {
+        text-align:center;
+      }
+      .read-button {
+        text-align: center;
       }
     `}</style>
   </div >;

@@ -9,7 +9,6 @@ function Button({ children }: IButtonProps) {
     {children}
     <style jsx>{`
     button {
-        display: block;
         text-align: center;
         padding: 10px 50px;
         border: 1px solid black;
