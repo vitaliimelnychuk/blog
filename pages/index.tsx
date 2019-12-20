@@ -6,6 +6,7 @@ const Home = () => (
   <Layout >
     <div>
       <About />
+      <h2>Articles  </h2>
       <div className="posts">
         <Post
           title='Deploy your blog'
