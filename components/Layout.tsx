@@ -14,6 +14,7 @@ export default ({ children }: IMetaProps) => (
     <Head>
       <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
       <title>Vitalii Melnychuk :: Personal Blog</title>
+      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'></link>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' />
     </Head>
     <Header />
@@ -68,7 +69,7 @@ export default ({ children }: IMetaProps) => (
     `}</style>
     <style jsx>{`
     .container {
-        max-width:1200px;
+        max-width:828px;
         margin: 0 auto;
         padding: 5px;
       }
