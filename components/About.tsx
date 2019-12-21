@@ -2,7 +2,12 @@ import { MOBILE_MAX_WITH } from '../utils/media'
 
 export default () => (
   <div className="container">
-    <div className="photo">me</div>
+    <div className="photo">
+      <p>me</p>
+      <a href="https://twitter.com/VitaliyVvv" target="blank">
+        <img src='/static/twitter.svg' height='34px' />
+      </a>
+    </div>
     <div className="intro">
       <div className="contact">
         <p><b>Github:</b> <a href="https://github.com/melnychukvitaliy">https://github.com/melnychukvitaliy</a></p>
@@ -19,10 +24,10 @@ export default () => (
           <b>Database design and optimisation</b>, particularly with relational databases and <b>Elasticsearch</b> full-text search
         </li>
         <li>
-            Implementing secure and highly-available distributed systems/microservices
+          Implementing secure and highly-available distributed systems/microservices
         </li>
         <li>
-            Interest in opportunities to be a <b>technical mentor for teammates</b>
+          Interest in opportunities to be a <b>technical mentor for teammates</b>
         </li>
       </ul>
     </div>
