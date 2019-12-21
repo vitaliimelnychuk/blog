@@ -17,6 +17,7 @@ export default ({ children, title, date }: IArticlePageProps & Article) => (
     </div>
     <style jsx>{`
       .content {
+        font-family: 'Montserrat';
         padding-top: 5px;
       }
     `}
