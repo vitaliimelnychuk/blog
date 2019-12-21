@@ -5,14 +5,10 @@ export default () => (
     <div className="photo">me</div>
     <div className="intro">
       <div className="contact">
-        <p><b>Email:</b> <a href="mailto: vvv.melnychuk@gmail.com">vvv.melnychuk@gmail.com</a></p>
         <p><b>Github:</b> <a href="https://github.com/melnychukvitaliy">https://github.com/melnychukvitaliy</a></p>
         <p> </p>
       </div>
       <ul>
-        <li>
-          5+ years of job experience in development including 2 years of Team Leading experience.
-        </li>
         <li>
           Software development, primarily with <b>Python</b> and <b>NodeJS</b>
         </li>
