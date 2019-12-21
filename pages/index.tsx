@@ -10,7 +10,7 @@ const Home = () => (
       <About />
       <h2>Articles  </h2>
       <div className="posts">
-        <Post {...articles['22-12-2019-deploy-your-blog']}
+        <Post {...articles['2019-12-22-deploy-your-blog']}
           description={`
           I've been thinking to make my blog real for a long time and it's actually happened.
           In 2019 there are a lot of tools/services where you can host  your blog.

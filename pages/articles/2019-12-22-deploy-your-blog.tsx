@@ -3,7 +3,7 @@ import articles from '../../content/articles'
 import Layout from '../../components/Layout'
 import ArticlePage from '../../components/layouts/ArticlePage'
 
-const article = articles['22-12-2019-deploy-your-blog']
+const article = articles['2019-12-22-deploy-your-blog']
 
 export default () => (
   <Layout >
