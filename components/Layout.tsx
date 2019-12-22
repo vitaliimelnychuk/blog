@@ -14,7 +14,6 @@ export default ({ children }: IMetaProps) => (
     <Head>
       <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
       <title>Vitalii Melnychuk :: Personal Blog</title>
-      <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'></link>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' />
     </Head>
     <Header />
@@ -48,19 +47,11 @@ export default ({ children }: IMetaProps) => (
         font-weight: 400;
         line-height: 20px;
       }
-      h1 {
-        font-size: 24px;
+
+      h1, h2,h3,h4,h5,h6 {
         font-style: normal;
         font-variant: normal;
         font-weight: 700;
-        line-height: 26.4px;
-      }
-      h3 {
-        font-size: 18px;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: 700;
-        line-height: 22px;
       }
       blockquote {
         font-size: 17px;
