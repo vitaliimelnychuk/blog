@@ -25,8 +25,12 @@ function Post({ title, url, date }: Article) {
       .container div {
         display:inline-block;
       }
+      h3 {
+        margin:0;
+        padding:0;
+      }
       .date {
-        padding:10px;
+        padding-left:10px;
       }
     `}</style>
   </div >;
