@@ -1,10 +1,10 @@
 
 import Link from 'next/link'
 
-import { MOBILE_MAX_WITH } from '../utils/media'
-import { getFormattedDate } from '../utils/date'
-import { Article } from '../content/articles'
-import Button from './Button';
+import { MOBILE_MAX_WITH } from '../../utils/media'
+import { getFormattedDate } from '../../utils/date'
+import { Article } from '../../content/articles'
+import Button from './../Button';
 
 interface IPostProps {
   description: string;
