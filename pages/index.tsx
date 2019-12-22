@@ -13,7 +13,7 @@ const Home = () => (
         <ArticlePreview {...articles['2019-12-22-deploy-your-blog']}
           description={`
           I've been thinking to make my blog real for a long time and it's actually happened.
-          In 2019 there are a lot of tools/services where you can host  your blog.
+          In 2019 there are a lot of tools/services where you can host your blog.
           I'd like to share how this blog is deploying and what's sort of pros/cons I have by using this config
           `}
         />
