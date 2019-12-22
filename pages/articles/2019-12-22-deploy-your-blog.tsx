@@ -17,7 +17,7 @@ export default () => (
         <p>But now, at the end of 2019 I'd like to present my blog and technologies have been chosen to make it happen.</p>
 
         <h2>Overview</h2>
-        <p>If you found 1 million ways how deploy/manage you blog it wouldn't be enough, there is one more way to do it. </p>
+        <p>If you have found 1 million ways how deploy/manage you blog it wouldn't be enough, there is one more way to do it. </p>
       </div>
 
     </ArticlePage>
