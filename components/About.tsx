@@ -23,12 +23,6 @@ export default () => (
         <li>
           <b>Database design and optimisation</b>, particularly with relational databases and <b>Elasticsearch</b> full-text search
         </li>
-        <li>
-          Implementing secure and highly-available distributed systems/microservices
-        </li>
-        <li>
-          Interest in opportunities to be a <b>technical mentor for teammates</b>
-        </li>
       </ul>
     </div>
     <style jsx>{`
