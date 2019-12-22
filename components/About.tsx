@@ -10,7 +10,10 @@ export default () => (
     </div>
     <div className="intro">
       <div className="contact">
-        <p><b>Github:</b> <a href="https://github.com/melnychukvitaliy">https://github.com/melnychukvitaliy</a></p>
+        <p>
+          <b>Github: </b>
+          <a href="https://github.com/melnychukvitaliy" target="blank">https://github.com/melnychukvitaliy</a>
+        </p>
         <p> </p>
       </div>
       <ul>
