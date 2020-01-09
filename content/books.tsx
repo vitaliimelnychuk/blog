@@ -15,8 +15,8 @@ export default [
   {
     title: 'The subtle Art of Not Giving a F*ck',
     description: <div>
-      I like how enjoyable this book is. Sometimes, we just need to look around and enjoy what we have done and what's going to be happened.
-      <p>To enjoy your journey is much better then waiting for success. </p>
+      I like how enjoyable this book is. Sometimes, we just need to look around and enjoy what we have done and what's going to happened.
+      <p>Enjoying your journey is much better then waiting for success.</p>
     </div>,
     author: 'Mark Manson',
     date: new Date('03 Jan 2020'),
