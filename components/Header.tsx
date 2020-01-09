@@ -3,7 +3,7 @@ import Link from 'next/link';
 const Header = () => (
   <div className='container'>
     <div>
-      <b>Vitalii Melnychuk</b> |
+      <b>Vitaliy Melnychuk</b> |
       <Link href="/">
         <a>Home</a>
       </Link> |

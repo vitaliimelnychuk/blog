@@ -13,7 +13,7 @@ export default ({ children }: IMetaProps) => (
   <div className="container">
     <Head>
       <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
-      <title>Vitalii Melnychuk :: Personal Blog</title>
+      <title>Vitaliy Melnychuk :: Personal Blog</title>
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' />
     </Head>
     <Header />
