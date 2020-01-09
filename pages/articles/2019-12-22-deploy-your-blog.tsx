@@ -9,7 +9,7 @@ export default () => (
   <Layout >
     <ArticlePage {...article}>
       <div>
-        <p>You cannot be sure when it is a right time start your blog.
+        <p>You cannot be sure when it is a right time to start your blog.
         Which tools should be used, what kinds of articles you want to write and finally is it worth your time?</p>
 
         <p>I like blogs, especially tech blogs. They give me new ideas and inspiration, but at the same time they make me think: "Will I be able to write something like this?".</p>
