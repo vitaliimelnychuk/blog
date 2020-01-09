@@ -1,6 +1,5 @@
 function Footer() {
   return <div>
-    <p>{new Date().getFullYear()} ©</p>
     <style jsx>{`
       p {
         text-align:right;
