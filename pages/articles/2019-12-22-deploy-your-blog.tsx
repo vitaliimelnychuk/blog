@@ -18,7 +18,7 @@ export default () => (
 
         <h2>Overview</h2>
         <p>I likely trying new things and prefer simple solutions in order to make support easier.</p>
-        <p>In my experience, I had a chance to work with <b>React</b> and particularly <b>NextJs</b>.
+        <p>In my experience, I had a chance to work with <b>React</b> and particularly <b>Next.js</b>.
           I like those tools and happy with them. I really like the idea to have single page application and get rid of annoying loaders. actually, what I like more it's a code splitting feature.
           Next.js does automatic code splitting and it is based on the pages in your app. And it's mostly all I want</p>
         <p>If you have found 1 million ways how deploy/manage you blog it wouldn't be enough, there is one more way to do it. Here is one of those ways.</p>
