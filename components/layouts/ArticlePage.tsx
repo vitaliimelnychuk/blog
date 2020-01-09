@@ -19,6 +19,11 @@ export default ({ children, title, date }: IArticlePageProps & Article) => (
       .content {
         font-family: 'Montserrat';
         padding-top: 5px;
+        line-height: 24px;
+        font-size: 16px;
+        text-align: justify;
+        padding: 10px;
+        text-indent: 20px;
       }
     `}
     </style>
