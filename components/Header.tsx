@@ -4,6 +4,9 @@ const Header = () => (
   <div className='container'>
     <div>
       <b>Vitalii Melnychuk</b> |
+      <Link href="/books">
+        <a>Books</a>
+      </Link> |
       <Link href="/">
         <a>Home</a>
       </Link>
