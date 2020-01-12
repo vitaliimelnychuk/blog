@@ -32,6 +32,27 @@ export default () => (
           <li>Code splitting</li>
           <li>Easy deployment</li>
         </ul>
+        <h3>Starting from code</h3>
+        <p>
+          I am one of engineers who just like writing the code.
+          Let's be short and start from React, Next.js.
+        </p>
+        <p>
+          If you are new in this stack, here is <a href="https://github.com/zeit/next.js/#quick-start" target="blank">quick start guide</a>.
+        </p>
+        <p>
+          The same as for all projects you are working on, to have only core library wouldn't be enough for comfortable development.
+          There are a lot of useful things such as linting, formatting, testing, logging, error tracking. Those are essential ones. At least we have to think about them.
+        </p>
+        <p>
+          Speaking about blog development. It's okay to skip unit tests, logging and error tracking.
+          I think about them as more production solutions.
+          We definitely need them in our more complex apps where it's so important to have knowledge of users, database operations, payments and so on.
+        </p>
+        <p>
+          I've spend some time to define some linting/formatting rules to have style consistency.
+          The first one, you definitely need in every project is <a href="https://editorconfig.org/"> editorconfig</a>. Here is the one, I am using here
+        </p>
       </div>
 
     </ArticlePage>
