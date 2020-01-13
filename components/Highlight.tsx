@@ -18,6 +18,10 @@ export default ({ children, ...highlightProps }: IHighlightProps & HighlightProp
         padding: 0.5em;
         color: #333333;
         overflow-x: auto;
+
+        padding-left: 20px;
+        font-size:14px;
+        line-height:18px;
       }
 
       .hljs-comment,
