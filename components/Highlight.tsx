@@ -3,25 +3,48 @@ import { ReactChild } from 'react';
 import Highlight, { HighlightProps } from 'react-highlight'
 
 interface IHighlightProps {
+  title?: string;
+  file: string;
   children: ReactChild
 }
 
-export default ({ children, ...highlightProps }: IHighlightProps & HighlightProps) => (
-  <div>
+export default ({ children, file, title, ...highlightProps }: IHighlightProps & HighlightProps) => (
+  <div className="container">
+    <div className="title">
+      <span><b>{title}</b></span>
+      <span className="file">{file}</span>
+    </div>
     <Highlight {...highlightProps} >{children}</Highlight>
+    <style jsx>{`
+      .container {
+        font-size:14px;
+        line-height:18px;
+        border-bottom:1px solid #000;
+      }
+      .title {
+        display:grid;
+        grid-template-columns: 3fr 1fr;
+        align-items: end;
+
+        text-indent: 0px;
+        text-align:left;
+        border-bottom:1px solid #000;
+        line-height:22px;
+      }
+      .file {
+        font-size:14px;
+        text-align:right;
+
+      }
+    `}</style>
     <style jsx global> {`
       /** https://github.com/highlightjs/highlight.js/blob/master/src/styles/github-gist.css **/
 
       .hljs {
         display: block;
         background: white;
-        padding: 0.5em;
         color: #333333;
         overflow-x: auto;
-
-        padding-left: 20px;
-        font-size:14px;
-        line-height:18px;
       }
 
       .hljs-comment,
@@ -89,7 +112,6 @@ export default ({ children, ...highlightProps }: IHighlightProps & HighlightProp
       .hljs-string {
         color: #032f62;
       }
-      `}
-    </style >
+    `}</style>
   </div >
 )
