@@ -56,6 +56,10 @@ export default ({ children }: IMetaProps) => (
         font-size: 17px;
         line-height: 23px;
       }
+      pre, code{
+        margin: 0;
+        padding: 0;
+      }
     `}</style>
     <style jsx>{`
     .container {
