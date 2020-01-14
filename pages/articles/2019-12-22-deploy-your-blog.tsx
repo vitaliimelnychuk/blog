@@ -52,24 +52,23 @@ export default () => (
         </ul>
         <h3>Starting from code</h3>
         <p>
-          I am one of engineers who just like writing the code.
-          Let's be short and start from React, Next.js.
+          I'm that type of engineers who just like writing the code. In a nutshell, let's start from React, Next.js.
         </p>
         <p>
-          If you are new in this stack, here is <ExternalLink href="https://github.com/zeit/next.js/#quick-start">quick start guide</ExternalLink>.
+          If you are new in this stack, here is a <ExternalLink href="https://github.com/zeit/next.js/#quick-start">quick start guide</ExternalLink>.
         </p>
         <p>
-          The same as for all projects you are working on, to have only core library wouldn't be enough for comfortable development.
+          As for all projects you are working on, to have only one core library wouldn't be enough for comfortable development.
           There are a lot of useful things such as linting, formatting, testing, logging, error tracking. Those are essential ones. At least we have to think about them.
         </p>
         <p>
-          Speaking about blog development. It's okay to skip unit tests, logging and error tracking.
-          I think about them as more production solutions.
+          Speaking about blog development, it's okay to skip unit tests, logging and error tracking.
+          I consider them as more production solutions.
           We definitely need them in our more complex apps where it's so important to have knowledge of users, database operations, payments and so on.
         </p>
         <p>
-          I've spend some time to define some linting/formatting rules to have style consistency.
-          The first one, you definitely need in every project is <ExternalLink href="https://editorconfig.org">Editorconfig</ExternalLink>. Here is the one, I am using for my blog
+          I've spend some time to define linting/formatting rules to have style consistency.
+          The first one you definitely need in every project is <ExternalLink href="https://editorconfig.org">Editorconfig</ExternalLink>. Here is the one, I am using for my blog:
         </p>
         <Highlight className="INI" file=".editorconfig" title="Editorconfig configuration example">{editorconfig}</Highlight>
       </div>
