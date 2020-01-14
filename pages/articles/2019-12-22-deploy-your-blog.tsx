@@ -3,6 +3,7 @@ import articles from '../../content/articles'
 import Layout from '../../components/Layout'
 import ArticlePage from '../../components/layouts/ArticlePage'
 import Highlight from '../../components/Highlight'
+import ExternalLink from '../../components/ExternalLink'
 
 const article = articles['2019-12-22-deploy-your-blog']
 
@@ -55,7 +56,7 @@ export default () => (
           Let's be short and start from React, Next.js.
         </p>
         <p>
-          If you are new in this stack, here is <a href="https://github.com/zeit/next.js/#quick-start" target="blank">quick start guide</a>.
+          If you are new in this stack, here is <ExternalLink href="https://github.com/zeit/next.js/#quick-start">quick start guide</ExternalLink>.
         </p>
         <p>
           The same as for all projects you are working on, to have only core library wouldn't be enough for comfortable development.
@@ -68,7 +69,7 @@ export default () => (
         </p>
         <p>
           I've spend some time to define some linting/formatting rules to have style consistency.
-          The first one, you definitely need in every project is <a href="https://editorconfig.org/"> editorconfig</a>. Here is the one, I am using for my blog
+          The first one, you definitely need in every project is <ExternalLink href="https://editorconfig.org">Editorconfig</ExternalLink>. Here is the one, I am using for my blog
         </p>
         <Highlight className="INI" file=".editorconfig" title="Editorconfig configuration example">{editorconfig}</Highlight>
       </div>
