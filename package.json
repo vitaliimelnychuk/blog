@@ -25,10 +25,12 @@
     "next": "9.1.5",
     "react": "16.12.0",
     "react-dom": "16.12.0",
+    "react-highlight": "0.12.0",
     "typescript": "3.7.3"
   },
   "devDependencies": {
     "@types/node": "12.12.17",
-    "@types/react": "16.9.16"
+    "@types/react": "16.9.16",
+    "@types/react-highlight": "0.12.2"
   }
 }
