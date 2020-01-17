@@ -50,7 +50,7 @@ export default () => (
           <li>Code splitting</li>
           <li>Easy deployment</li>
         </ul>
-        <h3>Starting from code</h3>
+        <h2>Starting from code</h2>
         <p>
           I'm that type of engineers who just like writing the code. In a nutshell, let's start from React, Next.js.
         </p>
@@ -66,11 +66,16 @@ export default () => (
           I consider them as more production solutions.
           We definitely need them in our more complex apps where it's so important to have knowledge of users, database operations, payments and so on.
         </p>
+        <h3>Linting/formatting setup</h3>
         <p>
           I've spend some time to define linting/formatting rules to have style consistency.
           The first one you definitely need in every project is <ExternalLink href="https://editorconfig.org">Editorconfig</ExternalLink>. Here is the one, I am using for my blog:
         </p>
         <Highlight className="INI" file=".editorconfig" title="Editorconfig configuration example">{editorconfig}</Highlight>
+        <h3>Syntax highlighting</h3>
+        <p>
+
+        </p>
       </div>
 
     </ArticlePage>
