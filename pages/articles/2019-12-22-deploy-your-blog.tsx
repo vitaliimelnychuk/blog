@@ -2,9 +2,27 @@ import articles from '../../content/articles'
 
 import Layout from '../../components/Layout'
 import ArticlePage from '../../components/layouts/ArticlePage'
+import Highlight from '../../components/Highlight'
+import ExternalLink from '../../components/ExternalLink'
 
 const article = articles['2019-12-22-deploy-your-blog']
 
+const editorconfig = `
+root = true
+
+# Unix-style newlines with a newline ending every file
+[*]
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# Set default charset
+charset = utf-8
+
+# Set indentation
+indent_style = space
+indent_size = 2
+`;
 export default () => (
   <Layout >
     <ArticlePage {...article}>
@@ -32,6 +50,27 @@ export default () => (
           <li>Code splitting</li>
           <li>Easy deployment</li>
         </ul>
+        <h3>Starting from code</h3>
+        <p>
+          I'm that type of engineers who just like writing the code. In a nutshell, let's start from React, Next.js.
+        </p>
+        <p>
+          If you are new in this stack, here is a <ExternalLink href="https://github.com/zeit/next.js/#quick-start">quick start guide</ExternalLink>.
+        </p>
+        <p>
+          As for all projects you are working on, to have only one core library wouldn't be enough for comfortable development.
+          There are a lot of useful things such as linting, formatting, testing, logging, error tracking. Those are essential ones. At least we have to think about them.
+        </p>
+        <p>
+          Speaking about blog development, it's okay to skip unit tests, logging and error tracking.
+          I consider them as more production solutions.
+          We definitely need them in our more complex apps where it's so important to have knowledge of users, database operations, payments and so on.
+        </p>
+        <p>
+          I've spend some time to define linting/formatting rules to have style consistency.
+          The first one you definitely need in every project is <ExternalLink href="https://editorconfig.org">Editorconfig</ExternalLink>. Here is the one, I am using for my blog:
+        </p>
+        <Highlight className="INI" file=".editorconfig" title="Editorconfig configuration example">{editorconfig}</Highlight>
       </div>
 
     </ArticlePage>
