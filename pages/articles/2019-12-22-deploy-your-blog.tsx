@@ -141,6 +141,20 @@ export default () => (
           It wouldn't be unfair if I hadn't share what I chose. <ExternalLink href="https://react-highlight.neostack.com/">react-highlight</ExternalLink> - React Component for Syntax Highlighting built based on <ExternalLink href="https://highlightjs.org/">Highlight.js</ExternalLink>.
           The main difference here is you simply need to install library and chose theme you want from <ExternalLink href="https://github.com/highlightjs/highlight.js/tree/master/src/styles">themes folder</ExternalLink>.
         </p>
+        <h3>Deployment</h3>
+        <p>
+          It's time to make your first deploy. <ExternalLink href="https://zeit.co/">Zeit</ExternalLink> is he easiest way to deploy websites.
+          There are <ExternalLink href="https://nextjs.now-examples.now.sh/">Next.js deploy examples</ExternalLink> might have been chosen as guide.
+          Most important thing I like in this tool - deployment is so easy. It requires only one thing, link zeit account to your github( or another one) repo.
+        </p>
+
+        <h2>Conclusion</h2>
+        <p>
+          I hope i was useful to spend few minutes by reading it. Everything we have now is a lot of tools that should be combined managed in the right way.
+          You are always can read/follow blog code in <ExternalLink href="https://github.com/melnychukvitaliy/blog">Github</ExternalLink>.
+          </p>
+        <p>
+        </p>
       </div>
 
     </ArticlePage>
