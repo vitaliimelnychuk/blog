@@ -23,6 +23,52 @@ charset = utf-8
 indent_style = space
 indent_size = 2
 `;
+
+const prismjs = `
+import React, { PureComponent } from "react"
+
+import { PropTypes } from "prop-types"
+
+export default class PrismCode extends PureComponent {
+  static propTypes = {
+    async: PropTypes.bool,
+    className: PropTypes.string,
+    children: PropTypes.any,
+    component: PropTypes.node,
+  }
+
+  static defaultProps = {
+    component: \`code\`,
+  }
+
+  componentDidMount() {
+    this._hightlight()
+  }
+
+  componentDidUpdate() {
+    this._hightlight()
+  }
+
+  _hightlight() {
+    Prism.highlightElement(this._domNode, this.props.async)
+  }
+
+  _handleRefMount = domNode => {
+    this._domNode = domNode
+  }
+
+  render() {
+    const { className, component: Wrapper, children } = this.props
+
+    return (
+      <Wrapper ref={this._handleRefMount} className={className}>
+        {children}
+      </Wrapper>
+    )
+  }
+}
+`;
+
 export default () => (
   <Layout >
     <ArticlePage {...article}>
@@ -74,7 +120,26 @@ export default () => (
         <Highlight className="INI" file=".editorconfig" title="Editorconfig configuration example">{editorconfig}</Highlight>
         <h3>Syntax highlighting</h3>
         <p>
-
+          When I started development I didn't think about code highlighting. I've made few commits and started my first article. Actually, it's this one.
+          I reached linting/formatting chapter and need to highlight for my `editorconfig`.
+        </p>
+        <p>
+          I've found most popular highlighters libraries <ExternalLink href="https://highlightjs.org/">Highlight.js</ExternalLink> and <ExternalLink href="https://prismjs.com/">Prismjs</ExternalLink>. Both are great and written in JS.
+          The next thing went in my mind was "Are those two compatible with React?".
+          Yes, those are. But there are two different ways how they could be used.
+        </p>
+        <p>
+          Prismjs has <ExternalLink href="https://github.com/tomchentw/react-prism">react-prism</ExternalLink> that might be helpful. Let's look how it's implemented.
+        </p>
+        <Highlight className="js" file="src/components/PrismCode.js" title="Prismjs source code">{prismjs}</Highlight>
+        <p>
+          But how `Prism` property comes into this Component? The answer is so easy - react-prism depends on the existence of <b>globals.Prism </b>object.
+          it requires to have two libraries and manage versions of them. I didn't chose that way because I want something easier to maintain where I can simply put my library in `package.json` and use it.
+          There are a lot of workarounds how you can use Prismjs with React, here is one of them: "<ExternalLink href="https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/">Code highlighting in React using Prism.js</ExternalLink>"
+        </p>
+        <p>
+          It wouldn't be unfair if I hadn't share what I chose. <ExternalLink href="https://react-highlight.neostack.com/">react-highlight</ExternalLink> - React Component for Syntax Highlighting built based on <ExternalLink href="https://highlightjs.org/">Highlight.js</ExternalLink>.
+          The main difference here is you simply need to install library and chose theme you want from <ExternalLink href="https://github.com/highlightjs/highlight.js/tree/master/src/styles">themes folder</ExternalLink>.
         </p>
       </div>
 
