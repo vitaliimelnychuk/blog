@@ -120,39 +120,41 @@ export default () => (
         <Highlight className="INI" file=".editorconfig" title="Editorconfig configuration example">{editorconfig}</Highlight>
         <h3>Syntax highlighting</h3>
         <p>
-          When I started development I didn't think about code highlighting. I've made few commits and started my first article. Actually, it's this one.
-          I reached linting/formatting chapter and need to highlight for my `editorconfig`.
+          When I started development I didn't think about code highlighting. I've made a few commits and started writing my first article. Actually, it's this one.
+          I reached linting/formatting chapter and needed to highlight for my `editorconfig`.
         </p>
         <p>
-          I've found most popular highlighters libraries <ExternalLink href="https://highlightjs.org/">Highlight.js</ExternalLink> and <ExternalLink href="https://prismjs.com/">Prismjs</ExternalLink>. Both are great and written in JS.
-          The next thing went in my mind was "Are those two compatible with React?".
-          Yes, those are. But there are two different ways how they could be used.
+          I've found the most popular highlighters libraries - <ExternalLink href="https://highlightjs.org/">Highlight.js</ExternalLink> and <ExternalLink href="https://prismjs.com/">Prismjs</ExternalLink>. Both are great and written in JS.
+          The next thing that came to my mind was "Are they compatible with React?".
+          Yes, they are. But there are two different ways how they can be used.
         </p>
         <p>
           Prismjs has <ExternalLink href="https://github.com/tomchentw/react-prism">react-prism</ExternalLink> that might be helpful. Let's look how it's implemented.
         </p>
         <Highlight className="js" file="src/components/PrismCode.js" title="Prismjs source code">{prismjs}</Highlight>
         <p>
-          But how `Prism` property comes into this Component? The answer is so easy - react-prism depends on the existence of <b>globals.Prism </b>object.
-          it requires to have two libraries and manage versions of them. I didn't chose that way because I want something easier to maintain where I can simply put my library in `package.json` and use it.
+          But how `<b>Prism</b>` property happened to be here? The answer is so easy - react-prism depends on the existence of <b>globals.Prism </b>object.
+          Based on that, it requires to have both: `react-prism` and `prism` libraries the versions of which have to be managed separately. I didn't choose that way because I wanted something easier to maintain where I can simply put my library in `package.json` and use it.
           There are a lot of workarounds how you can use Prismjs with React, here is one of them: "<ExternalLink href="https://betterstack.dev/blog/code-highlighting-in-react-using-prismjs/">Code highlighting in React using Prism.js</ExternalLink>"
         </p>
         <p>
-          It wouldn't be unfair if I hadn't share what I chose. <ExternalLink href="https://react-highlight.neostack.com/">react-highlight</ExternalLink> - React Component for Syntax Highlighting built based on <ExternalLink href="https://highlightjs.org/">Highlight.js</ExternalLink>.
-          The main difference here is you simply need to install library and chose theme you want from <ExternalLink href="https://github.com/highlightjs/highlight.js/tree/master/src/styles">themes folder</ExternalLink>.
+          It won't be fair if I don't share what I chose. <ExternalLink href="https://react-highlight.neostack.com/">React-highlight</ExternalLink> - React Component for Syntax Highlighting built on <ExternalLink href="https://highlightjs.org/">Highlight.js</ExternalLink>.
+          The main difference here is that you simply need to install one library. In addition, you can choose theme from <ExternalLink href="https://github.com/highlightjs/highlight.js/tree/master/src/styles">themes folder</ExternalLink>.
         </p>
         <h3>Deployment</h3>
         <p>
-          It's time to make your first deploy. <ExternalLink href="https://zeit.co/">Zeit</ExternalLink> is he easiest way to deploy websites.
-          There are <ExternalLink href="https://nextjs.now-examples.now.sh/">Next.js deploy examples</ExternalLink> might have been chosen as guide.
-          Most important thing I like in this tool - deployment is so easy. It requires only one thing, link zeit account to your github( or another one) repo.
+          It's time to make your first deployment. <ExternalLink href="https://zeit.co/">Zeit</ExternalLink> is the easiest way to deploy your websites.
+          There are <ExternalLink href="https://nextjs.now-examples.now.sh/">Next.js deploy examples</ExternalLink> that might have been chosen as a guide.
+          The most important thing I like in this tool is an easy deployment. You just need to link Zeit account to your Github (or another one) repository.
         </p>
 
         <h2>Conclusion</h2>
         <p>
-          I hope i was useful to spend few minutes by reading it. Everything we have now is a lot of tools that should be combined managed in the right way.
-          You are always can read/follow blog code in <ExternalLink href="https://github.com/melnychukvitaliy/blog">Github</ExternalLink>.
-          </p>
+          I hope it was useful to spend a few minutes by reading it. Remember that there are a lot of tools, but the only thing you should pay attention to is combining/managing them in a right way.
+        </p>
+        <p>
+          You always can read/follow blog code in <ExternalLink href="https://github.com/melnychukvitaliy/blog">Github</ExternalLink>.
+        </p>
         <p>
         </p>
       </div>
