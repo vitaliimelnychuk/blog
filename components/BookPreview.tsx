@@ -27,6 +27,9 @@ export default ({ title, description, author, date, img, url }: Book) => (
       h3 {
         margin: 0;
       }
+      ul {
+        margin: 0;
+      }
       .container {
          display: grid;
          grid-template-rows: auto;
@@ -35,6 +38,7 @@ export default ({ title, description, author, date, img, url }: Book) => (
          justify-items: center;
          align-items: top;
          border-bottom: 1px solid black;
+         padding-top:10px;
       }
       .content {
         display: grid;
