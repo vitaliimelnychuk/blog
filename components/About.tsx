@@ -1,10 +1,11 @@
 import { MOBILE_MAX_WITH } from '../utils/media'
+import { twitterProfile } from './config'
 
 export default () => (
   <div className="container">
     <div className="photo">
       <p>me</p>
-      <a href="https://twitter.com/VitaliyVvv" target="blank">
+      <a href={`https://twitter.com/${twitterProfile}`} target="blank">
         <img src='/static/twitter.svg' height='34px' />
       </a>
     </div>
@@ -72,5 +73,5 @@ export default () => (
           }
         }
       `}</style>
-  </div>
+  </div >
 );
