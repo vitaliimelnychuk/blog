@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-import { baseUrl } from '../config'
+import { baseUrl, twitterProfile } from '../config'
 
 interface IPreviewLink {
   url: string;
@@ -12,8 +12,11 @@ interface IPreviewLink {
 const defaultImageUrl = `${baseUrl}/static/logo512x512.png`
 
 export default ({ url, title, description = '', image = defaultImageUrl }: IPreviewLink) => <Head>
-  <meta property="og:url" content={baseUrl + url} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
+  <meta name='twitter:card' content='summary' />
+  <meta name='twitter:site' content={`@${twitterProfile}`} />
+  <meta name='twitter:creator' content={`@${twitterProfile}`} />
+  <meta property='og:url' content={baseUrl + url} />
+  <meta property='og:title' content={title} />
+  <meta property='og:description' content={description} />
+  <meta property='og:image' content={image} />
 </Head>
