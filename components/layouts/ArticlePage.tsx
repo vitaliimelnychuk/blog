@@ -1,6 +1,7 @@
 
 import { ReactChild } from 'react';
 
+import MetaPreviewLink from '../Meta/PreviewLink'
 import { getFormattedDate } from '../../utils/date'
 import { Article } from '../../content/articles'
 
@@ -8,8 +9,9 @@ interface IArticlePageProps {
   children: ReactChild;
 }
 
-export default ({ children, title, date }: IArticlePageProps & Article) => (
+export default ({ children, title, date, url }: IArticlePageProps & Article) => (
   <div>
+    <MetaPreviewLink title={title} url={url} />
     <h1>{title}</h1>
     <p>{getFormattedDate(date)}</p>
     <div className="content">
