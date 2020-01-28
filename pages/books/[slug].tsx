@@ -6,9 +6,9 @@ import BookPreview from '.././../components/BookPreview'
 import { getBySlug, getUrlBySlug } from '../../content/books'
 
 export default ({ }) => {
-  const router = useRouter()
-  const { slug } = router.query
-
+  // const router = useRouter()
+  // const { slug } = router.query
+  const slug = 'the-illustrated-theory-of-everything'
   const book = getBySlug(`${slug}`)
 
   return (<Layout>
