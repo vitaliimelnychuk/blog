@@ -8,7 +8,7 @@ const Home = () => (
     <div>
       <h2>Books review</h2>
       <div className="books">
-        {books.map(book => <BookPreview key={book.title} {...book} />)}
+        {books.map(book => <BookPreview showButtons={true} key={book.title} {...book} />)}
       </div>
     </div>
   </Layout>

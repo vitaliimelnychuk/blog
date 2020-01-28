@@ -27,8 +27,9 @@ const books = [
     author: 'Stephen Hawking',
     date: new Date('25 Jan 2020'),
     url: 'https://www.amazon.com/Illustrated-Theory-Everything-Universe-2003-10-24-dp-B01NH01CUL/dp/B01NH01CUL',
-    img: 'static/books/the-illustrated-theory-of-everything.jpg',
+    img: '/static/books/the-illustrated-theory-of-everything.jpg',
     slug: 'the-illustrated-theory-of-everything',
+    quotes: []
   },
   {
     title: 'The subtle Art of Not Giving a F*ck',
@@ -41,6 +42,7 @@ const books = [
     url: 'https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/0062457713',
     img: '/static/books/the-subtle-art-of-not-giving-a-f*ck.jpg',
     slug: 'the-subtle-art-of-not-giving-a-f*ck',
+    quotes: []
   }
 ] as Array<TBook>
 

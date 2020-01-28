@@ -1,10 +1,18 @@
-import { MOBILE_MAX_WITH } from '../utils/media'
-import { getFormattedDate } from '../utils/date'
+
+import Link from 'next/link';
+
 import { TBook } from '../content/books'
 import Button from './Button';
 
+import { getUrlBySlug } from '../content/books'
+import { MOBILE_MAX_WITH } from '../utils/media'
+import { getFormattedDate } from '../utils/date'
 
-export default ({ title, description, author, date, img, url }: TBook) => (
+interface IBookPreview {
+  showButtons: boolean;
+}
+
+export default ({ showButtons, title, description, author, date, img, url, slug }: IBookPreview & TBook) => (
   <div className="container">
     <div className="title">
       <h3>{author} :: {title}</h3>
@@ -16,11 +24,19 @@ export default ({ title, description, author, date, img, url }: TBook) => (
           {description}
         </div>
         <p className="date">{getFormattedDate(date)}</p>
-        <div className="more-button">
-          <a href={url} target="blank">
-            <Button>In amazon</Button>
-          </a>
-        </div>
+        {/* TODO: use different markup for preview page and book details */}
+        {showButtons ? (
+          <div className="more-button">
+            <Link href="/books/[slug]" as={getUrlBySlug(slug)}>
+              <a>
+                <Button>More</Button>
+              </a>
+            </Link>
+            <a href={url} target="blank">
+              <Button>In amazon</Button>
+            </a>
+          </div>
+        ) : null}
       </div>
     </div>
     <style jsx>{`

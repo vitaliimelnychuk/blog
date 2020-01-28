@@ -10,22 +10,19 @@ export default ({ }) => {
   const { slug } = router.query
 
   const book = getBySlug(`${slug}`)
-  if (!book) {
-    // Change with more user friendly page
-    return <p>Book Not Found</p>
-  }
-  return (
-    <Layout>
-      <div>
-        <MetaPreviewLink title={book.title} url={getUrlBySlug(book.slug)} />
-        <BookPreview {...book} />
-        <div className="content">
-          <h2>Quotes</h2>
-          <ul>
-            {book.quotes.map(quote => (<li>{quote}</li>))}
-          </ul>
-        </div>
+
+  return (<Layout>
+    {book ? <div>
+      <MetaPreviewLink title={book.title} url={getUrlBySlug(book.slug)} />
+      <BookPreview {...book} showButtons={false} />
+      <div className="content">
+        <h2>Quotes</h2>
+        <ul>
+          {book.quotes.map(quote => (<li>{quote}</li>))}
+        </ul>
       </div>
-    </Layout>
+      {/* TODO: Add page not found handler */}
+    </div> : <div></div>}
+  </Layout>
   )
 }
