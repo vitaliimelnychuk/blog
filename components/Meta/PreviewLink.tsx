@@ -15,8 +15,8 @@ export default ({ url, title, description = '', image = defaultImageUrl }: IPrev
   <meta name='twitter:card' content='summary' />
   <meta name='twitter:site' content={`@${twitterProfile}`} />
   <meta name='twitter:creator' content={`@${twitterProfile}`} />
-  <meta property='og:url' content={baseUrl + url} />
+  <meta property='og:url' content={baseUrl} />
   <meta property='og:title' content={title} />
-  <meta property='og:description' content={description} />
+  {/* <meta property='og:description' content={'test'} /> */}
   <meta property='og:image' content={baseUrl + image} />
 </Head>
