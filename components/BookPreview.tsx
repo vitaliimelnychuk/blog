@@ -1,10 +1,10 @@
 import { MOBILE_MAX_WITH } from '../utils/media'
 import { getFormattedDate } from '../utils/date'
-import { Book } from '../content/books'
+import { TBook } from '../content/books'
 import Button from './Button';
 
 
-export default ({ title, description, author, date, img, url }: Book) => (
+export default ({ title, description, author, date, img, url }: TBook) => (
   <div className="container">
     <div className="title">
       <h3>{author} :: {title}</h3>

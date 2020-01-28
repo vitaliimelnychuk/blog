@@ -1,16 +1,18 @@
 import { ReactChild } from 'react';
 import ExternalLink from '../components/ExternalLink'
 
-export type Book = {
+export type TBook = {
   title: string;
   description: ReactChild;
   author: string;
   url: string;
+  slug: string;
   date: Date;
   img: string;
+  quotes: string[]
 }
 
-export default [
+const books = [
   {
     title: 'The Illustrated Theory of Everything',
     description: <div>
@@ -25,7 +27,8 @@ export default [
     author: 'Stephen Hawking',
     date: new Date('25 Jan 2020'),
     url: 'https://www.amazon.com/Illustrated-Theory-Everything-Universe-2003-10-24-dp-B01NH01CUL/dp/B01NH01CUL',
-    img: 'static/books/the-illustrated-theory-of-everything.jpg'
+    img: 'static/books/the-illustrated-theory-of-everything.jpg',
+    slug: 'the-illustrated-theory-of-everything',
   },
   {
     title: 'The subtle Art of Not Giving a F*ck',
@@ -36,6 +39,13 @@ export default [
     author: 'Mark Manson',
     date: new Date('03 Jan 2020'),
     url: 'https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/0062457713',
-    img: '/static/books/the-subtle-art-of-not-giving-a-f*ck.jpg'
+    img: '/static/books/the-subtle-art-of-not-giving-a-f*ck.jpg',
+    slug: 'the-subtle-art-of-not-giving-a-f*ck',
   }
-] as Array<Book>
+] as Array<TBook>
+
+export const getBySlug = (slug: string) => books.find(book => book.slug === slug)
+
+export const getUrlBySlug = (slug: string) => `/books/${slug}`
+
+export default books
