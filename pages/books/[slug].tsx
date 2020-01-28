@@ -13,7 +13,7 @@ export default ({ }) => {
 
   return (<Layout>
     {book ? <div>
-      <MetaPreviewLink title={book.title} url={getUrlBySlug(book.slug)} image={book.img}  />
+      <MetaPreviewLink title={book.title} url={getUrlBySlug(book.slug)}  />
       <BookPreview {...book} showButtons={false} />
       <div className="content">
         <h2>Quotes</h2>
