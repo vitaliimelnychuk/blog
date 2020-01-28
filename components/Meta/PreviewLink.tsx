@@ -9,7 +9,7 @@ interface IPreviewLink {
   image?: string;
 }
 
-const defaultImageUrl = `${baseUrl}/static/logo512x512.png`
+const defaultImageUrl = '/static/logo512x512.png'
 
 export default ({ url, title, description = '', image = defaultImageUrl }: IPreviewLink) => <Head>
   <meta name='twitter:card' content='summary' />
@@ -18,5 +18,5 @@ export default ({ url, title, description = '', image = defaultImageUrl }: IPrev
   <meta property='og:url' content={baseUrl + url} />
   <meta property='og:title' content={title} />
   <meta property='og:description' content={description} />
-  <meta property='og:image' content={image} />
+  <meta property='og:image' content={baseUrl + image} />
 </Head>
