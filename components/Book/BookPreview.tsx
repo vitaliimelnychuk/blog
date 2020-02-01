@@ -1,12 +1,11 @@
 
 import Link from 'next/link';
 
-import { TBook } from '../content/books'
-import Button from './Button';
+import { TBook } from '../../content/books'
+import Button from './../Button';
 
-import { getUrlBySlug } from '../content/books'
-import { MOBILE_MAX_WITH } from '../utils/media'
-import { getFormattedDate } from '../utils/date'
+import { MOBILE_MAX_WITH } from '../../utils/media'
+import { getFormattedDate } from '../../utils/date'
 
 interface IBookPreview {
   showButtons: boolean;
@@ -27,7 +26,7 @@ export default ({ showButtons, title, description, author, date, img, url, slug 
         {/* TODO: use different markup for preview page and book details */}
         {showButtons ? (
           <div className="more-button">
-            <Link href="/books/[slug]" as={getUrlBySlug(slug)}>
+            <Link href={slug}>
               <a>
                 <Button>More</Button>
               </a>

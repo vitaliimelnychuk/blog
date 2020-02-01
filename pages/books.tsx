@@ -1,14 +1,16 @@
 import Layout from '../components/Layout'
-import BookPreview from '../components/BookPreview'
+import BookPreview from '../components/Book/BookPreview'
 
-import books from '../content/books'
+import { booksList } from '../content/books'
 
 const Home = () => (
   <Layout >
     <div>
       <h2>Books review</h2>
       <div className="books">
-        {books.map(book => <BookPreview showButtons={true} key={book.title} {...book} />)}
+        {booksList.map(book =>
+          <BookPreview showButtons={true} key={book.title} {...book} />
+        )}
       </div>
     </div>
   </Layout>
