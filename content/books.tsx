@@ -27,7 +27,7 @@ export const books = {
     date: new Date('25 Jan 2020'),
     url: 'https://www.amazon.com/Illustrated-Theory-Everything-Universe-2003-10-24-dp-B01NH01CUL/dp/B01NH01CUL',
     img: '/static/books/the-illustrated-theory-of-everything.jpg',
-    slug: 'books/the-illustrated-theory-of-everything',
+    slug: '/books/the-illustrated-theory-of-everything',
   } as TBook,
   'the-subtle-art-of-not-giving-a-f*ck': {
     title: 'The subtle Art of Not Giving a F*ck',
@@ -39,7 +39,7 @@ export const books = {
     date: new Date('03 Jan 2020'),
     url: 'https://www.amazon.com/Subtle-Art-Not-Giving-Counterintuitive/dp/0062457713',
     img: '/static/books/the-subtle-art-of-not-giving-a-f*ck.jpg',
-    slug: 'books/the-subtle-art-of-not-giving-a-f*ck',
+    slug: '/books/the-subtle-art-of-not-giving-a-f*ck',
   } as TBook
 };
 
