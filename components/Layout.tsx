@@ -16,8 +16,6 @@ export default ({ children }: IMetaProps) => (
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' />
       <script dangerouslySetInnerHTML={{
         __html: `
-      <!-- Fathom - simple website analytics - https://usefathom.com -->
-      <script>
       (function(f, a, t, h, o, m){
       a[h]=a[h]||function(){
       (a[h].q=a[h].q||[]).push(arguments)
@@ -29,8 +27,6 @@ export default ({ children }: IMetaProps) => (
       })(document, window, 'https://cdn.usefathom.com/tracker.js', 'fathom');
       fathom('set', 'siteId', 'XSTIRESH');
       fathom('trackPageview');
-      </script>
-      <!-- / Fathom -->
       `}} />
     </Head>
     <Header />
