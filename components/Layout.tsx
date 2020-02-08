@@ -16,17 +16,17 @@ export default ({ children }: IMetaProps) => (
       <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' />
       <script dangerouslySetInnerHTML={{
         __html: `
-      (function(f, a, t, h, o, m){
-      a[h]=a[h]||function(){
-      (a[h].q=a[h].q||[]).push(arguments)
-      };
-      o=f.createElement('script'),
-      m=f.getElementsByTagName('script')[0];
-      o.async=1; o.src=t; o.id='fathom-script';
-      m.parentNode.insertBefore(o,m)
-      })(document, window, 'https://cdn.usefathom.com/tracker.js', 'fathom');
-      fathom('set', 'siteId', 'XSTIRESH');
-      fathom('trackPageview');
+        (function(f, a, t, h, o, m){
+          a[h]=a[h]||function(){
+            (a[h].q=a[h].q||[]).push(arguments)
+          };
+          o=f.createElement('script'),
+          m=f.getElementsByTagName('script')[0];
+          o.async=1; o.src=t; o.id='fathom-script';
+          m.parentNode.insertBefore(o,m)
+        })(document, window, '//vmelnychuk-blog-fathom.herokuapp.com/tracker.js', 'fathom');
+        fathom('set', 'siteId', 'CMMUR');
+        fathom('trackPageview');
       `}} />
     </Head>
     <Header />
