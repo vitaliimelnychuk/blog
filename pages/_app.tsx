@@ -17,7 +17,7 @@ export default function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     if (process.env.NODE_ENV === 'production') {
       Fathom.load();
-      Fathom.setSiteId('ZFEWBXJZ');
+      Fathom.setSiteId('XSTIRESH');
       Fathom.trackPageview();
     }
   }, []);
