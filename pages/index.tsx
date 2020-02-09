@@ -2,11 +2,14 @@ import Layout from '../components/Layout'
 import ArticlePreview from '../components/Article/ArticlePreview'
 import About from '../components/About'
 
+import MetaPreviewLink from '../components/Meta/PreviewLink'
+
 import articles from '../content/articles'
 
 const Home = () => (
   <Layout >
     <div>
+      <MetaPreviewLink url='/' title='Vitaliy Melnychuk :: Personal Blog' />
       <About />
       <h2>Articles  </h2>
       <div className="posts">
