@@ -1,5 +1,6 @@
 import { MOBILE_MAX_WITH } from '../utils/media'
 import { twitterProfile } from './config'
+import ExternalLink from './ExternalLink'
 
 export default () => (
   <div className="container">
@@ -19,13 +20,10 @@ export default () => (
       </div>
       <ul>
         <li>
+          Morning Runner in <ExternalLink href="https://strava.com/athletes/29911157">strava.com</ExternalLink>
+        </li>
+        <li>
           Software development, primarily with <b>Python</b> and <b>NodeJS</b>
-        </li>
-        <li>
-          “DevOps”-style infrastructure automation and system administration for Linux and Unix
-        </li>
-        <li>
-          <b>Database design and optimisation</b>, particularly with relational databases and <b>Elasticsearch</b> full-text search
         </li>
       </ul>
     </div>
