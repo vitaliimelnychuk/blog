@@ -1,26 +1,11 @@
-import React, { useEffect } from 'react';
-import Router from 'next/router';
-import Head from 'next/head'
+import React from 'react';
 
-import * as Fathom from 'fathom-client';
+import Head from 'next/head'
 
 import { AppProps } from 'next/app'
 
-// Record a pageview when route changes
-Router.events.on('routeChangeComplete', () => {
-  Fathom.trackPageview();
-});
-
 
 export default function App({ Component, pageProps }: AppProps) {
-
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      Fathom.load();
-      Fathom.setSiteId('XSTIRESH');
-      Fathom.trackPageview();
-    }
-  }, []);
 
   return (
     <div>
