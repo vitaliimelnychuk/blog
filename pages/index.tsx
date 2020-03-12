@@ -13,6 +13,13 @@ const Home = () => (
       <About />
       <h2>Articles  </h2>
       <div className="posts">
+        <ArticlePreview {...articles['2020-03-12-deployment-as-code']}
+          description={`
+          My team has been working on the moving to Kubernetes since September 2019.
+          We've done great work there and launched a few important apps in production.
+          It was great challenge from manual instances setup and running application by \`own\` users to Infrastructure and Deployment as a Code.
+          `}
+        />
         <ArticlePreview {...articles['2019-12-22-deploy-your-blog']}
           description={`
           I've been thinking to make my blog real for a long time and it's actually happened.
@@ -20,6 +27,7 @@ const Home = () => (
           I'd like to share how this blog is deploying and what's sort of pros/cons I have by using this config
           `}
         />
+
       </div>
     </div>
   </Layout>
