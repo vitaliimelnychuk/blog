@@ -8,7 +8,7 @@ const Home = () => (
     <div>
       <h2>Talks</h2>
       <div>
-        {talks.map(talk => <TalkPreview {...talk} />)}
+        {talks.map(talk => <TalkPreview key={talk.title} {...talk} />)}
       </div>
       <div>
       </div>
