@@ -23,5 +23,11 @@ export const talks = [
     description: "Over the last year, our team has been working to find and deliver relevant results. We use Elasticsearch, search in 15TB cluster and handle up to 20000 requests/sec. Here is my talk slides about how full text search works, what is relevant, and how to build your scoring function.",
     date: new Date("June 8 2019"),
     url: "static/pdf/elasticsearch-controlling-relevance.pdf"
+  },
+  {
+    title: "Node.js Microservices and testing",
+    description: "My team has been working on the moving to Microservices for last year. It's getting complicated when count of microservices is moving over one hundred. I've shared our approach how we write tests, document code, create specs and support communication between services.",
+    date: new Date("12 Feb 2017"),
+    url: "static/pdf/nodejs-microservices-and-testing.pdf"
   }
 ] as TTalk[]
