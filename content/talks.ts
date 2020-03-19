@@ -21,7 +21,7 @@ export const talks = [
   {
     title: "The Importance of Good Software Architecture",
     description: "This talk for 'Ternopil Ivan Puluj National Technical University' students where I describe how architecture design is important. We've made software architecture decisions every day and we always try to get away from 'Technical doubts'. Architecture design patterns are essential to make these decisions.",
-    date: new Date("June 8 2019"),
+    date: new Date("11 Nov 2019"),
     url: "static/pdf/the-importance-of-good-software-architecture.pdf"
   },
   {
