@@ -19,9 +19,15 @@ export const talks = [
     url: "static/pdf/30ms_how-much-does-it-cost.pdf"
   },
   {
+    title: "The Importance of Good Software Architecture",
+    description: "This talk for 'Ternopil Ivan Puluj National Technical University' students where I describe how architecture design is important. We've made software architecture decisions every day and we always try to get away from 'Technical doubts'. Architecture design patterns are essential to make these decisions.",
+    date: new Date("June 8 2019"),
+    url: "static/pdf/the-importance-of-good-software-architecture.pdf"
+  },
+  {
     title: "Elasticsearch: Controlling relevance",
     description: "Over the last year, our team has been working to find and deliver relevant results. We use Elasticsearch, search in 15TB cluster and handle up to 20000 requests/sec. Here is my talk slides about how full text search works, what is relevant, and how to build your scoring function.",
-    date: new Date("June 8 2019"),
+    date: new Date("8 June 2019"),
     url: "static/pdf/elasticsearch-controlling-relevance.pdf"
   },
   {
