@@ -25,6 +25,12 @@ export const talks = [
     url: "static/pdf/the-importance-of-good-software-architecture.pdf"
   },
   {
+    title: "VS Code Remote Debugging",
+    description: "If you have everything run in containers you also have to develop by using them. VS Code remote debugging is awesome feature that makes amazing developer experience. It gives you ability to use linters, formatters, code navigation from containers without any additional installation on your host.",
+    date: new Date("16 Aug 2019"),
+    url: "static/pdf/vs-code-remote-debugging.pdf"
+  },
+  {
     title: "Elasticsearch: Controlling relevance",
     description: "Over the last year, our team has been working to find and deliver relevant results. We use Elasticsearch, search in 15TB cluster and handle up to 20000 requests/sec. Here is my talk slides about how full text search works, what is relevant, and how to build your scoring function.",
     date: new Date("8 June 2019"),
