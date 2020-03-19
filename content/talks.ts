@@ -37,9 +37,15 @@ export const talks = [
     url: "static/pdf/elasticsearch-controlling-relevance.pdf"
   },
   {
+    title: "Cache Strategies",
+    description: "Every system facing with performance issues starts from adding cache. Sometimes, we easily add new cache but forget about cache life time and things are getting worse. Here is my overview approaches that might be helpful in the time you are considering to add cache in your system.",
+    date: new Date("20 Oct 2018"),
+    url: "static/pdf/cache-strategies.pdf"
+  },
+  {
     title: "Node.js Microservices and testing",
     description: "My team has been working on the moving to Microservices for last year. It's getting complicated when count of microservices is moving over one hundred. I've shared our approach how we write tests, document code, create specs and support communication between services.",
-    date: new Date("12 Feb 2017"),
+    date: new Date("12 Feb 2018"),
     url: "static/pdf/nodejs-microservices-and-testing.pdf"
   }
 ] as TTalk[]
