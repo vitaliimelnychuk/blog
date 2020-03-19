@@ -58,6 +58,6 @@ export const talks = [
     title: "Data aggregation. Real time analytics",
     description: "We had faced some performance issues with aggregating data and building real time reports. We've started using ClickHouse to handle all of these issues. We use it to build real time reports through 1 billion data sets and we are happy how it's going on there. Let's take a look what sort of comparisons we've made.",
     date: new Date("2 Aug 2017"),
-    url: "static/pdf/nodejs-microservices-and-testing.pdf"
+    url: "static/pdf/data-aggregation_real-time-analytics.pdf"
   }
 ] as TTalk[]
