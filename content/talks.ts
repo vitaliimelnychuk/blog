@@ -37,6 +37,12 @@ export const talks = [
     url: "static/pdf/elasticsearch-controlling-relevance.pdf"
   },
   {
+    title: "Search query assistance: Autosuggestion",
+    description: "It was great challenge for our team to build autosuggestion through 1 million records. We've done long road from MySQL to Elasticsearch and then finally build our own `trie` structure to respond as quick as possible",
+    date: new Date("31 Oct 2018"),
+    url: "static/pdf/search-query-assistance-autosuggestion.pdf"
+  },
+  {
     title: "Cache Strategies",
     description: "Every system facing with performance issues starts from adding cache. Sometimes, we easily add new cache but forget about cache life time and things are getting worse. Here is my overview approaches that might be helpful in the time you are considering to add cache in your system.",
     date: new Date("20 Oct 2018"),
