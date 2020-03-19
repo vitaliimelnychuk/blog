@@ -47,5 +47,11 @@ export const talks = [
     description: "My team has been working on the moving to Microservices for last year. It's getting complicated when count of microservices is moving over one hundred. I've shared our approach how we write tests, document code, create specs and support communication between services.",
     date: new Date("12 Feb 2018"),
     url: "static/pdf/nodejs-microservices-and-testing.pdf"
+  },
+  {
+    title: "Data aggregation. Real time analytics",
+    description: "We had faced some performance issues with aggregating data and building real time reports. We've started using ClickHouse to handle all of these issues. We use it to build real time reports through 1 billion data sets and we are happy how it's going on there. Let's take a look what sort of comparisons we've made.",
+    date: new Date("2 Aug 2017"),
+    url: "static/pdf/nodejs-microservices-and-testing.pdf"
   }
 ] as TTalk[]
