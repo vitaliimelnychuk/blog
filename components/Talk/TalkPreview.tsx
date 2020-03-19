@@ -30,7 +30,7 @@ export default ({ title, description, url, date }: TTalk) => (
         grid-gap: 0px;
         justify-items: center;
         align-items: center;
-        padding: 0px;
+        padding: 0px 0px 5px 0px;
         border-bottom: 1px solid black;
       }
       .details {
@@ -50,7 +50,6 @@ export default ({ title, description, url, date }: TTalk) => (
         .container {
           display: grid;
           grid-template-columns: 1fr;
-          padding-top: 20px;
           justify-items: center;
           align-items: center;
         }
