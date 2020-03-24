@@ -12,6 +12,20 @@ export type TBook = {
 }
 
 export const books = {
+  'black-holes-and-baby-universes-and-other-essays': {
+    title: 'Black Holes and Baby Universes and Other Essays',
+    description: <div>
+      <p>
+        I've spent a lot of evenings by watching <ExternalLink href="https://g.co/kgs/8KYwTx">The Big Bang Theory</ExternalLink> This
+         book reminds me all Sheldon's jokes around <ExternalLink href="https://g.co/kgs/2FPPsH" >String theory</ExternalLink>.
+      </p>
+    </div>,
+    author: 'Stephen Hawking',
+    date: new Date('24 Mar 2020'),
+    url: 'https://www.amazon.com/Black-Holes-Universes-Other-Essays-ebook/dp/B004JHYRXQ',
+    img: '/static/books/black-holes-and-baby-universes-and-other-essays.jpg',
+    slug: '/books/black-holes-and-baby-universes-and-other-essays',
+  } as TBook,
   'the-illustrated-theory-of-everything': {
     title: 'The Illustrated Theory of Everything',
     description: <div>
