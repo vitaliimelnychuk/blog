@@ -71,6 +71,7 @@ export default ({ showButtons, title, description, author, date, img, url, slug 
       .content .date {
         text-align:right;
         padding:0;
+        margin:0;
       }
       .content .more-button {
         text-align: center;
