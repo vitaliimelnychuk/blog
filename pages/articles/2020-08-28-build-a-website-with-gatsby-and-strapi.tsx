@@ -6,9 +6,57 @@ import Highlight from '../../components/Highlight'
 import ExternalLink from '../../components/ExternalLink'
 
 const article = articles['2020-08-28-build-a-website-with-gatsby-and-strapi']
-
 const deployYourBlogArticle = articles['2019-12-22-deploy-your-blog']
 
+const webhooksScript = `
+const http = require("http");
+const exec = require("child_process").exec;
+
+const STRAPI_WEBHOOK_AUTH_TOKEN = process.env.STRAPI_WEBHOOK_AUTH_TOKEN;
+
+let isActiveDeployment = false;
+
+const getAuthToken = (authHeader) => {
+  if (authHeader.startsWith("Bearer ")) {
+    return authHeader.substring(7, authHeader.length);
+  }
+
+  return null;
+};
+
+http
+  .createServer(function (req, res) {
+    req.on("data", function (chunk) {
+      if (isActiveDeployment) {
+        res.writeHead(400, { "Content-Type": "plain/text" });
+        res.write("Deployment is in progress");
+        res.end();
+        return;
+      }
+
+      const token = getAuthToken(req.headers.authorization);
+      if (token === STRAPI_WEBHOOK_AUTH_TOKEN) {
+        res.end();
+        isActiveDeployment = true;
+        // You might use any other tool to run deploy script (yarn, npm, bash, ...)
+        exec(\`cd ~/your-frontend-code && make deploy-frontend\`, (error, stdout, stderr) => {
+          if (error) {
+            console.error(\`exec error: \${error}\`);
+            return;
+          }
+          console.log(\`stdout: \${stdout}\`);
+          console.log(\`stderr: \${stderr}\`);
+          isActiveDeployment = false;
+        });
+      } else {
+  res.writeHead(401, { "Content-Type": "application/json" });
+  res.end();
+}
+    });
+  })
+  .listen(8080);
+
+`
 export default () => (
   <Layout>
     <ArticlePage {...article} >
@@ -27,6 +75,7 @@ export default () => (
           <li><ExternalLink href="https://www.gatsbyjs.org/tutorial/part-four/#data-in-gatsby">Data in Gatsby</ExternalLink></li>
           <li><ExternalLink href="https://www.gatsbyjs.org/packages/gatsby-image/">gatsby-image</ExternalLink></li>
           <li><ExternalLink href="https://strapi.io/documentation/3.0.0-beta.x/plugins/upload.html">Strapi Upload</ExternalLink></li>
+          <li><ExternalLink href="https://strapi.io/blog/webhooks">Strapi Webhooks</ExternalLink></li>
         </ul>
 
         If you familiar with core concept, you can skip them and start with connecting things together.
@@ -49,13 +98,40 @@ The main difference here - you have <b>Headless CMS</b> that manages your data r
         <p>
           To spead up things and make developers support as easy as possible we have chosen to start without auto-deployments and build all infrastracture based on <ExternalLink href="https://aws.amazon.com/ec2/"><b>AWS EC2</b></ExternalLink> and  <ExternalLink href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html"><b>AWS Application Load Balancer</b></ExternalLink> to have internet-facing traffic
         </p>
-        <p>Eventually, we get following structure for Strapi setup:</p>
+        <p>Eventually, we get following structure for Strapi AWS setup:</p>
+        <img src="/static/img/articles/2020-08-28/aws-infra.jpg" width="75%" />
+        <p>Speaking about Strapi part you might notice we have Application load balancer (ALB) at the top of all architecture. This important part even you have only one EC2 instance for your needs. Despite all beenfints we have by using ALB we also get ability to use <ExternalLink href="https://aws.amazon.com/route53/" ><b>AWS Route 53</b></ExternalLink> and <ExternalLink href="https://aws.amazon.com/certificate-manager/"><b>AWS Certificate Manager</b></ExternalLink>. They both are making final part in configuring infrastracture where you'll be add own domain and use SSL (Secure Sockets Layer) for keeping an internet connection secure.</p>
+        <p>For Gatsby hosting we have chosen - <ExternalLink href="https://aws.amazon.com/s3/"><b>AWS S3 </b></ExternalLink> + <ExternalLink href="https://aws.amazon.com/cloudfront/"><b>AWS Cloudfront</b></ExternalLink>. This pair of services stands for storing, caching, destributing static files over the world and handles everything we need from static web site hosting</p>
+
+        <h2>Triggering Gatsby build</h2>
+
+        <p>Gatsby is fast and modern <b>site generator</b>.It's required to have a place where all gatsby builds are happen. Presumably, we can say there are two ways when frontend should have been regenerated:</p>
+        <ul>
+          <li>Code changes</li>
+          <li>Headless CMS data update</li>
+        </ul>
+        <p>To handle both we need to add webhook build where we will be able to handle both cases and run deployment command.</p>
+        <p>We've decided to put it under load balancer where strapi API and Admin are hosted. As far as we are using <ExternalLink href="https://pm2.keymetrics.io/"><b>PM2</b></ExternalLink> as a process manager for our Node.js applications it'd be smart to add one separate application to handle all deployments. After attempt to visualize it I've got following image </p>
+        <img src="/static/img/articles/2020-08-28/EC2-overview.jpg" width="40%" />
+        <p>Having webhook in one of your servers is usefull, you might trigger it rather from your CI or from <ExternalLink href="https://strapi.io/blog/webhooks">Strapi Webhooks</ExternalLink>. It brings us to the place where we just need to setup webhooks applciation to make deployment to have the full picture.</p>
+
+        <h2>Webhooks handler</h2>
+        <p>The first point why we have chosen to develop webhooks with Node.js and host under PM2 - we don't need any additional proxy and increase level of infrastracture complexity.</p>
+        <p>Here we go. In your project Strapi directory create new foldter for webhooks application. There is no matter what kind of deployments you have, eventually you have to ship created directory to the same servers where you have strapi.</p>
+        <Highlight className="js" file="webhooks/deploy-frontend.js" title="Deploy fronted webhook">
+          {webhooksScript}
+        </Highlight>
+        <p>By going from line to line in the script above you might have seen there is `STRAPI_WEBHOOK_AUTH_TOKEN`. I'd like to cover up this point and go through Strapi setup to show how things are set there. To see all webhooks that are available in your strapi application got to admin -> Settings tab</p>
+        <img src="/static/img/articles/2020-08-28/strapi-settings.png" width="100%" />
+        <p>You also is able to disable some of the Strapi webhooks if you need. Read more <ExternalLink href="https://strapi.io/blog/webhooks">Strapi Webhooks</ExternalLink> for details. </p>
+        <img src="/static/img/articles/2020-08-28/strapi-webhook.png" width="100%" />
+        <p>To have basic level of protection we've added Basic authorixation - it's actually the one that has mentioned before in the webhook script.</p>
         <style jsx>{`
-            img {
-              display: block;
-              margin: 30px auto;
-            }
-          `}</style>
+          img {
+            display: block;
+            margin: 30px auto;
+          }
+        `}</style>
       </>
     </ArticlePage>
   </Layout >
