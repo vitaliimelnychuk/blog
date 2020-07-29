@@ -122,7 +122,6 @@ The main difference here - you have <b>Headless CMS</b> that manages your data r
           {webhooksScript}
         </Highlight>
         <p>By going from line to line in the script above you might have seen there is `STRAPI_WEBHOOK_AUTH_TOKEN`. I'd like to cover up this point and go through Strapi setup to show how things are set there. To see all webhooks that are available in your strapi application got to admin -> Settings tab</p>
-        <img src="/static/img/articles/2020-08-28/strapi-settings.png" width="100%" />
         <p>You also is able to disable some of the Strapi webhooks if you need. Read more <ExternalLink href="https://strapi.io/blog/webhooks">Strapi Webhooks</ExternalLink> for details. </p>
         <img src="/static/img/articles/2020-08-28/strapi-webhook.png" width="100%" />
         <p>To have basic level of protection we've added Basic authorixation - it's actually the one that has mentioned before in the webhook script.</p>
