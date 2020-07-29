@@ -126,6 +126,12 @@ The main difference here - you have <b>Headless CMS</b> that manages your data r
         <p>You also is able to disable some of the Strapi webhooks if you need. Read more <ExternalLink href="https://strapi.io/blog/webhooks">Strapi Webhooks</ExternalLink> for details. </p>
         <img src="/static/img/articles/2020-08-28/strapi-webhook.png" width="100%" />
         <p>To have basic level of protection we've added Basic authorixation - it's actually the one that has mentioned before in the webhook script.</p>
+        <h2>Strapi Customization</h2>
+        <p>When we started, customization was a point. We knew - adding payments, email notification and so on include a lot of custom logic and it should be injected somewhere.</p>
+        <p>As far as Strapi built over MVC pattern, customizing controllers is one of the conceps. Check out this article for more context: <ExternalLink href="https://strapi.io/documentation/v3.x/concepts/controllers.html#concept"><b>Customizing Controllers</b></ExternalLink>. You don't need any knowledge in prior to start customizing your application. This is actually what I like, no 'Strapi language' that should be learnt.</p>
+        <h2>Conclusion</h2>
+        <p>Of course, having this infrastructure we are not at the end of the journey, actually I might say this is only starting pint where you have a lot of control on infrastcture setup and things might be done manually so quickly. Looking forward to teh future development we are going to move into CI/CD deployments where eveyrhting handled by CI builds and Strapi webhook handler is only part of it. But it doesn't change general concept where we have <b>fast</b>, <b>reliable</b> frontend and powerfull, simple content based API</p>
+        <p>Happy Codding!</p>
         <style jsx>{`
           img {
             display: block;
