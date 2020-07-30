@@ -1,0 +1,11 @@
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+        <loc>https://blog.vmelnychuk.now.sh</loc>
+    </url>
+    <url>
+        <loc>https://blog.vmelnychuk.now.sh/articles/2019-12-22-deploy-your-blog</loc>
+    </url>
+    <url>
+        <loc>https://blog.vmelnychuk.now.sh/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc>
+    </url>
+</urlset>

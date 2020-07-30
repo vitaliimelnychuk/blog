@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://blog.vmelnychuk.now.sh/sitemap.xml
