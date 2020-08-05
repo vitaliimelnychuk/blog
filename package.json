@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "gen-sitemap": "node scripts/generate-sitemap.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,8 @@
   "devDependencies": {
     "@types/node": "12.12.17",
     "@types/react": "16.9.16",
-    "@types/react-highlight": "0.12.2"
+    "@types/react-highlight": "0.12.2",
+    "globby": "^11.0.1",
+    "prettier": "^2.0.5"
   }
 }
