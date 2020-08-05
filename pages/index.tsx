@@ -9,7 +9,7 @@ import articles from '../content/articles'
 const Home = () => (
   <Layout >
     <div>
-      <MetaPreviewLink url='/' title='Vitaliy Melnychuk :: Personal Blog' />
+      <MetaPreviewLink url='/' title='Blog' />
       <About />
       <h2>Articles  </h2>
       <div className="posts">

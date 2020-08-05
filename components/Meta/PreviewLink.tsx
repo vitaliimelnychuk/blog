@@ -12,6 +12,7 @@ interface IPreviewLink {
 const defaultImageUrl = '/static/logo512x512.png'
 
 export default ({ url, title, description = '', image = defaultImageUrl }: IPreviewLink) => <Head>
+  <title>{title} - Vitaliy Melnychuk</title>
   <meta name='twitter:card' content='summary' />
   <meta name='twitter:site' content={`@${twitterProfile}`} />
   <meta name='twitter:creator' content={`@${twitterProfile}`} />

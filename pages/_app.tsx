@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="google-site-verification" content="dkdJiOZg4vB9ojt3PWKNwFv6T2TZPLEC7reKWrOWiFQ" />
-        <title>Vitaliy Melnychuk :: Personal Blog</title>
+        <title>Blog - Vitaliy Melnychuk</title>
         <link rel='shortcut icon' type='image/x-icon' href='/static/favicon.ico' />
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css' />
       </Head>
