@@ -1,11 +1,13 @@
-function Footer() {
-  return <div>
-    <style jsx>{`
-      p {
-        text-align:right;
-      }
-    `}</style>
-  </div>;
+const Footer = () => {
+  return (
+    <div>
+      <style jsx>{`
+        p {
+          text-align: right;
+        }
+      `}</style>
+    </div>
+  )
 }
 
-export default Footer;
+export default Footer

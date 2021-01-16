@@ -1,27 +1,35 @@
-
-import Link from 'next/link';
+import Link from 'next/link'
 
 import { TBook } from '../../content/books'
-import Button from './../Button';
+import Button from './../Button'
 
 import { MOBILE_MAX_WITH } from '../../utils/media'
 import { getFormattedDate } from '../../utils/date'
 
 interface IBookPreview {
-  showButtons: boolean;
+  showButtons: boolean
 }
 
-export default ({ showButtons, title, description, author, date, img, url, slug }: IBookPreview & TBook) => (
+const BookPreview = ({
+  showButtons,
+  title,
+  description,
+  author,
+  date,
+  img,
+  url,
+  slug,
+}: IBookPreview & TBook) => (
   <div className="container">
     <div className="title">
-      <h3>{author} :: {title}</h3>
+      <h3>
+        {author} :: {title}
+      </h3>
     </div>
     <div className="content">
       <img src={img} title={title} width="70%" />
       <div className="review">
-        <div className="description">
-          {description}
-        </div>
+        <div className="description">{description}</div>
         <p className="date">{getFormattedDate(date)}</p>
         {/* TODO: use different markup for preview page and book details */}
         {showButtons ? (
@@ -46,14 +54,14 @@ export default ({ showButtons, title, description, author, date, img, url, slug 
         margin: 0;
       }
       .container {
-         display: grid;
-         grid-template-rows: auto;
-         grid-template-columns: 1fr;
-         grid-gap: 0px;
-         justify-items: center;
-         align-items: top;
-         border-bottom: 1px solid black;
-         padding-top:10px;
+        display: grid;
+        grid-template-rows: auto;
+        grid-template-columns: 1fr;
+        grid-gap: 0px;
+        justify-items: center;
+        align-items: top;
+        border-bottom: 1px solid black;
+        padding-top: 10px;
       }
       .content {
         display: grid;
@@ -65,25 +73,27 @@ export default ({ showButtons, title, description, author, date, img, url, slug 
         padding: 10px;
       }
       .content .description {
-         text-align:justify;
-         padding: 10px 0;
+        text-align: justify;
+        padding: 10px 0;
       }
       .content .date {
-        text-align:right;
-        padding:0;
-        margin:0;
+        text-align: right;
+        padding: 0;
+        margin: 0;
       }
       .content .more-button {
         text-align: center;
       }
 
-      @media screen and (max-device-width: ${MOBILE_MAX_WITH}){
+      @media screen and (max-device-width: ${MOBILE_MAX_WITH}) {
         .content {
-           display: grid;
-           grid-template-columns: 1fr;
-           padding-top: 20px;
-         }
-       }
+          display: grid;
+          grid-template-columns: 1fr;
+          padding-top: 20px;
+        }
+      }
     `}</style>
   </div>
 )
+
+export default BookPreview

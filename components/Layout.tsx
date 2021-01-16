@@ -1,12 +1,12 @@
-import { ReactChild } from 'react';
+import { ReactChild } from 'react'
 
-import Header from './Header';
-import Footer from './Footer';
+import Header from './Header'
+import Footer from './Footer'
 
 interface IMetaProps {
-  children: ReactChild;
+  children: ReactChild
 }
-export default ({ children }: IMetaProps) => (
+const Layout = ({ children }: IMetaProps) => (
   <div className="container">
     <Header />
     {children}
@@ -20,7 +20,7 @@ export default ({ children }: IMetaProps) => (
         text-decoration: underline;
       }
       a:visited {
-      color: black;
+        color: black;
       }
       button:hover {
         cursor: pointer;
@@ -31,15 +31,21 @@ export default ({ children }: IMetaProps) => (
         outline: none;
       }
       body {
-        font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman", serif;
+        font-family: Garamond, Baskerville, 'Baskerville Old Face',
+          'Hoefler Text', 'Times New Roman', serif;
         font-size: 14px;
         font-style: normal;
         font-variant: normal;
         font-weight: 400;
-        line-height:20px;
+        line-height: 20px;
       }
 
-      h1, h2,h3,h4,h5,h6 {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
         font-style: normal;
         font-variant: normal;
         font-weight: 700;
@@ -48,17 +54,20 @@ export default ({ children }: IMetaProps) => (
         font-size: 17px;
         line-height: 23px;
       }
-      pre, code{
+      pre,
+      code {
         margin: 0;
         padding: 0;
       }
     `}</style>
     <style jsx>{`
-    .container {
-        max-width:828px;
+      .container {
+        max-width: 828px;
         margin: 0 auto;
         padding: 5px;
       }
     `}</style>
   </div>
-);
+)
+
+export default Layout

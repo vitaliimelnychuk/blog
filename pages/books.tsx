@@ -4,20 +4,20 @@ import MetaPreviewLink from '../components/Meta/PreviewLink'
 
 import { booksList } from '../content/books'
 
-const Home = () => (
-  <Layout >
+const BooksPage = () => (
+  <Layout>
     <>
       <MetaPreviewLink url="/books" title="Books" />
       <div>
         <h2>Books review</h2>
         <div className="books">
-          {booksList.map(book =>
+          {booksList.map((book) => (
             <BookPreview showButtons={true} key={book.title} {...book} />
-          )}
+          ))}
         </div>
       </div>
     </>
   </Layout>
-);
+)
 
-export default Home;
+export default BooksPage

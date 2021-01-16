@@ -1,15 +1,16 @@
-
-import { ReactChild } from 'react';
-
 interface IBookQuotes {
-  quotes: string[];
+  quotes: string[]
 }
 
-export default ({ quotes }: IBookQuotes) => (
+const BookQuotes = ({ quotes }: IBookQuotes) => (
   <div className="content">
     <h2>Quotes</h2>
     <ul>
-      {quotes.map((quote, index) => <li key={`quote-${index}`}>{quote}</li>)}
+      {quotes.map((quote, index) => (
+        <li key={`quote-${index}`}>{quote}</li>
+      ))}
     </ul>
   </div>
 )
+
+export default BookQuotes
