@@ -1,29 +1,33 @@
-
-import { FiDownload, FiEye } from 'react-icons/fi';
+import { FiDownload, FiEye } from 'react-icons/fi'
 
 import { MOBILE_MAX_WITH } from '../../utils/media'
 import { getFormattedDate } from '../../utils/date'
 
 import { TTalk } from '../../content/talks'
 
-export default ({ title, description, url, date }: TTalk) => (
+const TalkPreview = ({ title, description, url, date }: TTalk) => (
   <div className="container">
     <div className="content">
       <div className="title">
         <h3>{title}</h3>
       </div>
-      <div className="description">
-        {description}
-      </div>
+      <div className="description">{description}</div>
     </div>
     <div className="details">
       <div className="date">{getFormattedDate(date)}</div>
-      <div><a href={url} target="_blank"><FiEye /></a></div>
-      <div><a href={url} download><FiDownload /></a></div>
-
+      <div>
+        <a href={url} target="_blank">
+          <FiEye />
+        </a>
+      </div>
+      <div>
+        <a href={url} download>
+          <FiDownload />
+        </a>
+      </div>
     </div>
     <style jsx>{`
-    .container {
+      .container {
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: 4fr 1fr;
@@ -43,10 +47,10 @@ export default ({ title, description, url, date }: TTalk) => (
         align-items: center;
       }
 
-      .details a{
+      .details a {
         font-size: 16px;
       }
-      @media screen and (max-device-width: ${MOBILE_MAX_WITH}){
+      @media screen and (max-device-width: ${MOBILE_MAX_WITH}) {
         .container {
           display: grid;
           grid-template-columns: 1fr;
@@ -55,5 +59,7 @@ export default ({ title, description, url, date }: TTalk) => (
         }
       }
     `}</style>
-  </div >
+  </div>
 )
+
+export default TalkPreview

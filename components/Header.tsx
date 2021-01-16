@@ -1,21 +1,23 @@
-import Link from 'next/link';
+import Link from 'next/link'
 
 const Header = () => (
-  <div className='container'>
+  <div className="container">
     <div>
       <b>Vitaliy Melnychuk</b> |
       <Link href="/">
         <a>Home</a>
-      </Link> |
+      </Link>{' '}
+      |
       <Link href="/books">
         <a>Books</a>
-      </Link> |
+      </Link>{' '}
+      |
       <Link href="/talks">
         <a>Talks</a>
       </Link>
     </div>
     <style jsx>{`
-    .container {
+      .container {
         display: grid;
         grid-template-columns: 1fr;
         padding: 10px;
@@ -23,11 +25,11 @@ const Header = () => (
       .links a {
         font-size: 16px;
       }
-      .links a:hover{
+      .links a:hover {
         text-decoration: underline;
       }
     `}</style>
-  </div >
-);
+  </div>
+)
 
-export default Header;
+export default Header

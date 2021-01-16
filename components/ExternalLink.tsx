@@ -1,17 +1,20 @@
-import { ReactChild } from 'react';
+import { ReactChild } from 'react'
 
 interface IExternalLinkProps {
-  href: string;
+  href: string
   children: ReactChild
 }
 
-export default ({ href, children }: IExternalLinkProps) => (
+const ExternalLink = ({ href, children }: IExternalLinkProps) => (
   <a href={href} target="blank">
     {children}
     <style jsx>{`
-      a, a:link, a:hover {
+      a,
+      a:link,
+      a:hover {
         text-decoration: underline;
       }
     `}</style>
   </a>
 )
+export default ExternalLink

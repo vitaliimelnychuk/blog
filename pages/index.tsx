@@ -6,31 +6,32 @@ import MetaPreviewLink from '../components/Meta/PreviewLink'
 
 import articles from '../content/articles'
 
-const Home = () => (
-  <Layout >
+const HomePage = () => (
+  <Layout>
     <div>
-      <MetaPreviewLink url='/' title='Blog' />
+      <MetaPreviewLink url="/" title="Blog" />
       <About />
-      <h2>Articles  </h2>
+      <h2>Articles </h2>
       <div className="posts">
-        <ArticlePreview {...articles['2020-08-28-build-a-website-with-gatsby-and-strapi']}
+        <ArticlePreview
+          {...articles['2020-08-28-build-a-website-with-gatsby-and-strapi']}
           description={`
           It's been amazing month that I've spend with new project based on Gatsby frontend and Headless CMS - Strapi.
           It would be unfair if I couldn't share all insights and results we've got from that technologies.
           Interested to build your own application and host it on AWS? Let's check before you have your own story with this amazing stack.
           `}
         />
-        <ArticlePreview {...articles['2019-12-22-deploy-your-blog']}
+        <ArticlePreview
+          {...articles['2019-12-22-deploy-your-blog']}
           description={`
           I've been thinking to make my blog real for a long time and it's actually happened.
           In 2019 there are a lot of tools/services where you can host your blog.
           I'd like to share how this blog is deploying and what's sort of pros/cons I have by using this config
           `}
         />
-
       </div>
     </div>
   </Layout>
-);
+)
 
-export default Home;
+export default HomePage
