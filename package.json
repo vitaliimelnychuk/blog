@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "My personal blog, Trying things, sharing them with the world",
   "main": "index.js",
+  "engines": {
+    "node": "==14.15.0"
+  },
   "scripts": {
     "dev": "next",
     "build": "next build",
