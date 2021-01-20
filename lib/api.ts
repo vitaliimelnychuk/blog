@@ -6,7 +6,6 @@ export interface IMarkdownArticle {
   slug: string
   content: string
   date: Date
-  author: string
   url: string
   title: string
 }

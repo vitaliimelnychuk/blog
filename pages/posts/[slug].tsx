@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import PostBody from '../../components/PostBody'
+import ArticleContent from '../../components/ArticleContent'
 
 import {
   IMarkdownArticle,
@@ -34,7 +34,7 @@ const IArticlePageLayout = ({ article }: IArticlePageLayoutProps) => {
   return (
     <Layout>
       <ArticlePage {...article} date={new Date(article.date)}>
-        <PostBody content={article.content} />
+        <ArticleContent content={article.content} />
       </ArticlePage>
     </Layout>
   )
