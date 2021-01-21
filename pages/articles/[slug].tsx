@@ -25,7 +25,7 @@ interface IGetStaticProps {
 
 const IArticlePageLayout = ({ article }: IArticlePageLayoutProps) => {
   const router = useRouter()
-  console.log(article)
+
   if (!router.isFallback && !article?.slug) {
     return <ErrorPage statusCode={404} />
   }
@@ -33,7 +33,7 @@ const IArticlePageLayout = ({ article }: IArticlePageLayoutProps) => {
   // TODO: pass the same date as we have in Readme file
   return (
     <Layout>
-      <ArticlePage {...article} date={new Date(article.date)}>
+      <ArticlePage {...article} date={article.date}>
         <ArticleContent content={article.content} />
       </ArticlePage>
     </Layout>

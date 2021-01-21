@@ -8,10 +8,12 @@ export interface IMarkdownArticle {
   date: Date
   url: string
   title: string
+  description: string
 }
 
 export interface IDocumentItem {
   slug: string
+  url: string
   content: string
   date: Date
 }
@@ -36,6 +38,7 @@ export const getDocumentBySlug = <T extends IDocumentItem>(
 
   return {
     slug: realSlug,
+    url: `/${documentType}s/${realSlug}`,
     content: content,
     ...data,
   } as T

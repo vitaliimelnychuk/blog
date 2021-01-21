@@ -2,24 +2,21 @@ import Link from 'next/link'
 
 import { MOBILE_MAX_WITH } from '../../utils/media'
 import { getFormattedDate } from '../../utils/date'
-import { Article } from '../../content/articles'
+import { IMarkdownArticle } from '../../lib/api'
 import Button from './../Button'
 
-interface IPostProps {
-  description: string
+interface IArticlePreviewProps {
+  article: IMarkdownArticle
 }
 
 const ArticlePreview = ({
-  title,
-  description,
-  url,
-  date,
-}: IPostProps & Article) => {
+  article: { title, description, url, date },
+}: IArticlePreviewProps) => {
   return (
     <div className="container">
       <div className="title">
         <h3>{title}</h3>
-        <p>{getFormattedDate(date)}</p>
+        <p>{getFormattedDate(new Date(date))}</p>
       </div>
       <div>
         <div className="description">{description}</div>
