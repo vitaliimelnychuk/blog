@@ -14,10 +14,10 @@ const Layout = ({ children }: IMetaProps) => (
     <style jsx global>{`
       a:link {
         color: black;
-        text-decoration: none;
+        text-decoration: underline;
       }
       a:hover {
-        text-decoration: underline;
+        text-decoration: none;
       }
       a:visited {
         color: black;

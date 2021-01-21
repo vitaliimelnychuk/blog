@@ -2,7 +2,7 @@ import { ReactChild } from 'react'
 
 import MetaPreviewLink from '../Meta/PreviewLink'
 import { getFormattedDate } from '../../utils/date'
-import { Article } from '../../content/articles'
+import { IMarkdownArticle } from '../../lib/api'
 
 interface IArticlePageProps {
   children: ReactChild
@@ -13,11 +13,11 @@ const ArticlePage = ({
   title,
   date,
   url,
-}: IArticlePageProps & Article) => (
+}: IArticlePageProps & IMarkdownArticle) => (
   <div>
     <MetaPreviewLink title={title} url={url} />
     <h1>{title}</h1>
-    <p>{getFormattedDate(date)}</p>
+    <p>{getFormattedDate(new Date(date))}</p>
     <div className="content">{children}</div>
     <style jsx>
       {`
