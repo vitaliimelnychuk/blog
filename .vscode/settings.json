@@ -1,8 +1,5 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": [
-    "Melnychuk",
-    "Microservices",
-    "Vitaliy"
-  ]
+  "cSpell.words": ["Melnychuk", "Microservices", "Vitaliy"],
+  "javascript.validate.enable": false
 }

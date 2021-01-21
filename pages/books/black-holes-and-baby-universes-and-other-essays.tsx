@@ -5,7 +5,7 @@ import MetaPreviewLink from '.././../components/Meta/PreviewLink'
 import BookPreview from '.././../components/Book/BookPreview'
 import BookQuotes from '.././../components/Book/BookQuotes'
 
-const BlackHolesBookPage = ({}) => {
+const BlackHolesBookPage = () => {
   const book = books['black-holes-and-baby-universes-and-other-essays']
 
   return (

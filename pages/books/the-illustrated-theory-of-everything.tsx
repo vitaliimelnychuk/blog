@@ -5,7 +5,7 @@ import MetaPreviewLink from '.././../components/Meta/PreviewLink'
 import BookPreview from '.././../components/Book/BookPreview'
 import BookQuotes from '.././../components/Book/BookQuotes'
 
-const theIllustratedTheoryBookPage = ({}) => {
+const theIllustratedTheoryBookPage = () => {
   const book = books['the-illustrated-theory-of-everything']
 
   return (

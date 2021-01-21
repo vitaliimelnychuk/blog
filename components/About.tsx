@@ -7,7 +7,7 @@ const About = () => (
     <div className="photo">
       <p>me</p>
       <a href={`https://twitter.com/${twitterProfile}`} target="blank">
-        <img src="/static/twitter.svg" height="34px" />
+        <img src="/static/twitter.svg" height="34px" alt="twitter" />
       </a>
     </div>
     <div className="intro">
