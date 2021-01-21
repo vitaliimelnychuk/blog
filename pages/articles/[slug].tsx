@@ -30,7 +30,6 @@ const IArticlePageLayout = ({ article }: IArticlePageLayoutProps) => {
     return <ErrorPage statusCode={404} />
   }
 
-  // TODO: pass the same date as we have in Readme file
   return (
     <Layout>
       <ArticlePage {...article} date={article.date}>
