@@ -17,11 +17,11 @@ export const books = {
     description: (
       <div>
         <p>
-          I've spent a lot of evenings by watching{' '}
+          I&apos;ve spent a lot of evenings by watching{' '}
           <ExternalLink href="https://g.co/kgs/8KYwTx">
             The Big Bang Theory
           </ExternalLink>{' '}
-          This book reminds me all Sheldon's jokes around{' '}
+          This book reminds me all Sheldon&apos;s jokes around{' '}
           <ExternalLink href="https://g.co/kgs/2FPPsH">
             String theory
           </ExternalLink>
@@ -78,7 +78,7 @@ export const books = {
     description: (
       <div>
         I like how enjoyable this book is. Sometimes, we just need to look
-        around and enjoy what we have done and what's going to happened.
+        around and enjoy what we have done and what&apos;s going to happened.
         <p>Enjoying your journey is much better then waiting for success.</p>
       </div>
     ),

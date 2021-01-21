@@ -5,7 +5,7 @@ import MetaPreviewLink from '.././../components/Meta/PreviewLink'
 import BookPreview from '.././../components/Book/BookPreview'
 import BookQuotes from '.././../components/Book/BookQuotes'
 
-const TheSubtleArtBookPage = ({}) => {
+const TheSubtleArtBookPage = () => {
   const book = books['the-subtle-art-of-not-giving-a-f*ck']
 
   return (

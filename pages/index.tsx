@@ -17,7 +17,10 @@ const HomePage = ({ articles }: IhomePageProps) => (
       <h2>Articles </h2>
       <div className="posts">
         {articles.map((article) => (
-          <ArticlePreview {...{ article, date: new Date(article.date) }} />
+          <ArticlePreview
+            key={article.slug}
+            {...{ article, date: new Date(article.date) }}
+          />
         ))}
       </div>
     </div>

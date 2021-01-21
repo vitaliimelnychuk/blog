@@ -16,7 +16,7 @@ const TalkPreview = ({ title, description, url, date }: TTalk) => (
     <div className="details">
       <div className="date">{getFormattedDate(date)}</div>
       <div>
-        <a href={url} target="_blank">
+        <a href={url} target="_blank" rel="noreferrer">
           <FiEye />
         </a>
       </div>

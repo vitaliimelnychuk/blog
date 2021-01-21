@@ -27,7 +27,7 @@ const BookPreview = ({
       </h3>
     </div>
     <div className="content">
-      <img src={img} title={title} width="70%" />
+      <img src={img} title={title} width="70%" alt={title} />
       <div className="review">
         <div className="description">{description}</div>
         <p className="date">{getFormattedDate(date)}</p>
