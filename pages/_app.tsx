@@ -13,7 +13,7 @@ const App: React.FC<AppProps> = ({ Component, pageProps }): ReactElement => {
           name="google-site-verification"
           content="dkdJiOZg4vB9ojt3PWKNwFv6T2TZPLEC7reKWrOWiFQ"
         />
-        <title>Blog - Vitaliy Melnychuk</title>
+        <title>Blog - Vitalii Melnychuk</title>
         <link
           rel="shortcut icon"
           type="image/x-icon"

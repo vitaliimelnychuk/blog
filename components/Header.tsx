@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const Header: React.FC = () => (
   <div className="container">
-    <div className="name">Vitaliy Melnychuk</div>
+    <div className="name">Vitalii Melnychuk</div>
     {/* TODO: add current page highlight */}
     <div className="links">
       <Link href="/">
