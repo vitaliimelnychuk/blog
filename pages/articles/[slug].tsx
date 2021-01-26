@@ -23,7 +23,16 @@ interface IGetStaticProps {
   }
 }
 
-const IArticlePageLayout = ({ article }: IArticlePageLayoutProps) => {
+interface IGetStaticPropsResponse {
+  props: IArticlePageLayoutProps
+}
+
+interface IGetStaticPathsResponse {
+  paths: IGetStaticProps[]
+  fallback: boolean
+}
+
+const IArticlePageLayout: React.FC<IArticlePageLayoutProps> = ({ article }) => {
   const router = useRouter()
 
   if (!router.isFallback && !article?.slug) {
@@ -39,7 +48,9 @@ const IArticlePageLayout = ({ article }: IArticlePageLayoutProps) => {
   )
 }
 
-export async function getStaticProps({ params }: IGetStaticProps) {
+export async function getStaticProps({
+  params,
+}: IGetStaticProps): Promise<IGetStaticPropsResponse> {
   const article = getDocumentBySlug<IMarkdownArticle>('article', params.slug)
   const content = await markdownToHtml(article.content)
 
@@ -53,7 +64,7 @@ export async function getStaticProps({ params }: IGetStaticProps) {
   }
 }
 
-export async function getStaticPaths() {
+export async function getStaticPaths(): Promise<IGetStaticPathsResponse> {
   const articles = getAllDocuments('article')
 
   return {

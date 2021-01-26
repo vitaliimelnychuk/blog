@@ -1,3 +1,4 @@
+import Underline from './Text/Underline'
 import { MOBILE_MAX_WITH } from '../utils/media'
 
 const About: React.FC = () => (
@@ -10,9 +11,8 @@ const About: React.FC = () => (
         </span>
       </p>
       <p>
-        I’m Vitalii and I’m a{' '}
-        <span className="underline">Performance Engineer</span> at FARFETCH in
-        Porto.
+        I’m Vitalii and I’m a <Underline>Performance Engineer</Underline> at
+        FARFETCH in Porto.
       </p>
       <p>
         But also:
@@ -40,7 +40,6 @@ const About: React.FC = () => (
         vertical-align: center;
         padding-top: 50px;
         padding-bottom: 20px;
-        border-bottom: 1px solid #000;
       }
 
       .photo {

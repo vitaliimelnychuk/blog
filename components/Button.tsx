@@ -4,23 +4,26 @@ interface IButtonProps {
   children: ReactChild
 }
 
-const Button = ({ children }: IButtonProps) => {
+const Button: React.FC<IButtonProps> = ({ children }) => {
   return (
     <button>
       {children}
       <style jsx>{`
         button {
           text-align: center;
-          padding: 10px 50px;
-          border: 1px solid black;
-          background-color: #fff;
+          font-size: 18px;
+          padding: 10px 30px;
+          color: #fff;
+          border: 1px solid #fff;
+          border-radius: 5px;
+          background-color: #000;
           width: 170px;
-          margin: 5px;
         }
         button:hover {
           cursor: pointer;
-          color: #fff;
-          background-color: #000;
+          color: #000;
+          background-color: #fff;
+          border: 1px solid #000;
         }
       `}</style>
     </button>
