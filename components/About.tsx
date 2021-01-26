@@ -17,12 +17,19 @@ const About: React.FC = () => (
       <p>
         But also:
         <ul>
-          <li>️morning runner </li>
-          <li>️passionate about Python and NodeJS</li>
-          <li>️in love with Portugal</li>
+          <li>
+            ️<span>morning runner</span>
+          </li>
+          <li>
+            <span>passionate about Python and NodeJS</span>️
+          </li>
+          <li>
+            <span>in love with Portugal</span>️
+          </li>
         </ul>
       </p>
     </div>
+
     <div className="photo"></div>
 
     <style jsx>{`
@@ -37,6 +44,9 @@ const About: React.FC = () => (
       }
 
       .photo {
+        display: block;
+        align-self: center;
+        justify-self: center;
         background-image: url(/static/me.svg);
         background-size: 171px;
         background-repeat: no-repeat;
@@ -73,6 +83,31 @@ const About: React.FC = () => (
         margin: 0;
         padding: 0;
       }
+
+      ul {
+        list-style-type: none;
+        margin-block-start: 0;
+      }
+
+      ul li {
+        color: white;
+        position: relative;
+      }
+
+      ul li::before {
+        content: '';
+        width: 8px;
+        height: 8px;
+        background: black;
+        position: absolute;
+        left: -30px;
+        border: 1px solid black;
+        top: 14px;
+      }
+      ul li span {
+        color: black;
+      }
+
       @media screen and (max-device-width: ${MOBILE_MAX_WITH}) {
         .container {
           display: grid;
@@ -81,7 +116,6 @@ const About: React.FC = () => (
         }
         .intro {
           padding-top: 10px;
-          text-align: center;
         }
       }
     `}</style>
