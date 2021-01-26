@@ -40,6 +40,10 @@ const Header: React.FC = () => (
         text-decoration: underline;
         text-decoration-color: #9ddadb;
         text-decoration-thickness: 3.5px;
+        text-underline-offset: 1px;
+      }
+      ul {
+        margin-block-start: 0;
       }
     `}</style>
   </div>
