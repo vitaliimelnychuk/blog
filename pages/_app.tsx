@@ -28,6 +28,10 @@ const App: React.FC<AppProps> = ({ Component, pageProps }): ReactElement => {
           href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap"
           rel="stylesheet"
         />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Averia+Serif+Libre:wght@400;700&display=swap"
+          rel="stylesheet"
+        />
       </Head>
       <Component {...pageProps} />
     </div>

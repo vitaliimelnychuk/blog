@@ -1,12 +1,7 @@
-import { ReactChild } from 'react'
-
 import Header from './Header'
 import Footer from './Footer'
 
-interface IMetaProps {
-  children: ReactChild
-}
-const Layout = ({ children }: IMetaProps) => (
+const Layout: React.FC = ({ children }) => (
   <div className="container">
     <Header />
     {children}
