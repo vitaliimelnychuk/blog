@@ -18,6 +18,7 @@ const Button: React.FC<IButtonProps> = ({ children }) => {
           border-radius: 5px;
           background-color: #000;
           width: 170px;
+          height: 55px;
         }
         button:hover {
           cursor: pointer;

@@ -31,24 +31,33 @@ const ArticlePreview: React.FC<IArticlePreviewProps> = ({
           display: grid;
           grid-template-rows: auto;
           grid-template-columns: 1fr;
-          grid-gap: 10px;
+          grid-gap: 30px;
           justify-items: left;
           align-items: top;
-          padding: 10px 30px;
+          padding: 10px 50px;
           border: 1px solid black;
           border-radius: 12px;
         }
+        .date {
+          font-size: 19px;
+          color: #adadad;
+        }
         .description {
           font-size: 16px;
+          line-height: 22px;
         }
         .title {
           font-size: 22px;
           text-align: left;
           max-width: 280px;
           line-height: 30px;
+          margin: 0;
         }
 
         @media screen and (max-device-width: ${MOBILE_MAX_WITH}) {
+          .container {
+            padding: 10px 20px;
+          }
         }
       `}</style>
     </div>

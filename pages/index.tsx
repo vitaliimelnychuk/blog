@@ -38,8 +38,13 @@ const HomePage: React.FC<IHomePageProps> = ({ articles }) => (
       </div>
 
       <style jsx>{`
+        .articles__title {
+          font-size: 34px;
+          margin-bottom: 40px;
+        }
         .articles__title span {
           padding-right: 15px;
+          font-size: 31px;
         }
       `}</style>
     </div>

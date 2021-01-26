@@ -38,7 +38,7 @@ const About: React.FC = () => (
         grid-template-columns: 2fr 1fr;
         justify-items: center;
         vertical-align: center;
-        padding-top: 50px;
+        padding-top: 30px;
         padding-bottom: 20px;
       }
 
