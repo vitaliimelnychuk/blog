@@ -31,8 +31,7 @@ const Layout = ({ children }: IMetaProps) => (
         outline: none;
       }
       body {
-        font-family: Garamond, Baskerville, 'Baskerville Old Face',
-          'Hoefler Text', 'Times New Roman', serif;
+        font-family: 'PT Sans';
         font-size: 14px;
         font-style: normal;
         font-variant: normal;
