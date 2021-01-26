@@ -14,12 +14,9 @@ about released ones.
 
 I won't explain things that are already great described in official
 documentation
-[**Gatsby**](https://www.gatsbyjs.org/docs)
+[**Gatsby**](https://www.gatsbyjs.org/docs) and [**Strapi**](https://strapi.io/documentation).
 
-and
-[**Strapi**](https://strapi.io/documentation)
-
-. If you are interested in specific feature - look there and get the
+If you are interested in specific feature - look there and get the
 topic you want.
 
 ## Resourses

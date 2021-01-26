@@ -8,12 +8,12 @@ interface IArticlePageProps {
   children: ReactChild
 }
 
-const ArticlePage = ({
+const ArticlePage: React.FC<IArticlePageProps & IMarkdownArticle> = ({
   children,
   title,
   date,
   url,
-}: IArticlePageProps & IMarkdownArticle) => (
+}) => (
   <div>
     <MetaPreviewLink title={title} url={url} />
     <h1>{title}</h1>
@@ -22,7 +22,7 @@ const ArticlePage = ({
     <style jsx>
       {`
         .content {
-          font-family: 'Montserrat';
+          font-family: 'PT Sans';
           padding-top: 5px;
           line-height: 24px;
           font-size: 16px;
