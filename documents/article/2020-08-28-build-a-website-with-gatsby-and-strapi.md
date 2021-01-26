@@ -1,5 +1,5 @@
 ---
-title: Build a website with Gatsby and Strapi | Core concepts
+title: Build a website with Gatsby and Strapi Core concepts
 date: 28 Jul 2020
 description:
   It's been amazing month that I've spend with new project based on Gatsby frontend and Headless CMS - Strapi.
@@ -14,12 +14,9 @@ about released ones.
 
 I won't explain things that are already great described in official
 documentation
-[**Gatsby**](https://www.gatsbyjs.org/docs)
+[**Gatsby**](https://www.gatsbyjs.org/docs) and [**Strapi**](https://strapi.io/documentation).
 
-and
-[**Strapi**](https://strapi.io/documentation)
-
-. If you are interested in specific feature - look there and get the
+If you are interested in specific feature - look there and get the
 topic you want.
 
 ## Resourses

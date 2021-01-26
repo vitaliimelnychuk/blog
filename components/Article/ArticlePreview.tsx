@@ -9,54 +9,54 @@ interface IArticlePreviewProps {
   article: IMarkdownArticle
 }
 
-const ArticlePreview = ({
+const ArticlePreview: React.FC<IArticlePreviewProps> = ({
   article: { title, description, url, date },
-}: IArticlePreviewProps) => {
+}) => {
   return (
     <div className="container">
-      <div className="title">
-        <h3>{title}</h3>
-        <p>{getFormattedDate(new Date(date))}</p>
-      </div>
       <div>
-        <div className="description">{description}</div>
-        <div className="read-button">
-          <Link href={url}>
-            <a>
-              <Button>Read</Button>
-            </a>
-          </Link>
-        </div>
+        <p className="date">{getFormattedDate(new Date(date))}</p>
+        <h3 className="title">{title}</h3>
+      </div>
+      <div className="description">{description}</div>
+      <div className="read-button">
+        <Link href={url}>
+          <a>
+            <Button>Read more</Button>
+          </a>
+        </Link>
       </div>
       <style jsx>{`
         .container {
           display: grid;
           grid-template-rows: auto;
-          grid-template-columns: 1fr 1fr;
-          grid-gap: 0px;
-          justify-items: center;
+          grid-template-columns: 1fr;
+          grid-gap: 30px;
+          justify-items: left;
           align-items: top;
-          padding: 10px;
-          border-bottom: 1px solid black;
+          padding: 10px 50px;
+          border: 1px solid black;
+          border-radius: 12px;
+        }
+        .date {
+          font-size: 19px;
+          color: #adadad;
         }
         .description {
-          text-align: justify;
-          padding: 10px 0;
+          font-size: 16px;
+          line-height: 22px;
         }
         .title {
-          text-align: center;
+          font-size: 22px;
+          text-align: left;
+          max-width: 280px;
+          line-height: 30px;
+          margin: 0;
         }
-        .read-button {
-          text-align: center;
-        }
+
         @media screen and (max-device-width: ${MOBILE_MAX_WITH}) {
           .container {
-            display: grid;
-            grid-template-columns: 1fr;
-            padding-top: 20px;
-          }
-          h3 {
-            margin: 5px;
+            padding: 10px 20px;
           }
         }
       `}</style>
