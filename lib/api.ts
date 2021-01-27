@@ -65,6 +65,5 @@ export const getAllDocuments = <T extends IDocumentItem>(
     .map((slug) => getDocumentBySlug<T>(documentType, slug))
     .sort((doc1, doc2) => (new Date(doc1.date) > new Date(doc2.date) ? -1 : 1))
 
-  console.log(documents)
   return documents
 }
