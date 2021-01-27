@@ -13,7 +13,7 @@ const shortMonthNames = [
   'Dec',
 ]
 
-const getMonthName = (date: Date) => shortMonthNames[date.getMonth()]
+const getMonthName = (date: Date): string => shortMonthNames[date.getMonth()]
 
 export const getFormattedDate = (date: Date): string =>
   `${date.getDate()} ${getMonthName(date)} ${date.getFullYear()}`
