@@ -1,50 +1,34 @@
-import Link from 'next/link'
-
-import { TBook } from '../../content/books'
 import Button from './../Button'
 
 import { MOBILE_MAX_WITH } from '../../utils/media'
-import { getFormattedDate } from '../../utils/date'
+import { IMarkdownBook } from '../../lib/api'
 
-interface IBookPreview {
-  showButtons: boolean
-}
-
-const BookPreview = ({
-  showButtons,
+const BookPreview: React.FC<IMarkdownBook> = ({
   title,
-  description,
   author,
-  date,
-  img,
-  url,
-  slug,
-}: IBookPreview & TBook) => (
+  amazonUrl,
+  coverImg,
+  description,
+}) => (
   <div className="container">
-    <div className="title">
-      <h3>
-        {author} :: {title}
-      </h3>
-    </div>
-    <div className="content">
-      <img src={img} title={title} width="70%" alt={title} />
-      <div className="review">
-        <div className="description">{description}</div>
-        <p className="date">{getFormattedDate(date)}</p>
-        {/* TODO: use different markup for preview page and book details */}
-        {showButtons ? (
-          <div className="more-button">
-            <Link href={slug}>
-              <a>
-                <Button>More</Button>
-              </a>
-            </Link>
-            <a href={url} target="blank">
-              <Button>In amazon</Button>
-            </a>
-          </div>
-        ) : null}
-      </div>
+    <h3 className="title">
+      {author} :: {title}
+    </h3>
+
+    <div className="description">{description}</div>
+
+    <img
+      className="content"
+      src={coverImg}
+      title={title}
+      width="140px"
+      alt={title}
+    />
+
+    <div>
+      <a href={amazonUrl} target="blank">
+        <Button>In amazon</Button>
+      </a>
     </div>
     <style jsx>{`
       h3 {
@@ -57,32 +41,18 @@ const BookPreview = ({
         display: grid;
         grid-template-rows: auto;
         grid-template-columns: 1fr;
-        grid-gap: 0px;
+        grid-gap: 30px;
         justify-items: center;
         align-items: top;
-        border-bottom: 1px solid black;
-        padding-top: 10px;
+        border: 1px solid black;
+        border-radius: 12px;
+        padding: 30px;
+        text-align: center;
       }
-      .content {
-        display: grid;
-        grid-template-rows: auto;
-        grid-template-columns: 1fr 5fr;
-        grid-gap: 0px;
-        justify-items: center;
-        align-items: top;
-        padding: 10px;
-      }
+
       .content .description {
         text-align: justify;
         padding: 10px 0;
-      }
-      .content .date {
-        text-align: right;
-        padding: 0;
-        margin: 0;
-      }
-      .content .more-button {
-        text-align: center;
       }
 
       @media screen and (max-device-width: ${MOBILE_MAX_WITH}) {

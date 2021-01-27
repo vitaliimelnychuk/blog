@@ -11,6 +11,18 @@ export interface IMarkdownArticle {
   description: string
 }
 
+export interface IMarkdownBook {
+  slug: string
+  content: string
+  date: Date
+  url: string
+  amazonUrl: string
+  title: string
+  description: string
+  author: string
+  coverImg: string
+}
+
 export interface IDocumentItem {
   slug: string
   url: string
@@ -18,12 +30,12 @@ export interface IDocumentItem {
   date: Date
 }
 
-export type EDocumentType = 'article'
+export type EDocumentType = 'article' | 'book'
 
-const getDirectoryPath = (documentType: EDocumentType) =>
+const getDirectoryPath = (documentType: EDocumentType): string =>
   join(process.cwd(), 'documents', documentType)
 
-export function getDocumentSlugs(documentType: EDocumentType) {
+export const getDocumentSlugs = (documentType: EDocumentType): string[] => {
   return fs.readdirSync(getDirectoryPath(documentType))
 }
 
@@ -51,9 +63,7 @@ export const getAllDocuments = <T extends IDocumentItem>(
 
   const documents = slugs
     .map((slug) => getDocumentBySlug<T>(documentType, slug))
-    .sort((post1, post2) =>
-      new Date(post1.date) > new Date(post2.date) ? -1 : 1
-    )
+    .sort((doc1, doc2) => (new Date(doc1.date) > new Date(doc2.date) ? -1 : 1))
 
   return documents
 }
