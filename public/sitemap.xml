@@ -2,20 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://vitalii.melnychuk.com</loc>
+    <loc>https://vitaliimelnychuk.com</loc>
   </url>
 
   <url>
-    <loc>https://vitalii.melnychuk.com/books</loc>
+    <loc>https://vitaliimelnychuk.com/books</loc>
   </url>
 
   <url>
-    <loc>https://vitalii.melnychuk.com/talks</loc>
+    <loc>https://vitaliimelnychuk.com/talks</loc>
   </url>
 
   <url>
     <loc
-      >https://vitalii.melnychuk.com/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc
+      >https://vitaliimelnychuk.com/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc
     >
   </url>
 </urlset>
