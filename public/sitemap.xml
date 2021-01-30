@@ -1,38 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
   <url>
-    <loc>https://blog.vmelnychuk.now.sh/books</loc>
+    <loc>https://vitalii.melnychuk.com</loc>
   </url>
 
   <url>
-    <loc>https://blog.vmelnychuk.now.sh</loc>
+    <loc>https://vitalii.melnychuk.com/books</loc>
   </url>
 
   <url>
-    <loc>https://blog.vmelnychuk.now.sh/talks</loc>
-  </url>
-
-  <url>
-    <loc
-      >https://blog.vmelnychuk.now.sh/books/black-holes-and-baby-universes-and-other-essays</loc
-    >
+    <loc>https://vitalii.melnychuk.com/talks</loc>
   </url>
 
   <url>
     <loc
-      >https://blog.vmelnychuk.now.sh/books/the-illustrated-theory-of-everything</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://blog.vmelnychuk.now.sh/books/the-subtle-art-of-not-giving-a-f*ck</loc
-    >
-  </url>
-
-  <url>
-    <loc
-      >https://blog.vmelnychuk.now.sh/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc
+      >https://vitalii.melnychuk.com/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc
     >
   </url>
 </urlset>
