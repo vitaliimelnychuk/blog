@@ -5,7 +5,7 @@ interface IExternalLinkProps {
   children: ReactChild
 }
 
-const ExternalLink = ({ href, children }: IExternalLinkProps) => (
+const ExternalLink: React.FC<IExternalLinkProps> = ({ href, children }) => (
   <a href={href} target="blank">
     {children}
     <style jsx>{`
