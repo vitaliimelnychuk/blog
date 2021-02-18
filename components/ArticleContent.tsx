@@ -2,7 +2,7 @@ interface IArticleContentProps {
   content: string
 }
 
-const ArticleContent = ({ content }: IArticleContentProps) => {
+const ArticleContent: React.FC<IArticleContentProps> = ({ content }) => {
   return (
     <>
       <div className="markdown" dangerouslySetInnerHTML={{ __html: content }} />
