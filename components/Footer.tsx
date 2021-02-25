@@ -5,6 +5,7 @@ import {
   linkedinProfileLink,
   githubProfileLink,
 } from './config'
+
 const Footer: React.FC = () => {
   return (
     <div>

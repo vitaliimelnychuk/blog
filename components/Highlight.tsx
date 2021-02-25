@@ -8,12 +8,12 @@ interface IHighlightProps {
   children: ReactChild
 }
 
-const Header = ({
+const Header: React.FC<IHighlightProps & HighlightProps> = ({
   children,
   file,
   title,
   ...highlightProps
-}: IHighlightProps & HighlightProps) => (
+}) => (
   <div className="container">
     <div className="title">
       <span>

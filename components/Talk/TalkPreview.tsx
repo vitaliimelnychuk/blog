@@ -5,7 +5,7 @@ import { getFormattedDate } from '../../utils/date'
 
 import { TTalk } from '../../content/talks'
 
-const TalkPreview = ({ title, description, url, date }: TTalk) => (
+const TalkPreview: React.FC<TTalk> = ({ title, description, url, date }) => (
   <div className="container">
     <div className="content">
       <div className="title">

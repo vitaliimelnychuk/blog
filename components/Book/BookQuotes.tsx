@@ -2,7 +2,7 @@ interface IBookQuotes {
   quotes: string[]
 }
 
-const BookQuotes = ({ quotes }: IBookQuotes) => (
+const BookQuotes: React.FC<IBookQuotes> = ({ quotes }) => (
   <div className="content">
     <h2>Quotes</h2>
     <ul>

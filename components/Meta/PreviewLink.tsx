@@ -11,12 +11,12 @@ interface IPreviewLink {
 
 const defaultImageUrl = '/static/logo512x512.png'
 
-const PreviewLink = ({
+const PreviewLink: React.FC<IPreviewLink> = ({
   url,
   title,
   description = '',
   image = defaultImageUrl,
-}: IPreviewLink) => (
+}) => (
   <Head>
     <title>{title} - Vitalii Melnychuk</title>
     <meta name="twitter:card" content="summary" />
