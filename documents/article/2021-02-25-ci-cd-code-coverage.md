@@ -28,7 +28,7 @@ I am using a few workflows that I am copying from project to project just to hav
 This is the first I suggest to add to your project (if you don’t have one) that will improve your daily basics development and team mood.
 One thing that I think should be reviewed by other developers - _code styling_. Static code analysers are so great can be configurable to make it done even before someone else start looking to the code. Sometimes, it’s not only about saving time, it’s also improve your team communication and focus on something that is really better. Instead of argufying on indentation, unwed variables issues you can talk about optimising performance. I am not trying to say that code styling is not important - it’s so important but it’s something that should be defined once and followed without a lot of attention.
 
-Here is basic workflow, where you are able just to copy to project and maybe change commands based on the tools you are using. This one is for Node.js application that are using /eslint/, /prettier/, /yarn/. As a note, all these commands should have been described in package.json file.
+Here is basic workflow, where you are able just to copy to project and maybe change commands based on the tools you are using. This one is for Node.js application that are using _eslint_, _prettier_, _yarn_. As a note, all these commands should have been described in package.json file.
 
 ```yaml
 name: CI
@@ -96,8 +96,12 @@ There is no better way of spending autumn evening than on writing something new 
 [GitHub - barecheck/code-coverage-action](https://github.com/barecheck/code-coverage-action) - GitHub Action that generates code coverage reports.
 I wanted to share it with everyone as a part of daily routine that we all have.
 
-The action is built over /lcov/ code coverage report by parsing code coverage results and gives just summary statistic in the comment.
-[image:5E565220-FE66-4D9F-AEF7-CA61C90D6CE3-5165-0001B479D5E6D9B4/Screenshot 2021-02-25 at 19.05.16.png]
+The action is built over **_lcov_** code coverage report by parsing code coverage results and gives just summary statistic in the comment.
+
+<img
+  src="/static/img/articles/2021-02-25/barecheck-comment.png"
+  width="100%"
+/>
 
 I have been enjoying using it for a few months and wanted to share with everyone, It’s already released on [Barecheck - Code Coverage · Actions · GitHub Marketplace · GitHub](https://github.com/marketplace/actions/barecheck-code-coverage) and can be added as a separate workflow to your project
 
