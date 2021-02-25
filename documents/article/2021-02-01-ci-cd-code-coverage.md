@@ -1,7 +1,7 @@
 ---
 title: Code coverage as a part of CI/CD
-date: 02 Feb 2021
-description: Testing is important part of daily software development.
+date: 25 Feb 2021
+description: This article describes how to make Github Actions working for you. Sometimes we so busy to automate to make us less busy. I am sharing the common workflow that you can just copy from project to project and adding code coverage changes based checking at the end.
 ---
 
 This article is not related to my current job, but reflects all my side projects and shows how far you can go once you have an idea in mind.
