@@ -103,7 +103,7 @@ The action is built over **_lcov_** code coverage report by parsing code coverag
   width="100%"
 />
 
-I have been enjoying using it for a few months and wanted to share with everyone, It’s already released on [Barecheck - Code Coverage · Actions · GitHub Marketplace · GitHub](https://github.com/marketplace/actions/barecheck-code-coverage) and can be added as a separate workflow to your project
+I have been enjoying using it for a few months and wanted to share with everyone, It’s already released on [GitHub Marketplace](https://github.com/marketplace/actions/barecheck-code-coverage) and can be added as a separate workflow to your project
 
 ```yaml
 name: Code Coverage
