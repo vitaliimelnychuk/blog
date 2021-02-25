@@ -38,6 +38,13 @@ const HomePage: React.FC<IHomePageProps> = ({ articles }) => (
       </div>
 
       <style jsx>{`
+        .articles {
+          display: grid;
+          grid-template-rows: auto;
+          grid-template-columns: 1fr;
+          grid-gap: 30px;
+        }
+
         .articles__title {
           font-size: 34px;
           margin-bottom: 40px;
