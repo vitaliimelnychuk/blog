@@ -30,6 +30,9 @@ const ArticlePage: React.FC<IArticlePageProps & IMarkdownArticle> = ({
           padding: 10px;
           text-indent: 20px;
         }
+        h1 {
+          line-height: 38px;
+        }
       `}
     </style>
   </div>
