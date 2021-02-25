@@ -4,7 +4,7 @@ import MetaPreviewLink from '../components/Meta/PreviewLink'
 
 import { talks } from '../content/talks'
 
-const TalksPage = () => (
+const TalksPage: React.FC = () => (
   <Layout>
     <>
       <MetaPreviewLink url="/talks" title="Talks" />
