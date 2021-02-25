@@ -12,7 +12,7 @@
     "start": "next start",
     "gen-sitemap": "node scripts/generate-sitemap.js",
     "format-check": "prettier --check .",
-    "lint": "eslint .",
+    "lint": "eslint --max-warnings=0 .",
     "check-all": "yarn format-check && yarn lint",
     "format": "prettier --write ."
   },
