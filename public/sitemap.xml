@@ -14,8 +14,9 @@
   </url>
 
   <url>
-    <loc
-      >https://vitaliimelnychuk.com/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc
-    >
+    <loc>https://vitaliimelnychuk.com/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc>
+  </url>
+  <url>
+    <loc>https://vitaliimelnychuk.com/articles/2021-02-25-ci-cd-code-coverage</loc>
   </url>
 </urlset>
