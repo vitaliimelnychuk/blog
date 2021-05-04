@@ -31,7 +31,7 @@
   "homepage": "https://github.com/melnychukvitaliy/blog#readme",
   "dependencies": {
     "gray-matter": "^4.0.2",
-    "next": "^10.0.5",
+    "next": "^10.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-icons": "^3.9.0",
