@@ -1,10 +1,10 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "My personal blog, Trying things, sharing them with the world",
+  "description": "My personal blog, Exploring, trying, sharing...",
   "main": "index.js",
   "engines": {
-    "node": "12.x"
+    "node": "14.x"
   },
   "scripts": {
     "dev": "next",
