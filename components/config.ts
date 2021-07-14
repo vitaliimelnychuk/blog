@@ -7,4 +7,4 @@ export const linkedinProfileLink =
 
 export const twitterProfileLink = `https://twitter.com/${twitterProfile}`
 
-export const githubProfileLink = `https://github.com/melnychukvitaliy`
+export const githubProfileLink = `https://github.com/vitaliimelnychuk`
