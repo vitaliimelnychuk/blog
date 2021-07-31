@@ -1,7 +1,7 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "My personal blog, Exploring, trying, sharing...",
+  "description": "Vitalii Melnychuk personal blog, Exploring, trying, sharing...",
   "main": "index.js",
   "engines": {
     "node": "14.x"
@@ -23,7 +23,7 @@
   "keywords": [
     "blog"
   ],
-  "author": "Vitaliy Melnychuk",
+  "author": "Vitalii Melnychuk",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/melnychukvitaliy/blog/issues"
