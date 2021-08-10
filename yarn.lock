@@ -191,10 +191,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.3.tgz#2ab0d5da2e5815f94b0b9d4b95d1e5f243ab2ca7"
   integrity sha512-KfRL3PuHmqQLOG+2tGpRO26Ctg+Cq1E01D2DMriKEATHgWLfeNDmq9e29Q9WIky0dQ3NPkd1mzYH8Lm936Z9qw==
 
-"@types/react-highlight@^0.12.2":
-  version "0.12.2"
-  resolved "https://registry.yarnpkg.com/@types/react-highlight/-/react-highlight-0.12.2.tgz#205b3437bf3611c185884a564d20548a4780480b"
-  integrity sha512-Pd0jkT7OB0eVccQeytwf1e+RoszedNHnsmJWbyr4F6407xdRz1Si7zmF9imO/Qr88DidnNv63Vyy9UfGHSMDrg==
+"@types/react-highlight@^0.12.3":
+  version "0.12.3"
+  resolved "https://registry.yarnpkg.com/@types/react-highlight/-/react-highlight-0.12.3.tgz#2e9212a89d666e014028b9a4fcffc81c44b5e358"
+  integrity sha512-mfhuHdE3dUjvRv1lvZIvda2B+VW7rkG1ufnFLKbDcRUp/L73bGUmEuEfpnjgdLgeWYho88ahQZRcMSh9GsZA0g==
   dependencies:
     "@types/react" "*"
 
