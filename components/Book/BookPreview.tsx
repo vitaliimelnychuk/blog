@@ -23,6 +23,7 @@ const BookPreview: React.FC<IMarkdownBook> = ({
       title={title}
       width="140px"
       alt={title}
+      loading="lazy"
     />
 
     <div>
