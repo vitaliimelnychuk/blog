@@ -50,6 +50,9 @@ const BookPreview: React.FC<IMarkdownBook> = ({
         padding: 30px;
         text-align: center;
       }
+      .container img {
+        width: 40%;
+      }
 
       .content .description {
         text-align: justify;

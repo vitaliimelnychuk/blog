@@ -54,10 +54,7 @@ For the first test I selected the following configuration:
 
 On the image below, you can see the original page load for 16 images without any optimizations. It just loads all images from `unsplash.com` and renders them asynchronisly.
 
-<img
-  src="/static/img/articles/2021-10-22/webpagetest-not-optimized-run.png"
-  width="100%"
-/>
+![webpagetest-not-optimized-run](/static/img/articles/2021-10-22/webpagetest-not-optimized-run.png)
 
 ### Enabling compression
 
