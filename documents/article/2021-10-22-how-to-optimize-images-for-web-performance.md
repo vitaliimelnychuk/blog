@@ -11,6 +11,8 @@ and how much you lose by choosing the wrong image format or uploading an image w
 
 This is where **[https://imagesperf.vercel.app](https://imagesperf.vercel.app)** was born!
 
+Fork [https://github.com/vitaliimelnychuk/images-performance](https://github.com/vitaliimelnychuk/images-performance) and change  images list in `components/ImageList/data.js` if you want to compare your own images.
+
 ## Always have a checklist!
 
 The checklist is a great tool to improve your daily routine by introducing things that you have never done before. Having it before your changes go live will lead to continuous improvements.
@@ -121,11 +123,12 @@ Looking back to the results of changing resolution and image format you can see 
 
 ## Checklist
 
-The first step of automation is to create a checklist to do it manually. This is something I usually use to check `critical` issues with images performance.
+The first step of automation is to create a checklist to do it manually. This is something I usually use to check `critical` issues with images performance. There is great feature in Github to have a [PR template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository) to start with. 
 
 - Is compression for images enabled?
 - Do we have different image resolutions(Mobile, tablet, laptop)?
 - Do we use the best image format based on the user device?
+
 
 As a note, take a look at https://github.com/calibreapp/image-actions to make images optimization as part of your build process.
 
@@ -135,11 +138,11 @@ Images are not as easy as we could think! I just wanted to get some attention ov
 
 I am also sharing some articles to get more knowledge about image performance and get further steps to improve.
 
-- https://github.com/calibreapp/image-actions - Github action to automatically compress your images as part of CI process.
+- [https://github.com/calibreapp/image-actions ](https://github.com/calibreapp/image-actions)- Github action to automatically compress your images as part of CI process.
 - Performance budget
-- https://github.com/tkadlec/grunt-perfbudget
-- https://web.dev/use-lighthouse-for-performance-budgets/
-- https://developers.google.com/web/tools/lighthouse
+- [https://github.com/tkadlec/grunt-perfbudget](https://github.com/tkadlec/grunt-perfbudget)
+- [https://web.dev/use-lighthouse-for-performance-budgets/](https://web.dev/use-lighthouse-for-performance-budgets/)
+- [https://developers.google.com/web/tools/lighthouse](https://developers.google.com/web/tools/lighthouse)
 - Books
-  - https://www.oreilly.com/library/view/using-webpagetest/9781491902783/
-  - https://www.smashingmagazine.com/2021/04/image-optimization-pre-release/
+  - [https://www.oreilly.com/library/view/using-webpagetest/9781491902783/](https://www.oreilly.com/library/view/using-webpagetest/9781491902783/)
+  - [https://www.smashingmagazine.com/2021/04/image-optimization-pre-release/](https://www.smashingmagazine.com/2021/04/image-optimization-pre-release/)
