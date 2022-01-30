@@ -17,6 +17,9 @@ const Layout: React.FC = ({ children }) => (
       a:visited {
         color: black;
       }
+      img {
+        width: 100%;
+      }
       button:hover {
         cursor: pointer;
       }
