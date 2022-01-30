@@ -52,7 +52,7 @@ For the first test I selected the following configuration:
 - _Height:_ 1536
 - _Format:_ jpg
 
-On the image below, you can see the original page load for 16 images without any optimizations. It just loads all images from `unsplash.com` and renders them asynchronisly. 
+On the image below, you can see the original page load for 16 images without any optimizations. It just loads all images from `unsplash.com` and renders them asynchronisly.
 
 ![webpagetest-not-optimized-run](../../public/static/img/articles/2021-10-22/webpagetest-not-optimized-run.png)
 
@@ -86,8 +86,6 @@ By decreasing quality, page size drops to ~3.8 Mb which is more than twice less 
 
 ![webpagetest-q70-w1024](../../public/static/img/articles/2021-10-22/webpagetest-q70-w1024.png)
 
-
-
 #### Use WebP image format
 
 [https://imagesperf.vercel.app/?quality=70&format=webp&width=1024&height=756&fit=clip](https://imagesperf.vercel.app/?quality=70&format=webp&width=2048&height=1536&fit=clip)
@@ -112,9 +110,7 @@ By decreasing quality, page size drops to ~3.8 Mb which is more than twice less 
 
 ![webpagetest-q70-w1024-avif](../../public/static/img/articles/2021-10-22/webpagetest-q70-w1024-avif.png)
 
-
-
-## Do Analysis 
+## Do Analysis
 
 Web pages consist of a lot of images. We rely on images a lot to improve users experience. No one wants to throw low-quality images but what if we just make them good enough?
 
@@ -125,7 +121,7 @@ Looking back to the results of changing resolution and image format you can see 
 
 ## Checklist
 
-The first step of automation is to create a checklist to do it manually. This is something I usually use to check `critical` issues with images performance. 
+The first step of automation is to create a checklist to do it manually. This is something I usually use to check `critical` issues with images performance.
 
 - Is compression for images enabled?
 - Do we have different image resolutions(Mobile, tablet, laptop)?
@@ -140,19 +136,10 @@ Images are not as easy as we could think! I just wanted to get some attention ov
 I am also sharing some articles to get more knowledge about image performance and get further steps to improve.
 
 - https://github.com/calibreapp/image-actions - Github action to automatically compress your images as part of CI process.
--  Performance budget
-  - https://github.com/tkadlec/grunt-perfbudget
-  - https://web.dev/use-lighthouse-for-performance-budgets/
+- Performance budget
+- https://github.com/tkadlec/grunt-perfbudget
+- https://web.dev/use-lighthouse-for-performance-budgets/
 - https://developers.google.com/web/tools/lighthouse
 - Books
   - https://www.oreilly.com/library/view/using-webpagetest/9781491902783/
   - https://www.smashingmagazine.com/2021/04/image-optimization-pre-release/
-
-
-
-
-
-
-
-
-
