@@ -54,7 +54,7 @@ For the first test I selected the following configuration:
 
 On the image below, you can see the original page load for 16 images without any optimizations. It just loads all images from `unsplash.com` and renders them asynchronisly.
 
-![webpagetest-not-optimized-run](../../public/static/img/articles/2021-10-22/webpagetest-not-optimized-run.png)
+![webpagetest-not-optimized-run](/static/img/articles/2021-10-22/webpagetest-not-optimized-run.png)
 
 ### Enabling compression
 
@@ -72,7 +72,7 @@ There is a huge amount of improvements that could be done, let's focus on the mo
 
 By decreasing quality, page size drops to ~3.8 Mb which is more than twice less original one!
 
-![webpagetest-q70](../../public/static/img/articles/2021-10-22/webpagetest-q70.png)
+![webpagetest-q70](/static/img/articles/2021-10-22/webpagetest-q70.png)
 
 #### Set lower image resolution
 
@@ -84,7 +84,7 @@ By decreasing quality, page size drops to ~3.8 Mb which is more than twice less 
 - _Height:_ 756
 - _Format:_ jpg
 
-![webpagetest-q70-w1024](../../public/static/img/articles/2021-10-22/webpagetest-q70-w1024.png)
+![webpagetest-q70-w1024](/static/img/articles/2021-10-22/webpagetest-q70-w1024.png)
 
 #### Use WebP image format
 
@@ -96,7 +96,7 @@ By decreasing quality, page size drops to ~3.8 Mb which is more than twice less 
 - _Height:_ 756
 - _Format:_ webp
 
-![webpagetest-q70-w1024-webp](../../public/static/img/articles/2021-10-22/webpagetest-q70-w1024-webp.png)
+![webpagetest-q70-w1024-webp](/static/img/articles/2021-10-22/webpagetest-q70-w1024-webp.png)
 
 #### Use AVIF image format
 
@@ -108,7 +108,7 @@ By decreasing quality, page size drops to ~3.8 Mb which is more than twice less 
 - _Height:_ 756
 - _Format:_ avif
 
-![webpagetest-q70-w1024-avif](../../public/static/img/articles/2021-10-22/webpagetest-q70-w1024-avif.png)
+![webpagetest-q70-w1024-avif](/static/img/articles/2021-10-22/webpagetest-q70-w1024-avif.png)
 
 ## Do Analysis
 
