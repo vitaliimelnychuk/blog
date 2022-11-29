@@ -8,13 +8,13 @@ const Header: React.FC = () => (
     {/* TODO: add current page highlight */}
     <div className="links">
       <Link href="/">
-        <a>Me</a>
+        <span>Me</span>
       </Link>
       <Link href="/books">
-        <a>Book reviews</a>
+        <span>Book reviews</span>
       </Link>
       <Link href="/talks">
-        <a>Talks</a>
+        <span>Talks</span>
       </Link>
     </div>
 
@@ -38,7 +38,7 @@ const Header: React.FC = () => (
         align-self: center;
       }
 
-      .links a {
+      .links span {
         display: inline-block;
         font-size: 25px;
         font-weight: 400;
@@ -46,11 +46,11 @@ const Header: React.FC = () => (
         text-decoration: none;
       }
 
-      .links a:first-of-type {
+      .links span:first-of-type {
         padding-left: 0;
       }
 
-      .links a:hover {
+      .links span:hover {
         text-decoration: underline;
         text-decoration-color: #9ddadb;
         text-decoration-thickness: 3.5px;

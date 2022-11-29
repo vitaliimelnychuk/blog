@@ -21,9 +21,7 @@ const ArticlePreview: React.FC<IArticlePreviewProps> = ({
       <div className="description">{description}</div>
       <div className="read-button">
         <Link href={url}>
-          <a>
-            <Button>Read more</Button>
-          </a>
+          <Button>Read more</Button>
         </Link>
       </div>
       <style jsx>{`
