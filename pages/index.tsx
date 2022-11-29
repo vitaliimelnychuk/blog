@@ -25,7 +25,9 @@ const HomePage: React.FC<IHomePageProps> = ({ articles }) => (
             💻
           </span>
 
-          <Underline>My Articles</Underline>
+          <Underline>
+            <>My Articles</>
+          </Underline>
         </h2>
         <div className="articles">
           {articles.map((article) => (

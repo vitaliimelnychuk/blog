@@ -24,7 +24,9 @@ const BooksPage: React.FC<IBooksPageProps> = ({ books }) => (
             📚
           </span>
 
-          <Underline>Book Reviews</Underline>
+          <Underline>
+            <>Book Reviews</>
+          </Underline>
         </h2>
 
         <div className="books">
