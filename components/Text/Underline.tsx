@@ -1,4 +1,6 @@
-const Underline: React.FC = ({ children }) => {
+import { ReactElement } from 'react'
+
+const Underline: React.FC<{ children: ReactElement }> = ({ children }) => {
   return (
     <>
       <span className="underline">{children}</span>

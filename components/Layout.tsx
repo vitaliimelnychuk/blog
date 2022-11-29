@@ -1,7 +1,8 @@
 import Header from './Header'
 import Footer from './Footer'
+import { ReactElement } from 'react'
 
-const Layout: React.FC = ({ children }) => (
+const Layout: React.FC<{ children: ReactElement }> = ({ children }) => (
   <div className="container">
     <Header />
     {children}

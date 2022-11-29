@@ -15,7 +15,9 @@ const Footer: React.FC = () => {
             ✉️
           </span>
 
-          <Underline>Get in touch</Underline>
+          <Underline>
+            <>Get in touch</>
+          </Underline>
         </h2>
 
         <p className="email">vvv.melnychuk@gmail.com</p>
