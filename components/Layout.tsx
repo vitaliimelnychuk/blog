@@ -6,7 +6,7 @@ const Layout: React.FC<{ children: ReactElement }> = ({ children }) => (
   <div className="container">
     <Header />
     {children}
-    {/* <Footer /> */}
+    <Footer />
     <style jsx global>{`
       a:link {
         color: black;

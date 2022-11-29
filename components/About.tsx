@@ -11,23 +11,24 @@ const About: React.FC = () => (
         </span>
       </p>
       <p>
-        I’m Vitalii and I’m a <Underline>Performance Engineer</Underline> at
-        FARFETCH in Porto.
+        I’m Vitalii and I’m a{' '}
+        <Underline>
+          <>Performance Engineer</>
+        </Underline>{' '}
+        at FARFETCH in Porto.
       </p>
-      <p>
-        But also:
-        <ul>
-          <li>
-            ️<span>morning runner</span>
-          </li>
-          <li>
-            <span>passionate about Python and NodeJS</span>️
-          </li>
-          <li>
-            <span>in love with Portugal</span>️
-          </li>
-        </ul>
-      </p>
+
+      <ul>
+        <li>
+          ️<span>morning runner</span>
+        </li>
+        <li>
+          <span>passionate about Python and NodeJS</span>️
+        </li>
+        <li>
+          <span>in love with Portugal</span>️
+        </li>
+      </ul>
     </div>
 
     <div className="photo"></div>
