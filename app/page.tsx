@@ -1,17 +1,56 @@
-import { Header } from '../src/components/Header'
+import Head from 'next/head'
 
-export default function App() {
+import { Container } from '../src/components/Container'
+import { ArticleCard } from '../src/components/ArticleCard'
+
+import {
+  LinkedInIcon,
+  TwitterIcon,
+  GitHubIcon,
+} from '../src/components/SocialIcons'
+import { getAllDocuments, IMarkdownArticle } from '../lib/api'
+
+export default function HomePage() {
+  const articles = getAllDocuments<IMarkdownArticle>('article')
+
   return (
     <>
-      <div className="fixed inset-0 flex justify-center">
-        <div className="flex w-full max-w-7xl">
-          <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
+      <Head>
+        <title>Vitalii - Software engineer, builder, and amateur runner.</title>
+        <meta
+          name="description"
+          content="I’m Vitalii, a software engineer  based in Porto, Portugal. I occasinally build new stuff and share my learnings here."
+        />
+      </Head>
+      <Container className="mt-9">
+        <div className="max-w-2xl">
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+            Software designer, builder, and amateur runner.
+          </h1>
+          <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
+            I’m Vitalii, a software engineer based in Porto, Portugal. I
+            occasinally build new stuff and share my learnings here.
+          </p>
+          <div className="mt-6 flex gap-6">
+            <LinkedInIcon />
+            <TwitterIcon />
+            <GitHubIcon />
+          </div>
         </div>
-      </div>
-      <div className="relative">
-        <Header />
-        <main></main>
-      </div>
+      </Container>
+      <Container className="mt-24 md:mt-28">
+        <div className="mx-auto grid max-w-xl grid-cols-1 gap-y-20 lg:max-w-none lg:grid-cols-2">
+          <div className="flex flex-col gap-16">
+            {articles.map((article) => (
+              <ArticleCard key={article.slug} article={article} />
+            ))}
+          </div>
+          <div className="space-y-10 lg:pl-16 xl:pl-24">
+            {/* <Newsletter />
+            <Resume /> */}
+          </div>
+        </div>
+      </Container>
     </>
   )
 }
