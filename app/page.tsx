@@ -1,5 +1,3 @@
-import Head from 'next/head'
-
 import { Container } from '../src/components/Container'
 import { ArticleCard } from '../src/components/ArticleCard'
 
@@ -15,13 +13,6 @@ export default function HomePage() {
 
   return (
     <>
-      <Head>
-        <title>Vitalii - Software engineer, builder, and amateur runner.</title>
-        <meta
-          name="description"
-          content="I’m Vitalii, a software engineer  based in Porto, Portugal. I occasinally build new stuff and share my learnings here."
-        />
-      </Head>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">

@@ -8,7 +8,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head />
+      <head>
+        <title>Vitalii - Software engineer, builder, and amateur runner.</title>
+        <meta
+          name="description"
+          content="I’m Vitalii, a software engineer  based in Porto, Portugal. I occasinally build new stuff and share my learnings here."
+        />
+      </head>
       <body>
         <div className="fixed inset-0 flex justify-center">
           <div className="flex w-full max-w-7xl">
