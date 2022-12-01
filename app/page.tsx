@@ -1,5 +1,6 @@
 import { Container } from '../src/components/Container'
 import { ArticleCard } from '../src/components/ArticleCard'
+import Resume from '../src/components/Resume'
 
 import {
   LinkedInIcon,
@@ -37,8 +38,7 @@ export default function HomePage() {
             ))}
           </div>
           <div className="space-y-10 lg:pl-16 xl:pl-24">
-            {/* <Newsletter />
-            <Resume /> */}
+            <Resume />
           </div>
         </div>
       </Container>
