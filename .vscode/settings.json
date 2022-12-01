@@ -1,5 +1,10 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": ["Melnychuk", "Microservices", "Vitaliy"],
-  "javascript.validate.enable": false
+  "cSpell.words": [
+    "Melnychuk",
+    "Microservices",
+    "Vitaliy"
+  ],
+  "javascript.validate.enable": false,
+  "typescript.enablePromptUseWorkspaceTsdk": true
 }

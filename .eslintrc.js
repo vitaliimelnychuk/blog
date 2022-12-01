@@ -33,13 +33,6 @@ module.exports = {
         'jsx-a11y/anchor-is-valid': 'off',
         '@typescript-eslint/no-unused-vars': ['error'],
         'react/no-unknown-property': ['error', { ignore: ['jsx', 'global'] }],
-        '@typescript-eslint/explicit-function-return-type': [
-          'warn',
-          {
-            allowExpressions: true,
-            allowConciseArrowFunctionExpressionsStartingWithVoid: true,
-          },
-        ],
       },
     },
   ],
