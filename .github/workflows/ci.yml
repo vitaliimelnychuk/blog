@@ -6,27 +6,30 @@ name: CI
 on: [push]
 
 jobs:
-  checks:
+  test:
+    timeout-minutes: 10
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js16.16.0
-        uses: actions/setup-node@v1
-        with: node-version:16.16.0
+      - uses: actions/checkout@v3
+      - name: Use Node.js 16.16.0
+        uses: actions/setup-node@v3.5.0
+        with:
+          node-version: 16.16.0
+
       - name: Cache node modules
-        uses: actions/cache@v1
+        uses: actions/cache@v3
         with:
           path: node_modules
           key: node_modules-v1-${{ hashFiles('yarn.lock') }}
-          # loading an older version is fine here, since it will get an npm install
           restore-keys: |
             node_modules-
 
       - name: Install dependencies
         run: yarn
 
-      - name: Run linting checks
-        run: yarn lint
-
       - name: Run formatting checks
         run: yarn format-check
+
+      - name: Run linting checks
+        run: yarn lint
