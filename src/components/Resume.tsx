@@ -59,7 +59,7 @@ function Resume() {
               <Image
                 src={role.logo}
                 alt=""
-                className="h-8 w-8 rounded-full fill-blue-500"
+                className="h-8 w-8 rounded-full"
                 unoptimized
               />
             </div>
