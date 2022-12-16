@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { BriefcaseIcon, GlobeEuropeAfricaIcon } from '@heroicons/react/24/solid'
+import { BriefcaseIcon } from '@heroicons/react/24/solid'
 
 import logoFreelance from '../images/logos/freelance.svg'
 import farfetchLogo from '../images/logos/farfetch.svg'
