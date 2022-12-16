@@ -1,7 +1,7 @@
 import { ForwardedRef, forwardRef } from 'react'
 import clsx from 'clsx'
 
-const OuterContainer = forwardRef(function OuterContainer(
+export const OuterContainer = forwardRef(function OuterContainer(
   {
     className,
     children,
@@ -16,7 +16,7 @@ const OuterContainer = forwardRef(function OuterContainer(
   )
 })
 
-const InnerContainer = forwardRef(function InnerContainer(
+export const InnerContainer = forwardRef(function InnerContainer(
   {
     className,
     children,
@@ -45,6 +45,3 @@ export const Container = forwardRef(function Container(
     </OuterContainer>
   )
 })
-
-// Container.Outer = OuterContainer
-// Container.Inner = InnerContainer

@@ -1,5 +1,6 @@
 import '../src/styles/tailwind.css'
 import { Header } from '../src/components/Header'
+import { Footer } from '../src/components/Footer'
 
 export default function RootLayout({
   children,
@@ -24,6 +25,7 @@ export default function RootLayout({
         <div className="relative">
           <Header />
           <main>{children}</main>
+          <Footer />
         </div>
       </body>
     </html>
