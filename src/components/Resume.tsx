@@ -1,28 +1,34 @@
 import Image from 'next/image'
-import { BriefcaseIcon } from '@heroicons/react/24/solid'
+import { BriefcaseIcon, GlobeEuropeAfricaIcon } from '@heroicons/react/24/solid'
 
-import logoAirbnb from '../images/logos/airbnb.svg'
-import logoFacebook from '../images/logos/facebook.svg'
-import logoPlanetaria from '../images/logos/planetaria.svg'
-import logoStarbucks from '../images/logos/starbucks.svg'
+import logoFreelance from '../images/logos/freelance.svg'
+import farfetchLogo from '../images/logos/farfetch.svg'
+import logoReflaunt from '../images/logos/reflaunt.png'
 import logoYaware from '../images/logos/yaware.png'
 import logoWise from '../images/logos/wise.jpeg'
 
 function Resume() {
   const resume = [
     {
-      company: 'Planetaria',
-      title: 'CEO',
-      logo: logoPlanetaria,
-      start: '2019',
+      company: 'Reflaunt',
+      title: 'Tech Lead',
+      logo: logoReflaunt,
+      start: '2022',
       end: null,
     },
     {
-      company: 'Airbnb',
-      title: 'Product Designer',
-      logo: logoAirbnb,
-      start: '2014',
-      end: '2019',
+      company: 'Freelance',
+      title: 'Senior Software Engineer',
+      logo: logoFreelance,
+      start: '2020',
+      end: null,
+    },
+    {
+      company: 'Farfetch',
+      title: 'Software Engineer - Performance',
+      logo: farfetchLogo,
+      start: '2020',
+      end: '2022',
     },
     {
       company: 'Wise Engineering',
@@ -50,7 +56,12 @@ function Resume() {
         {resume.map((role, roleIndex) => (
           <li key={roleIndex} className="flex gap-4">
             <div className="relative mt-1 flex h-10 w-10 flex-none items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 dark:border dark:border-zinc-700/50 dark:bg-zinc-800 dark:ring-0">
-              <Image src={role.logo} alt="" className="h-8 w-8 rounded-full" unoptimized />
+              <Image
+                src={role.logo}
+                alt=""
+                className="h-8 w-8 rounded-full fill-blue-500"
+                unoptimized
+              />
             </div>
             <dl className="flex flex-auto flex-wrap gap-x-2">
               <dt className="sr-only">Company</dt>
@@ -68,7 +79,9 @@ function Resume() {
               >
                 <time dateTime={role.start}>{role.start}</time>{' '}
                 <span aria-hidden="true">—</span>{' '}
-                <time dateTime={role.end || 'Present'}>{role.end || 'Present'}</time>
+                <time dateTime={role.end || 'Present'}>
+                  {role.end || 'Present'}
+                </time>
               </dd>
             </dl>
           </li>
