@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link'
 
-import { IMarkdownArticle } from '../../lib/api'
+import { ArticleMarkdownItem } from '../lib/markdown'
 
 export function formatDate(date: Date) {
   return date.toLocaleString('en-US', {
@@ -44,7 +44,7 @@ function ChevronRightIcon() {
   )
 }
 
-export function ArticleCard({ article }: { article: IMarkdownArticle }) {
+export function ArticleCard({ article }: { article: ArticleMarkdownItem }) {
   return (
     <article className="group relative flex flex-col items-start">
       <>
@@ -53,13 +53,13 @@ export function ArticleCard({ article }: { article: IMarkdownArticle }) {
             <div className="absolute -inset-y-6 -inset-x-4 z-0 scale-95 bg-zinc-50 opacity-0 transition group-hover:scale-100 group-hover:opacity-100 dark:bg-zinc-800/50 sm:-inset-x-6 sm:rounded-2xl" />
             <Link href={`/articles/${article.slug}`}>
               <span className="absolute -inset-y-6 -inset-x-4 z-20 sm:-inset-x-6 sm:rounded-2xl" />
-              <span className="relative z-10">{article.title}</span>
+              <span className="relative z-10">{article.meta.title}</span>
             </Link>
           </>
         </h2>
-        <Eyebrow date={article.date} />
+        <Eyebrow date={article.meta.date} />
         <p className="relative z-10 mt-2 text-sm text-zinc-600 dark:text-zinc-400">
-          {article.description}
+          {article.meta.description}
         </p>
         <div
           aria-hidden="true"
@@ -74,11 +74,3 @@ export function ArticleCard({ article }: { article: IMarkdownArticle }) {
 }
 
 export default ArticleCard
-
-// //{' '}
-// <Card.Eyebrow as="time" dateTime={article.date} decorate>
-//   // {formatDate(article.date)}
-//   //{' '}
-// </Card.Eyebrow>
-// // <Card.Description>{article.description}</Card.Description>
-// // <Card.Cta>Read article</Card.Cta>
