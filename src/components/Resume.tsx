@@ -18,7 +18,7 @@ function Resume() {
     },
     {
       company: 'Freelance',
-      title: 'Senior Software Engineer',
+      title: 'Software Engineer / Consultant',
       logo: logoFreelance,
       start: '2020',
       end: null,
