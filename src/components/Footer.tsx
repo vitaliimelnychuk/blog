@@ -24,7 +24,7 @@ export function Footer() {
               <div className="flex gap-6 text-sm font-medium text-zinc-800 dark:text-zinc-200">
                 <NavLink href="/about">About</NavLink>
                 <NavLink href="/articles">Articles</NavLink>
-                <NavLink href="/projects">Projects</NavLink>
+                {/* <NavLink href="/projects">Projects</NavLink> */}
                 <NavLink href="/speaking">Speaking</NavLink>
                 <NavLink href="/uses">Uses</NavLink>
               </div>
