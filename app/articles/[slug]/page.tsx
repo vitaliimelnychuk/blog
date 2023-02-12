@@ -50,13 +50,12 @@ async function ArticleSinglePage({ params }: ArticleSinglePageProps) {
   )
 }
 
-
 export async function generateStaticParams() {
-  const articles = await getAllArticles();
+  const articles = await getAllArticles()
 
   return articles.map((article) => ({
     slug: article.slug,
-  }));
+  }))
 }
 
 export default ArticleSinglePage
