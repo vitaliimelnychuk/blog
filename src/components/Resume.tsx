@@ -20,7 +20,7 @@ function Resume() {
       company: 'Freelance',
       title: 'Software Engineer / Consultant',
       logo: logoFreelance,
-      start: '2020',
+      start: '2019',
       end: null,
     },
     {
