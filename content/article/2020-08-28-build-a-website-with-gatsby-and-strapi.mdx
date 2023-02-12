@@ -42,10 +42,7 @@ next-gen headless CMS!)
 To describe overall **Strapi core components** and basically core
 Headless CMS concept I've got the next scheme:
 
-<img
-  src="/static/img/articles/2020-08-28/strapi-components.jpg"
-  width="75%"
-/>
+<img src="/static/img/articles/2020-08-28/strapi-components.jpg" width="75%" />
 
 As you can see, we have admin and API where everything happens. The
 idea is to split up your data management and presentation level
@@ -112,10 +109,7 @@ We've decided to put it under load balancer where strapi API and Admin
 are hosted. As far as we are using [**PM2**](https://pm2.keymetrics.io/) as a process manager for our Node.js applications, it'd be smart to add one separate application to handle all deployments. After attempt
 to visualize it I got following image:
 
-<img
-  src="/static/img/articles/2020-08-28/EC2-overview.jpg"
-  width="40%"
-/>
+<img src="/static/img/articles/2020-08-28/EC2-overview.jpg" width="40%" />
 
 Having webhook in one of your servers is useful, you might trigger it
 rather from your CI or from [Strapi Webhooks](https://strapi.io/blog/webhooks). It brings us to the place where we just need to setup webhooks application to make deployment to have the full picture.
@@ -189,10 +183,7 @@ tab.
 
 Also you can disable some of the Strapi webhooks if you need. Read more [Strapi Webhooks](https://strapi.io/blog/webhooks) for details.
 
-<img
-  src="/static/img/articles/2020-08-28/strapi-webhook.png"
-  width="100%"
-/>
+<img src="/static/img/articles/2020-08-28/strapi-webhook.png" width="100%" />
 
 To have basic level of protection we've added Basic authorixation -
 it's actually the one that was mentioned before in the webhook script.
