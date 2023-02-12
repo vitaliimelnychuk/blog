@@ -7,10 +7,10 @@ import {
   TwitterIcon,
   GitHubIcon,
 } from '../src/components/SocialIcons'
-import { getAllDocuments, IMarkdownArticle } from '../lib/api'
+import { getAllArticles } from '../src/lib/markdown'
 
-export default function HomePage() {
-  const articles = getAllDocuments<IMarkdownArticle>('article')
+export default async function HomePage() {
+  const articles = await getAllArticles()
 
   return (
     <>
