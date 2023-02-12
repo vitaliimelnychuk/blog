@@ -39,7 +39,7 @@ function Resume() {
     },
     {
       company: 'Yaware',
-      title: 'Tech Lead',
+      title: 'Lead Software Engineer',
       logo: logoYaware,
       start: '2014',
       end: '2017',
