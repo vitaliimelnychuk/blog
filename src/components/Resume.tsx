@@ -11,16 +11,16 @@ function Resume() {
   const resume = [
     {
       company: 'Reflaunt',
-      title: 'Tech Lead',
+      title: 'Engineering Manager',
       logo: logoReflaunt,
       start: '2022',
       end: null,
     },
     {
       company: 'Freelance',
-      title: 'Senior Software Engineer',
+      title: 'Software Engineer / Consultant',
       logo: logoFreelance,
-      start: '2020',
+      start: '2019',
       end: null,
     },
     {
@@ -39,7 +39,7 @@ function Resume() {
     },
     {
       company: 'Yaware',
-      title: 'Tech Lead',
+      title: 'Lead Software Engineer',
       logo: logoYaware,
       start: '2014',
       end: '2017',
