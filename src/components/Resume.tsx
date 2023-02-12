@@ -11,7 +11,7 @@ function Resume() {
   const resume = [
     {
       company: 'Reflaunt',
-      title: 'Tech Lead',
+      title: 'Engineering Manager',
       logo: logoReflaunt,
       start: '2022',
       end: null,
