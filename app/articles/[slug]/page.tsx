@@ -1,6 +1,6 @@
 import { notFound } from 'next/navigation'
 
-import { getArticleBySlug } from '../../../src/lib/markdown'
+import { getArticleBySlug, getAllArticles } from '../../../src/lib/markdown'
 import { Container } from '../../../src/components/Container'
 type ArticleSinglePageProps = {
   params: {
@@ -48,6 +48,15 @@ async function ArticleSinglePage({ params }: ArticleSinglePageProps) {
       </Container>
     </>
   )
+}
+
+
+export async function generateStaticParams() {
+  const articles = await getAllArticles();
+
+  return articles.map((article) => ({
+    slug: article.slug,
+  }));
 }
 
 export default ArticleSinglePage
