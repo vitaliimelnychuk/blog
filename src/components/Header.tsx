@@ -142,7 +142,7 @@ function MobileNavigation({ className }: { className: string }) {
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
                 {/* <MobileNavItem href="/projects">Projects</MobileNavItem> */}
                 <MobileNavItem href="/speaking">Speaking</MobileNavItem>
-                <MobileNavItem href="/uses">Uses</MobileNavItem>
+                {/* <MobileNavItem href="/uses">Uses</MobileNavItem> */}
               </ul>
             </nav>
           </Popover.Panel>
@@ -187,7 +187,7 @@ function DesktopNavigation({ className }: { className: string }) {
         <NavItem href="/articles">Articles</NavItem>
         {/* <NavItem href="/projects">Projects</NavItem> */}
         <NavItem href="/speaking">Speaking</NavItem>
-        <NavItem href="/uses">Uses</NavItem>
+        {/* <NavItem href="/uses">Uses</NavItem> */}
       </ul>
     </nav>
   )
