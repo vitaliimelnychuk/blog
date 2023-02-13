@@ -6,7 +6,7 @@ import { ArticleCardTitle } from '../../src/components/ArticleCardTitle'
 import ReadArticle from '../../src/components/ReadArticle'
 import Eyebrow from '../../src/components/Eyebrow'
 
-export function ArticleCard({ article }: { article: ArticleMarkdownItem }) {
+function ArticleCard({ article }: { article: ArticleMarkdownItem }) {
   return (
     <article className="group relative items-start md:grid md:grid-cols-4 md:items-baseline">
       <>
