@@ -2,6 +2,7 @@
 module.exports = {
   content: ['./app/**/*.{js,ts,jsx,tsx}', './src/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class',
+  plugins: [require('@tailwindcss/typography')],
   theme: {
     theme: {
       fontSize: {
@@ -303,5 +304,4 @@ module.exports = {
       }),
     },
   },
-  plugins: [],
 }

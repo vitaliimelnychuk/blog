@@ -2,19 +2,11 @@ import { notFound } from 'next/navigation'
 
 import { getArticleBySlug, getAllArticles } from '../../../src/lib/markdown'
 import { Container } from '../../../src/components/Container'
+import { formatDate } from '../../../src/lib/date'
 type ArticleSinglePageProps = {
   params: {
     slug: string
   }
-}
-
-function formatDate(date: Date) {
-  return date.toLocaleString('en-US', {
-    day: 'numeric',
-    month: 'long',
-    year: 'numeric',
-    timeZone: 'UTC',
-  })
 }
 
 async function ArticleSinglePage({ params }: ArticleSinglePageProps) {
@@ -39,7 +31,7 @@ async function ArticleSinglePage({ params }: ArticleSinglePageProps) {
                   <span className="ml-3">{formatDate(article.meta.date)}</span>
                 </time>
               </header>
-              <div className="prose dark:prose-invert mt-8">
+              <div className="prose mt-8 dark:prose-invert">
                 {article.content}
               </div>
             </article>
