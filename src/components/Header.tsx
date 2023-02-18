@@ -141,7 +141,7 @@ function MobileNavigation({ className }: { className: string }) {
                 <MobileNavItem href="/">About</MobileNavItem>
                 <MobileNavItem href="/articles">Articles</MobileNavItem>
                 {/* <MobileNavItem href="/projects">Projects</MobileNavItem> */}
-                <MobileNavItem href="/speaking">Speaking</MobileNavItem>
+                {/* <MobileNavItem href="/books">Books</MobileNavItem> */}
                 {/* <MobileNavItem href="/uses">Uses</MobileNavItem> */}
               </ul>
             </nav>
@@ -186,7 +186,7 @@ function DesktopNavigation({ className }: { className: string }) {
         <NavItem href="/">About</NavItem>
         <NavItem href="/articles">Articles</NavItem>
         {/* <NavItem href="/projects">Projects</NavItem> */}
-        <NavItem href="/speaking">Speaking</NavItem>
+        {/* <NavItem href="/books">Speaking</NavItem> */}
         {/* <NavItem href="/uses">Uses</NavItem> */}
       </ul>
     </nav>
