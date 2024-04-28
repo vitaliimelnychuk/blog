@@ -22,7 +22,7 @@ I have been a big fan of Vercel and Netlify for a long time, both of them do a g
 
 ## How to deploy websites to AWS S3
 
-We've been using [S3 sync action](https://github.com/jakejarvis/s3-sync-action) for a while which is very simple and great! Unfortunately, it doesn't support preview deployments out of the box. So, we need to do a little bit of work to make it work. Of course, you can use [AWS CLI](https://aws.amazon.com/cli/) directly or any other action to do the same job. All of them will work, but you need to have infrastaructure ready before deploying any textChangeRangeNewSpan.
+We've been using [S3 sync action](https://github.com/jakejarvis/s3-sync-action) for a while which is very simple and great! Unfortunately, it doesn't support preview deployments out of the box. So, we need to do a little bit of work to make it work. Of course, you can use [AWS CLI](https://aws.amazon.com/cli/) directly or any other action to do the same job. All of them will work, but you need to have the infrastructure ready before deploying any textChangeRangeNewSpan.
 
 ## AWS architecture for preview deployments
 
@@ -30,10 +30,10 @@ Before we start, let's take a look at the architecture we are going to use for o
 
 - S3: to store our static files
 - CloudFront: to serve our static files and provide SSL
-- Cloudfront fucntions: to add basic authentication to our preview deployments and redirects
+- CloudFront functions: to add basic authentication to our preview deployments and redirects
 - Route 53: to manage our DNS records
 
-Here is how our architecture will look like:
+Here is what our architecture will look like:
 
 <img src="/static/img/articles/2024-04-28/aws.svg" width="100%" />
 
@@ -41,9 +41,9 @@ To make preview deployments performant, we are going to use one Cloudfront distr
 
 ## Open source GitHub Action
 
-I hope this could be helpful for a lot of people that are not looking to migrate from AWS and would like to have preview deployments as part of their developer experience workflow. I have created an open source GitHub Action that you can use to deploy your websites to AWS S3 with preview deployments.
+I hope this could be helpful for a lot of people who are not looking to migrate from AWS and would like to have preview deployments as part of their developer experience workflow. I have created an open-source GitHub Action that you can use to deploy your websites to AWS S3 with preview deployments.
 
-You can find the [preview-deployment-action](https://github.com/barecheck/preview-deployment-action) open sourced on GitHub. Feel free to try it out and let me know if you have any feedback or suggestions.
+You can find the [preview-deployment-action](https://github.com/barecheck/preview-deployment-action) open-sourced on GitHub. Feel free to try it out and let me know if you have any feedback or suggestions.
 
 ## How to use the action
 
@@ -103,10 +103,10 @@ The pipeline will run on every Pull request and deploy the changes to the previe
 
 I would be happy to hear if there is any interest from others to use this action. I would love to hear your feedback and suggestions on how to improve it. If you have any questions or need help setting it up, feel free to reach out to me on [Linkedin](https://www.linkedin.com/in/vitalii-melnychuk-0736a1b1) or just open an issue on GitHub.
 
-There are a few ideas that I already have in mind and planning to add in the near future:
+There are a few ideas that I already have in mind and planning to add shortly:
 
 - Add support for protected preview deployments. Now, anyone with a link can access the preview deployment. I would like to add basic authentication or GitHub one to protect the preview deployments.
-- Github comments with progress and more details about deployments. I think GitHub environment is a great place to start but they are quite limited.
-- Add Docker support. The action now only deploys static files to S3. Having Docker based preview deployments would be game changer for some projects when people use small Python, Ruby or Next.js apps.
+- GitHub comments with progress and more details about deployments. I think the GitHub environment is a great place to start but they are quite limited.
+- Add Docker support. The action now only deploys static files to S3. Having Docker based preview deployments would be a game changer for some projects when people use small Python, Ruby or Next.js apps.
 
 I hope this article was helpful and you learned something new today. Thank you for reading!
