@@ -1,4 +1,6 @@
 import '../src/styles/tailwind.css'
+import { Analytics } from '@vercel/analytics/react'
+
 import { Header } from '../src/components/Header'
 import { Footer } from '../src/components/Footer'
 
@@ -16,6 +18,7 @@ export default function RootLayout({
           content="I’m Vitalii, a software engineer  based in Porto, Portugal. I occasinally build new stuff and share my learnings here."
         />
       </head>
+      <Analytics />
       <body className="flex min-h-full flex-col bg-zinc-50 dark:bg-black">
         <div className="flex min-h-full flex-col">
           <div className="fixed inset-0 flex justify-center">
