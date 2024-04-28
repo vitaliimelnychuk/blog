@@ -1,0 +1,116 @@
+---
+title: AWS Preview Deployments with GitHub Actions
+date: 28 Apr 2024
+description: Preview deployments are a great way to test your changes before they go live. In this article, I will show you how to set up AWS preview deployments with GitHub Actions.
+---
+
+In this article, I will show you how to set up AWS preview deployments with GitHub Actions. Preview deployments are a great way to test your changes before they go live. They allow you to see how your changes will look in a production-like environment without affecting your live site.
+
+Before you get started, you will need the following:
+
+- An AWS account
+- A GitHub repository with your code
+- A basic understanding of GitHub Actions
+- A basic understanding of AWS
+- 30 minutes of your time to try it out
+
+## Why use preview deployments?
+
+Preview deployments are a great way to test your changes before they go live. They allow you to see how your changes will look in a production-like environment without affecting your live site. This can help you catch bugs and issues early, and ensure that your changes work as expected before they are deployed to your live site.
+
+I have been a big fan of Vercel and Netlify for a long time, both of them do a great job with preview deployments. But what if you want to use AWS for your preview deployments? If all your infrastructure is already on AWS, it makes sense to use AWS for your preview deployments as well to keep everything in one place. This would help you to keep your costs down and make it easier to manage your infrastructure.
+
+## How to deploy websites to AWS S3
+
+We've been using [S3 sync action](https://github.com/jakejarvis/s3-sync-action) for a while which is very simple and great! Unfortunately, it doesn't support preview deployments out of the box. So, we need to do a little bit of work to make it work. Of course, you can use [AWS CLI](https://aws.amazon.com/cli/) directly or any other action to do the same job. All of them will work, but you need to have the infrastructure ready before deploying any textChangeRangeNewSpan.
+
+## AWS architecture for preview deployments
+
+Before we start, let's take a look at the architecture we are going to use for our preview deployments. We are going to use the following AWS services:
+
+- S3: to store our static files
+- CloudFront: to serve our static files and provide SSL
+- CloudFront functions: to add basic authentication to our preview deployments and redirects
+- Route 53: to manage our DNS records
+
+Here is what our architecture will look like:
+
+<img src="/static/img/articles/2024-04-28/aws.svg" width="100%" />
+
+To make preview deployments performant, we are going to use one Cloudfront distribution and Cloudfront function to render specific folders from S3 bucket.
+
+## Open source GitHub Action
+
+I hope this could be helpful for a lot of people who are not looking to migrate from AWS and would like to have preview deployments as part of their developer experience workflow. I have created an open-source GitHub Action that you can use to deploy your websites to AWS S3 with preview deployments.
+
+You can find the [preview-deployment-action](https://github.com/barecheck/preview-deployment-action) open-sourced on GitHub. Feel free to try it out and let me know if you have any feedback or suggestions.
+
+## How to use the action
+
+To use the action, you need to add the follwing worflow to your GitHub project:
+
+```yaml
+name: Preview Deployment
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - closed
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        id: setup-node
+        uses: actions/setup-node@v4
+
+      #
+      # YOUR APPLICATION BUILD STEPS ARE HERE
+      #
+
+      - name: Run deployment preview
+        id: s3-preview-deployment-action
+        uses: barecheck/preview-deployment-action@v1
+        with:
+          # The action should run after your static file are built
+          build-dir: YOU_STATIC_FILES_OUT_DIR
+          # App name will be used to create AWS resources.
+          app-name: YOUR_APP_NAME
+          # Preview deployments will add `preview-{PR-number}` as subdomain to this domain
+          domain: YOUR_DOMAIN_NAME
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_REGION: ${{ secrets.AWS_REGION }}
+          AWS_ACCOUNT_ID: ${{ secrets.AWS_ACCOUNT_ID }}
+          AWS_CLOUDFRONT_CERTIFICATE_ARN: ${{ secrets.AWS_CLOUDFRONT_CERTIFICATE_ARN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+```
+
+- The pipeline will run on every Pull request and deploy the changes to the preview bucket.
+- The preview bucket will be created automatically if it doesn't exist.
+- The preview URL will be added to the Pull request as a Github deployment.
+
+If everything goes well, here is the screenshot where you can find a link for preview deployment:
+
+<img src="/static/img/articles/2024-04-28/github-preview.jpg" width="100%" />
+
+## What's next?
+
+I would be happy to hear if there is any interest from others to use this action. If you have any questions or need help setting it up, feel free to reach out to me on [Linkedin](https://www.linkedin.com/in/vitalii-melnychuk-0736a1b1) or just open an issue on GitHub.
+
+There are a few ideas that I already have in mind and planning to add shortly:
+
+- Add support for protected preview deployments. Now, anyone with a link can access the preview deployment. I would like to add basic authentication or GitHub one to protect the preview deployments.
+- GitHub comments with progress and more details about deployments. I think the GitHub environment is a great place to start but they are quite limited.
+- Add Docker support. The action now only deploys static files to S3. Having Docker based preview deployments would be a game changer for some projects when people use small Python, Ruby or Next.js apps.
+
+I hope this article was helpful and you learned something new today. Thank you for reading!

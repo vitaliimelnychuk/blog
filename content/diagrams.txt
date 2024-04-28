@@ -1,0 +1,13 @@
+AWS Preview deployments
+
+flowchart TB
+A[preview-1.example.com] -->|Request| R53[AWS Route 53]
+A2[preview-2.example.com] -->|Request| R53[AWS Route 53]
+A3[preview-3.example.com] -->|Request| R53[AWS Route 53]
+R53 --> CL[AWS Cloudfront]
+CL --> |\*.example.com AWS Certificate| CL
+CL --> CF[Cloudfront function]
+CF --> |'/preview-1'| S31[AWS Private S3]
+CF --> |'/preview-2'| S32[AWS Private S3]
+CF -->|'/preview-3'| S33[AWS Private S3]
+
