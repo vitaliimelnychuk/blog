@@ -15,7 +15,7 @@ function NavLink({ href, children }: { href: string; children: ReactNode }) {
 }
 export function Footer() {
   return (
-    <footer className="mt-32">
+    <footer className="mt-24">
       <OuterContainer>
         <div className="border-t border-zinc-100 pt-10 pb-16 dark:border-zinc-700/40">
           <InnerContainer>

@@ -16,8 +16,8 @@ export default function RootLayout({
           content="I’m Vitalii, a software engineer  based in Porto, Portugal. I occasinally build new stuff and share my learnings here."
         />
       </head>
-      <body className="flex h-full flex-col bg-zinc-50 dark:bg-black">
-        <div className="flex h-full flex-col">
+      <body className="flex min-h-full flex-col bg-zinc-50 dark:bg-black">
+        <div className="flex min-h-full flex-col">
           <div className="fixed inset-0 flex justify-center">
             <div className="flex w-full max-w-7xl">
               <div className="w-full bg-white ring-1 ring-zinc-100 dark:bg-zinc-900 dark:ring-zinc-300/20" />
