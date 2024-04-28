@@ -95,7 +95,11 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-The pipeline will run on every Pull request and deploy the changes to the preview bucket. The preview bucket will be created automatically if it doesn't exist. The preview URL will be added to the Pull request as a Github deployment. If everything goes well, here is the screenshot where you can find a link for preview deployment:
+- The pipeline will run on every Pull request and deploy the changes to the preview bucket.
+- The preview bucket will be created automatically if it doesn't exist.
+- The preview URL will be added to the Pull request as a Github deployment.
+
+If everything goes well, here is the screenshot where you can find a link for preview deployment:
 
 <img src="/static/img/articles/2024-04-28/github-preview.jpg" width="100%" />
 
