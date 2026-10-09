@@ -4,13 +4,14 @@ import { getArticleBySlug, getAllArticles } from '../../../src/lib/markdown'
 import { Container } from '../../../src/components/Container'
 import { formatDate } from '../../../src/lib/date'
 type ArticleSinglePageProps = {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 async function ArticleSinglePage({ params }: ArticleSinglePageProps) {
-  const article = await getArticleBySlug(params.slug)
+  const { slug } = await params
+  const article = await getArticleBySlug(slug)
   if (!article) notFound()
 
   return (
@@ -20,7 +21,7 @@ async function ArticleSinglePage({ params }: ArticleSinglePageProps) {
           <div className="mx-auto max-w-2xl">
             <article>
               <header className="flex flex-col">
-                <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 dark:text-zinc-100 sm:text-5xl">
+                <h1 className="mt-6 text-4xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
                   {article.meta.title}
                 </h1>
                 <time
@@ -31,7 +32,7 @@ async function ArticleSinglePage({ params }: ArticleSinglePageProps) {
                   <span className="ml-3">{formatDate(article.meta.date)}</span>
                 </time>
               </header>
-              <div className="prose mt-8 dark:prose-invert">
+              <div className="prose dark:prose-invert mt-8">
                 {article.content}
               </div>
             </article>
