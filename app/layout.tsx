@@ -11,7 +11,11 @@ export const metadata: Metadata = {
   description:
     'I’m Vitalii, a software engineer  based in Porto, Portugal. I occasinally build new stuff and share my learnings here.',
   icons: {
-    icon: '/static/favicon.ico',
+    icon: [
+      { url: '/static/favicon.ico', sizes: 'any' },
+      { url: '/static/icon.png', type: 'image/png', sizes: '192x192' },
+    ],
+    apple: '/static/apple-touch-icon.png',
   },
 }
 
