@@ -3,6 +3,7 @@ import { BriefcaseIcon } from '@heroicons/react/24/solid'
 
 import logoFreelance from '../images/logos/freelance.svg'
 import farfetchLogo from '../images/logos/farfetch.svg'
+import logoKeeptabz from '../images/logos/keeptabz.png'
 import logoReflaunt from '../images/logos/reflaunt.png'
 import logoYaware from '../images/logos/yaware.png'
 import logoWise from '../images/logos/wise.jpeg'
@@ -10,11 +11,18 @@ import logoWise from '../images/logos/wise.jpeg'
 function Resume() {
   const resume = [
     {
+      company: 'Keeptabz.ai',
+      title: 'Co-founder & CTO',
+      logo: logoKeeptabz,
+      start: 'Jan 2026',
+      end: null,
+    },
+    {
       company: 'Reflaunt',
-      title: 'Engineering Manager',
+      title: 'Head of Engineering',
       logo: logoReflaunt,
       start: '2022',
-      end: null,
+      end: 'Dec 2025',
     },
     {
       company: 'Freelance',
