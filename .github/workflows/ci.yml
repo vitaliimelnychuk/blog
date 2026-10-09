@@ -11,25 +11,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js 16.16.0
-        uses: actions/setup-node@v3.5.0
+      - uses: actions/checkout@v4
+      - name: Use Node.js 22
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.16.0
-
-      - name: Cache node modules
-        uses: actions/cache@v3
-        with:
-          path: node_modules
-          key: node_modules-v1-${{ hashFiles('yarn.lock') }}
-          restore-keys: |
-            node_modules-
+          node-version: 22
+          cache: yarn
 
       - name: Install dependencies
-        run: yarn
+        run: yarn --frozen-lockfile
 
       - name: Run formatting checks
         run: yarn format-check
 
       - name: Run linting checks
         run: yarn lint
+
+      - name: Build
+        run: yarn build

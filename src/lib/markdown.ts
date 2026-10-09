@@ -1,5 +1,6 @@
 import fs from 'fs'
 import { join } from 'path'
+import type { ReactElement } from 'react'
 import { compileMDX } from 'next-mdx-remote/rsc'
 
 export interface MarkdownItemMeta {
@@ -10,7 +11,7 @@ export interface MarkdownItemMeta {
 export type ArticleMarkdownItem = {
   url: string
   slug: string
-  content: JSX.Element
+  content: ReactElement
   meta: MarkdownItemMeta
 }
 
@@ -43,12 +44,15 @@ export async function getArticleBySlug(
     slug
   )
 
-  const { content, frontmatter } = await compileMDX({
+  const { content, frontmatter } = await compileMDX<{
+    date?: string
+    title?: string
+    description?: string
+  }>({
     source,
     options: {
       parseFrontmatter: true,
     },
-    compiledSource: source,
   })
 
   return {
