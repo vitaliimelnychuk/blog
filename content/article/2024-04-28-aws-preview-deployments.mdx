@@ -22,7 +22,7 @@ I have been a big fan of Vercel and Netlify for a long time, both of them do a g
 
 ## How to deploy websites to AWS S3
 
-We've been using [S3 sync action](https://github.com/jakejarvis/s3-sync-action) for a while which is very simple and great! Unfortunately, it doesn't support preview deployments out of the box. So, we need to do a little bit of work to make it work. Of course, you can use [AWS CLI](https://aws.amazon.com/cli/) directly or any other action to do the same job. All of them will work, but you need to have the infrastructure ready before deploying any change.
+We have used the [S3 sync action](https://github.com/jakejarvis/s3-sync-action) for a while. It is simple and works well, but it does not support preview deployments on its own, so we add a small amount of setup around it. You can use the [AWS CLI](https://aws.amazon.com/cli/) or another action for the upload. Any of them work once the infrastructure is in place.
 
 ## AWS architecture for preview deployments
 
@@ -37,7 +37,7 @@ Here is what our architecture will look like:
 
 <img src="/static/img/articles/2024-04-28/aws.svg" width="100%" />
 
-To make preview deployments performant, we are going to use one Cloudfront distribution and Cloudfront function to render specific folders from S3 bucket.
+To keep preview deployments fast, we use one CloudFront distribution and a CloudFront function that serves a specific folder from the S3 bucket.
 
 ## Open source GitHub Action
 
@@ -47,7 +47,7 @@ You can find the [preview-deployment-action](https://github.com/barecheck/previe
 
 ## How to use the action
 
-To use the action, you need to add the follwing worflow to your GitHub project:
+To use the action, add the following workflow to your GitHub project:
 
 ```yaml
 name: Preview Deployment
@@ -80,7 +80,7 @@ jobs:
         id: s3-preview-deployment-action
         uses: barecheck/preview-deployment-action@v1
         with:
-          # The action should run after your static file are built
+          # The action should run after your static files are built
           build-dir: YOU_STATIC_FILES_OUT_DIR
           # App name will be used to create AWS resources.
           app-name: YOUR_APP_NAME
@@ -97,7 +97,7 @@ jobs:
 
 - The pipeline will run on every Pull request and deploy the changes to the preview bucket.
 - The preview bucket will be created automatically if it doesn't exist.
-- The preview URL will be added to the Pull request as a Github deployment.
+- The preview URL is added to the pull request as a GitHub deployment.
 
 If everything goes well, here is the screenshot where you can find a link for preview deployment:
 
@@ -105,12 +105,12 @@ If everything goes well, here is the screenshot where you can find a link for pr
 
 ## What's next?
 
-I would be happy to hear if there is any interest from others to use this action. If you have any questions or need help setting it up, feel free to reach out to me on [Linkedin](https://www.linkedin.com/in/vitalii-melnychuk-0736a1b1) or just open an issue on GitHub.
+I would be happy to hear if there is any interest from others to use this action. If you have any questions or need help setting it up, feel free to reach out on [LinkedIn](https://www.linkedin.com/in/vitalii-melnychuk-0736a1b1) or open an issue on GitHub.
 
 There are a few ideas that I already have in mind and planning to add shortly:
 
 - Add support for protected preview deployments. Now, anyone with a link can access the preview deployment. I would like to add basic authentication or GitHub one to protect the preview deployments.
 - GitHub comments with progress and more details about deployments. I think the GitHub environment is a great place to start but they are quite limited.
-- Add Docker support. The action now only deploys static files to S3. Having Docker based preview deployments would be a game changer for some projects when people use small Python, Ruby or Next.js apps.
+- Add Docker support. The action currently deploys static files to S3. Docker-based preview deployments would help projects that run small Python, Ruby, or Next.js apps.
 
 I hope this article was helpful and you learned something new today. Thank you for reading!

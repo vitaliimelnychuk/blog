@@ -21,15 +21,15 @@ jobs:
         uses: actions/cache@v3
         with:
           path: node_modules
-          key: node_modules-v1-${{ hashFiles('yarn.lock') }}
+          key: node_modules-v1-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             node_modules-
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Run formatting checks
-        run: yarn format-check
+        run: npm run format-check
 
       - name: Run linting checks
-        run: yarn lint
+        run: npm run lint
