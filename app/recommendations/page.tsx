@@ -2,16 +2,17 @@ import { Container } from '../../src/components/Container'
 import BookCard from '../../src/components/BookCard'
 import { books } from '../../content/books'
 
-export default async function BooksPage() {
+export default async function RecommendationsPage() {
   return (
     <>
       <Container className="mt-9">
         <div className="max-w-2xl">
           <h1 className="text-3xl font-bold tracking-tight text-zinc-800 sm:text-5xl dark:text-zinc-100">
-            Reading occasinally while traveling and not working
+            Recommendations
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            You can find my book recommendations with short descriptions below.
+            Engineering books I recommend, with a short note on why each one is
+            worth your time.
           </p>
         </div>
       </Container>

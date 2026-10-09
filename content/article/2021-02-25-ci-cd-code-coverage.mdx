@@ -1,34 +1,36 @@
 ---
 title: Code coverage as a part of CI/CD
 date: 25 Feb 2021
-description: This article describes how to make Github Actions working for you. Sometimes we so busy to automate to make us less busy. I am sharing the common workflow that you can just copy from project to project and adding code coverage changes based checking at the end.
+description: This article describes how to make GitHub Actions work for you. We are often too busy to automate the work that would make us less busy. I am sharing a workflow you can copy from project to project, with a code-coverage check at the end.
 ---
 
-This article is not related to my current job, but reflects all my side projects and shows how far you can go once you have an idea in mind.
+This article is not about my day job. It comes from side projects, and from how far you can get once an idea is clear enough to build.
 
-It started this autumn when I developed a few personal projects to try out new technologies/libs. Mostly, for daily basics I am using [TDD](_https://en.wikipedia.org/wiki/Test-driven_development_) approach and unit testing is mandatory for me as it easy to support and covers most critical cases.
+It started one autumn, when I built a few personal projects to try new libraries. For day-to-day work I use [TDD](https://en.wikipedia.org/wiki/Test-driven_development). Unit tests are mandatory for me because they are easy to maintain and they cover the cases that matter most.
 
-## My Github workflow
+## My GitHub workflow
 
-Mostly, I am a big fun of [Github Actions](_https://github.com/features/actions_). I was so thrilled once beta was release last year and decided to move everything from CircleCI to Github Actions.
+I am a big fan of [GitHub Actions](https://github.com/features/actions). When the beta shipped, I moved everything from CircleCI to GitHub Actions.
 
-### Invest a few minutes in your project feature
+### Spend a few minutes on project setup
 
-If you are reading this and worked on something very legacy you understand this from the beginning. Things are going to be complicated event we try to keep them simple and think they will not be. Of course, there are a lot of ways how you can avoid it, the question how much time you have to invest to project setup.
-Once new idea comes, the last thing we want is to think how we can deploy it or how to setup CI.
+If you have worked on a legacy codebase, you already know this. Things get complicated even when we try to keep them simple. There are many ways to avoid that mess. The real question is how much time you can spend on setup.
 
-### Have a workflow that you can just copy
+When a new idea shows up, the last thing we want to think about is deployment or CI.
 
-What I really like in Github Actions they are so intuitive. Even, first time looking there you can change commands and make it as you need.
+### Keep a workflow you can copy
 
-I am using a few workflows that I am copying from project to project just to have everything settled up and improve as project growth. It makes everything clean at the begging without additional complexity and still give a lot of space for future improvements.
+GitHub Actions are intuitive. The first time you open a workflow, you can change the commands and make them fit the project.
 
-### Linting/Formatting/Tests
+I keep a few workflows that I copy from project to project so the basics are in place, then I improve them as the project grows. That keeps the start simple and still leaves room for later.
 
-This is the first I suggest to add to your project (if you don’t have one) that will improve your daily basics development and team mood.
-One thing that I think should be reviewed by other developers - _code styling_. Static code analysers are so great can be configurable to make it done even before someone else start looking to the code. Sometimes, it’s not only about saving time, it’s also improve your team communication and focus on something that is really better. Instead of argufying on indentation, unwed variables issues you can talk about optimising performance. I am not trying to say that code styling is not important - it’s so important but it’s something that should be defined once and followed without a lot of attention.
+### Linting, formatting, and tests
 
-Here is basic workflow, where you are able just to copy to project and maybe change commands based on the tools you are using. This one is for Node.js application that are using _eslint_, _prettier_, _yarn_. As a note, all these commands should have been described in package.json file.
+This is the first workflow I add if a project does not have one. It improves daily development and the mood of the team.
+
+Code style is one of the things other developers should not have to review by hand. Static analysis can be configured so style issues are caught before anyone else reads the change. That is not only about saving time. It also improves how the team talks: instead of arguing about indentation or unused variables, you can talk about performance. Style still matters. It should be decided once and then followed without much attention.
+
+Here is a basic workflow you can copy into a project and adjust for the tools you use. This one is for a Node.js application that uses ESLint, Prettier, and npm. The commands need to exist in `package.json`.
 
 ```yaml
 name: CI
@@ -48,59 +50,58 @@ jobs:
         uses: actions/cache@v1
         with:
           path: node_modules
-          key: node_modules-v1-${{ hashFiles('yarn.lock') }}
+          key: node_modules-v1-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             node_modules-
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Run linting checks
-        run: yarn lint
+        run: npm run lint
 
       - name: Run formatting checks
-        run: yarn format-check
+        run: npm run format-check
 
       - name: Run tests
-        run: yarn test
+        run: npm test
 ```
 
 ## Code coverage
 
-It was general working evening, me and my colleague were working on the new Node.js service and ended up with code review.
+It was a normal evening. A colleague and I were working on a new Node.js service and ended up in code review.
 
-Usually, I am making `git checkout {review_branch}` before making Github review. I am doing this to check tests, coverage and how everything is organized.
+I usually run `git checkout {review_branch}` before I review on GitHub, so I can check the tests, the coverage, and how the code is organized.
 
-I don’t really like this process, actually I hate it sometimes. Sometimes, I have something I am working on and it’s on the unfinished state. It’s going to be total mess to stashing these changed switching branches and so on and this all only for checking total code coverage.
+I do not like that process. Sometimes I have unfinished work in the working tree. Stashing changes and switching branches, only to check a coverage number, turns into a mess.
 
-At that point, I started research - what we can use for code coverage instant Github responses. As far, as we are using Github mostly for everything why we just run some command that gives us report about current coverage?
+That is when I started looking for a way to get coverage feedback directly on GitHub. If we already use GitHub for everything else, we should be able to run a command and get a report on the current coverage.
 
 ### Tool requirements
 
-There are some great tools that are really powerful for code coverage reports like [https://coveralls.io/](https://coveralls.io/) and [https://about.codecov.io/](https://about.codecov.io/).
+There are strong hosted tools for coverage reports, including [Coveralls](https://coveralls.io/) and [Codecov](https://about.codecov.io/).
 
-I am not going to describe pros/cons of solutions we already have on the cloud and what’s they give us. They both are great if you are looking for third-party as code-coverage analyser. At that time I was looking for something that I can easily make a part of my workflow that I will copy from project to project and enjoy using.
+I will not compare every cloud option here. Both are good if you want a third-party coverage service. I wanted something I could drop into the workflow I copy from project to project.
 
-In my mind, I was looking for tool to make it a part of review workflow, where you have everything integrated in Github and avoid switching somewhere else.
+I wanted the review to stay inside GitHub, without opening another site.
 
-- Should be built over Github Actions
-- Updates code coverage trend for incoming changes
-- Show lines of uncovered files
+- Built on GitHub Actions
+- Shows how coverage changes with the incoming diff
+- Points at uncovered lines
 
-Those are three main things we wanted to have automated without additional third-party service.
+Those three things were what we wanted automated, without another third-party service.
 
 ## Barecheck
 
-There is no better way of spending autumn evening than on writing something new for you, especially if you are going to use it in daily basics. P.S. This is how a few barecheck projects where started.
+There is no better way to spend an autumn evening than building something you will actually use. That is how a few Barecheck projects started.
 
-[GitHub - barecheck/code-coverage-action](https://github.com/barecheck/code-coverage-action) - GitHub Action that generates code coverage reports.
-I wanted to share it with everyone as a part of daily routine that we all have.
+[barecheck/code-coverage-action](https://github.com/barecheck/code-coverage-action) is a GitHub Action that generates code coverage reports. I wanted to share it as part of the daily routine most of us already have.
 
-The action is built over **_lcov_** code coverage report by parsing code coverage results and gives just summary statistic in the comment.
+The action reads an **lcov** report, parses the results, and posts a short summary as a comment.
 
 <img src="/static/img/articles/2021-02-25/barecheck-comment.png" width="100%" />
 
-I have been enjoying using it for a few months and wanted to share with everyone, It’s already released on [GitHub Marketplace](https://github.com/marketplace/actions/barecheck-code-coverage) and can be added as a separate workflow to your project
+I used it for a few months before sharing it. It is on the [GitHub Marketplace](https://github.com/marketplace/actions/barecheck-code-coverage) and can be added as its own workflow.
 
 ```yaml
 name: Code Coverage
@@ -120,10 +121,10 @@ jobs:
           node-version: 12.13.1
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Run test coverage
-        run: yarn coverage
+        run: npm run coverage
 
       - name: Upload code coverage for ref branch
         uses: actions/upload-artifact@v2
@@ -147,12 +148,12 @@ jobs:
           name: ref-lcov.info
 
       - name: Install dependencies
-        run: yarn
+        run: npm ci
 
       - name: Run test coverage
-        run: yarn coverage
+        run: npm run coverage
 
-      #  Compares two code coverage files and generates report as a comment
+      # Compares two code coverage files and posts the report as a comment
       - name: Generate Code Coverage report
         id: code-coverage
         uses: barecheck/code-coverage-action@v0.2.0
@@ -160,10 +161,10 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           lcov-file: './coverage/lcov.info'
           base-lcov-file: './lcov.info'
-          minimum-ratio: 0 # Fails Github action once code coverage is decreasing
+          minimum-ratio: 0 # Fails the GitHub Action if coverage decreases
           send-summary-comment: true
 ```
 
-This example shows how you can force on the code coverage by failing jobs with lower coverage. It’s also worth to mention that action is working more with /comparing/ changes so you easily can start with projects that already have low coverage but you want to improve it.
+This example fails the job when coverage drops, so the pull request has to hold the line. The action compares changes, which means you can start on a project that already has low coverage and still push it upward.
 
-I hope you enjoyed reading that I shared today to make everyday’s routine better and give it a try.
+I hope this makes the everyday review a little better, and that you give the action a try.

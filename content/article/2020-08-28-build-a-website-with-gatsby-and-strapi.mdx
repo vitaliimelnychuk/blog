@@ -2,213 +2,158 @@
 title: Build a website with Gatsby and Strapi Core concepts
 date: 28 Jul 2020
 description:
-  It's been amazing month that I've spend with new project based on Gatsby frontend and Headless CMS - Strapi.
-  It would be unfair if I couldn't share all insights and results we've got from that technologies.
-  Interested to build your own application and host it on AWS? Let's check before you have your own story with this amazing stack.
+  I spent a month on a new project with a Gatsby frontend and Strapi as the headless CMS.
+  It would be unfair not to share what we learned from that stack.
+  If you want to build your own application and host it on AWS, this is the setup we used.
 ---
 
-I am so thrilled to write about projects infrastructure, especially
-about released ones.
+I like writing about project infrastructure, especially after something has shipped.
 
-## It's not about documentation
+## This is not a documentation rewrite
 
-I won't explain things that are already great described in official
-documentation
+I will not repeat what the official docs already explain well:
 [**Gatsby**](https://www.gatsbyjs.org/docs) and [**Strapi**](https://strapi.io/documentation).
 
-If you are interested in specific feature - look there and get the
-topic you want.
+If you need a specific feature, start there.
 
-## Resourses
+## Resources
 
-Before we go futher - check usefull atricles/docs I've read before.
+Before going further, these are the articles and docs I read first.
 
 - [Build a static blog with Gatsby and Strapi](https://strapi.io/blog/build-a-static-blog-with-gatsby-and-strapi)
-- [GraphQL & Gatsby](https://www.gatsbyjs.org/docs/graphql/)
+- [GraphQL and Gatsby](https://www.gatsbyjs.org/docs/graphql/)
 - [Data in Gatsby](https://www.gatsbyjs.org/tutorial/part-four/#data-in-gatsby)
 - [gatsby-image](https://www.gatsbyjs.org/packages/gatsby-image/)
 - [Strapi Upload](https://strapi.io/documentation/3.0.0-beta.x/plugins/upload.html)
 - [Strapi Webhooks](https://strapi.io/blog/webhooks)
 
-If you are familiar with core concept, you can skip them and start
-connecting things together.
+If you already know the core ideas, skip ahead and start connecting the pieces.
 
 ## What is Strapi?
 
-Strapi is **open-source**, content based Headless CMS. I've
-intentionally highlighted 'open-source' because it's really important - it takes Strapi into the new level and changes your mind about CMS (if it didn't - you definetely have to take a look and try to use
-next-gen headless CMS!)
+Strapi is an **open-source**, content-focused headless CMS. I highlight open source because it changes how you think about a CMS. If it has not changed yours yet, it is worth trying a next-generation headless CMS.
 
-To describe overall **Strapi core components** and basically core
-Headless CMS concept I've got the next scheme:
+This is the picture I use for **Strapi's core components**, and for the headless CMS idea in general:
 
 <img src="/static/img/articles/2020-08-28/strapi-components.jpg" width="75%" />
 
-As you can see, we have admin and API where everything happens. The
-idea is to split up your data management and presentation level
-(Gatsby has taken this part).
+The admin UI and the API are where the work happens. The point is to split data management from presentation. Gatsby takes the presentation side.
 
-## Gatsby + Strapi are so powerful together
+## Gatsby and Strapi work well together
 
-Working with this combination is sort of different than working with just
-Gatsby. The main difference here - you have **Headless CMS** that
-manages your data rather than you have to store data as code. It
-brings you some level of complexity where you have to manage your
-infrastracture (Host Strapi, database and their availability).
+This combination feels different from Gatsby on its own. A **headless CMS** owns the data, so you are not storing content as code. That adds operational work: you have to host Strapi, run a database, and keep both available.
 
 ## Infrastructure setup
 
-Developing infrastracture is not less important than choosing your
-frameworks. In this guide we are going to use **AWS services**.
-It’s always hard for me to choose level of complexity we need for
-specific project. It's not a case to use Docker everywhere or deploy
-everything to k8s.
+Infrastructure matters as much as the framework you pick. This guide uses **AWS**. I always find it hard to choose how much complexity a project needs. Not every service belongs in Docker, and not everything belongs on Kubernetes.
 
-To spead up things and make developers support it as easy as possible
-we have chosen to start without auto-deployments and build all
-infrastracture based on [**AWS EC2**](https://aws.amazon.com/ec2/)
-and [**AWS Application Load Balancer**](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) to have internet-facing traffic.
+To move faster and keep support simple, we started without automatic deploys. The Strapi infrastructure is [**Amazon EC2**](https://aws.amazon.com/ec2/) plus an [**Application Load Balancer**](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html) so the service can take public traffic.
 
-Eventually, we got the following structure for Strapi AWS setup:
+The Strapi layout ended up like this:
 
 <img src="/static/img/articles/2020-08-28/aws-infra.jpg" width="75%" />
 
-Speaking about Strapi part you might notice we have Application load
-balancer (ALB) at the top of all architecture. This is an important
-part even if you have only one EC2 instance for your needs. Despite
-all benefits we have by using ALB, we also get ability to use
-[**AWS Route 53**](https://aws.amazon.com/route53/) and
-[**AWS Certificate Manager**](https://aws.amazon.com/certificate-manager/)
+The Application Load Balancer sits in front of the whole setup. It is worth having even when you run a single EC2 instance. Besides the usual load-balancer benefits, it lets you use [**Route 53**](https://aws.amazon.com/route53/) and [**AWS Certificate Manager**](https://aws.amazon.com/certificate-manager/).
 
-They both are making final part in configuring infrastracture where
-you'll be able to add own domain and use SSL (Secure Sockets Layer)
-for keeping an internet connection secure.
+Those two finish the infrastructure: your own domain, and TLS so the connection stays encrypted.
 
-For Gatsby hosting we have chosen
+For Gatsby we chose:
 
-- [**AWS S3**](https://aws.amazon.com/s3/)
-- [**AWS Cloudfront**](https://aws.amazon.com/cloudfront/)
+- [**Amazon S3**](https://aws.amazon.com/s3/)
+- [**Amazon CloudFront**](https://aws.amazon.com/cloudfront/)
 
-This pair of services stands for storing, caching, destributing
-static files over the world and handling everything we need from
-static website hosting.
+Together they store the files, cache them, distribute them, and serve the static site.
 
-## Triggering Gatsby build
+## Triggering a Gatsby build
 
-Gatsby is fast and modern site generator. It's required to have a
-place where all Gatsby builds happen. Presumably, we can say there are
-two ways how frontend should be regenerated:
+Gatsby is a fast static site generator, and the builds need somewhere to run. The frontend should rebuild in two cases:
 
-- Code changes
-- Headless CMS data update
+- The code changes
+- Content in the headless CMS changes
 
-To handle both we need to add webhook build where we will be able to
-handle both cases and run deployment command.
+A webhook covers both: it receives the event and runs the deploy command.
 
-We've decided to put it under load balancer where strapi API and Admin
-are hosted. As far as we are using [**PM2**](https://pm2.keymetrics.io/) as a process manager for our Node.js applications, it'd be smart to add one separate application to handle all deployments. After attempt
-to visualize it I got following image:
+We put that handler behind the same load balancer as the Strapi API and admin. We already use [**PM2**](https://pm2.keymetrics.io/) for Node.js, so a separate PM2 app for deploys was the simple choice. This is the picture I ended up with:
 
 <img src="/static/img/articles/2020-08-28/EC2-overview.jpg" width="40%" />
 
-Having webhook in one of your servers is useful, you might trigger it
-rather from your CI or from [Strapi Webhooks](https://strapi.io/blog/webhooks). It brings us to the place where we just need to setup webhooks application to make deployment to have the full picture.
+A webhook on one of your servers can be called from CI or from [Strapi webhooks](https://strapi.io/blog/webhooks). After that, the missing piece is the small app that receives the hook and runs the deploy.
 
-## Webhooks handler
+## Webhook handler
 
-The first reason why we have chosen to develop webhooks with Node.js
-and host under PM2 - we don't need any additional proxy and increase
-level of infrastracture complexity.
+We wrote the webhook handler in Node.js and hosted it under PM2 so we would not add another proxy or more infrastructure.
 
-Here we go! In your project Strapi directory create a new folder for
-webhooks application. There is no matter what kind of deployments you
-have, eventually you'll have to ship created directory to the same
-servers where you have strapi.
+In the Strapi project, create a folder for the webhook app. However you deploy, that folder needs to land on the same servers as Strapi.
 
 ```js
-const http = require("http");
-const exec = require("child_process").exec;
+const http = require('http')
+const exec = require('child_process').exec
 
-const STRAPI_WEBHOOK_AUTH_TOKEN = process.env.STRAPI_WEBHOOK_AUTH_TOKEN;
+const STRAPI_WEBHOOK_AUTH_TOKEN = process.env.STRAPI_WEBHOOK_AUTH_TOKEN
 
-let isActiveDeployment = false;
+let isActiveDeployment = false
 
 const getAuthToken = (authHeader) => {
-  if (authHeader.startsWith("Bearer ")) {
-    return authHeader.substring(7, authHeader.length);
+  if (authHeader.startsWith('Bearer ')) {
+    return authHeader.substring(7, authHeader.length)
   }
 
-  return null;
-};
+  return null
+}
 
 http
   .createServer(function (req, res) {
-    req.on("data", function (chunk) {
+    req.on('data', function (chunk) {
       if (isActiveDeployment) {
-        res.writeHead(400, { "Content-Type": "plain/text" });
-        res.write("Deployment is in progress");
-        res.end();
-        return;
+        res.writeHead(400, { 'Content-Type': 'plain/text' })
+        res.write('Deployment is in progress')
+        res.end()
+        return
       }
 
-      const token = getAuthToken(req.headers.authorization);
+      const token = getAuthToken(req.headers.authorization)
       if (token === STRAPI_WEBHOOK_AUTH_TOKEN) {
-        res.end();
-        isActiveDeployment = true;
-        // You might use any other tool to run deploy script (yarn, npm, bash, ...)
-        exec(\`cd ~/your-frontend-code && make deploy-frontend\`, (error, stdout, stderr) => {
-          if (error) {
-            console.error(\`exec error: \${error}\`);
-            return;
+        res.end()
+        isActiveDeployment = true
+        // npm, or a shell script, can run the deploy the same way
+        exec(
+          'cd ~/your-frontend-code && make deploy-frontend',
+          (error, stdout, stderr) => {
+            if (error) {
+              console.error(`exec error: ${error}`)
+              return
+            }
+            console.log(`stdout: ${stdout}`)
+            console.log(`stderr: ${stderr}`)
+            isActiveDeployment = false
           }
-          console.log(\`stdout: \${stdout}\`);
-          console.log(\`stderr: \${stderr}\`);
-          isActiveDeployment = false;
-        });
+        )
       } else {
-  res.writeHead(401, { "Content-Type": "application/json" });
-  res.end();
-}
-    });
+        res.writeHead(401, { 'Content-Type': 'application/json' })
+        res.end()
+      }
+    })
   })
-  .listen(8080);
-
+  .listen(8080)
 ```
 
-By going from line to line in the script above you might see that
-there is STRAPI_WEBHOOK_AUTH_TOKEN. I'd like to cover this point and
-go through Strapi setup to show how things are set there. To see all
-webhooks that are available in your strapi application go to Settings
-tab.
+Walking through the script, `STRAPI_WEBHOOK_AUTH_TOKEN` is the shared secret. In the Strapi admin, open the Settings tab to see the webhooks configured for the application.
 
-Also you can disable some of the Strapi webhooks if you need. Read more [Strapi Webhooks](https://strapi.io/blog/webhooks) for details.
+You can also turn individual Strapi webhooks off. The [Strapi webhooks](https://strapi.io/blog/webhooks) post covers the details.
 
 <img src="/static/img/articles/2020-08-28/strapi-webhook.png" width="100%" />
 
-To have basic level of protection we've added Basic authorixation -
-it's actually the one that was mentioned before in the webhook script.
+For a basic level of protection we check a bearer token. That is the same token the script above expects. The header is named like HTTP Basic authentication in some setups, but the check itself is a shared secret on the request.
 
-## Strapi Customization
+## Strapi customization
 
-When we started, customization was a point. We knew that adding
-payments, email notifications, etc includes a lot of custom logic and
-it should be injected somewhere.
+Customization was a requirement from the start. Payments, email notifications, and similar features need custom logic, and that logic has to live somewhere.
 
-As far as Strapi is built over MVC pattern, customizing controllers is
-one of the concepts. Check out this article for more context:
-[**Customizing Controllers**](https://strapi.io/documentation/v3.x/concepts/controllers.html#concept). You don't need any knowledge in prior to start customizing your
-application. This is actually what I like, no 'Strapi language' that
-should be learnt.
+Strapi follows an MVC shape, so customizing controllers is one of the main extension points. This article has more context:
+[**Customizing controllers**](https://strapi.io/documentation/v3.x/concepts/controllers.html#concept). You do not need special knowledge before you start. There is no separate "Strapi language" to learn, which is what I like about it.
 
 ## Conclusion
 
-Of course, having this infrastructure we are not at the end of the
-journey. Actually I need to say this is only a starting point where
-you have a lot of control on infrastructure setup and things might be
-done manually so quickly. Looking forward to the future development we
-are going to move into CI/CD deployments where everything is handled
-by CI builds and Strapi webhook handler — it's only a part of it. But
-it doesn't change a general concept where we have **fast**,
-**reliable** frontend and powerful, simple content based API.
+This infrastructure is a starting point, not the end. You still have a lot of control, and many steps are manual, which is fine while the project is small. The next step is CI/CD, where builds and the Strapi webhook handler share the work. The idea stays the same: a **fast**, **reliable** frontend and a simple content API.
 
-Happy Coding!
+Happy coding!

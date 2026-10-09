@@ -1,52 +1,51 @@
 ---
 title: How to Optimize Images for Web and Performance
 date: 22 Oct 2021
-description: Images are really underestimated on their impact on web performance. There are a few steps that each team can do to make the web faster without hours spent.
+description: Images are easy to underestimate, and they have a large impact on web performance. A few steps can make a site faster without hours of work.
 ---
 
-It's been a year since my switch to the full-time Performance job. I like performance from all aspects, no matter if it is capacity testing, server benchmarking, or user-centric metrics.
+It has been a year since I switched to a full-time performance role. I like performance from every angle: capacity testing, server benchmarking, and user-centric metrics.
 
-Last month, I bought **[Image Optimization](https://www.smashingmagazine.com/printed-books/image-optimization/)** by Addy Osmani to help other teams render images efficiently. It took me 200 pages and I couldn't wait to try the difference
-and how much you lose by choosing the wrong image format or uploading an image without any compressing.
+Last month I bought **[Image Optimization](https://www.smashingmagazine.com/printed-books/image-optimization/)** by Addy Osmani so I could help other teams ship images that render efficiently. I got through about 200 pages and wanted to measure the difference immediately: how much you lose by picking the wrong format, or by uploading an image with no compression.
 
-This is where **[https://imagesperf.vercel.app](https://imagesperf.vercel.app)** was born!
+That is where **[imagesperf.vercel.app](https://imagesperf.vercel.app)** came from.
 
-Fork [https://github.com/vitaliimelnychuk/images-performance](https://github.com/vitaliimelnychuk/images-performance) and change images list in `components/ImageList/data.js` if you want to compare your own images.
+Fork [vitaliimelnychuk/images-performance](https://github.com/vitaliimelnychuk/images-performance) and edit the image list in `components/ImageList/data.js` if you want to compare your own images.
 
-## Always have a checklist!
+## Always have a checklist
 
-The checklist is a great tool to improve your daily routine by introducing things that you have never done before. Having it before your changes go live will lead to continuous improvements.
+A checklist is a good way to add habits you have not practiced yet. Running through it before a change goes live leads to steady improvement.
 
-Slowly loaded images impact your users the same as bad quality images. Our users want to have their content fast even if the internet connection is not so fast. By following a few techniques we can achieve great results without getting users disappointment.
+Slow images hurt users as much as poor image quality. People want the content quickly, even on a slow connection. A few techniques get you most of the way there without disappointing them.
 
-Let's go with one for improving images performance by going from what I think, most important points to the one that can be skipped or addressed at the end.
+Here is the order I use, from the changes that matter most to the ones you can leave for later:
 
 - Resolution
 - Quality
-- Format (jpg, png, WebP)
-- Screen resolution based rendering
-- Preview low-quality image
+- Format (JPEG, PNG, WebP)
+- Rendering that matches the screen
+- A low-quality preview
 
-## How does resolution impact your users?
+## How does resolution affect users?
 
-I think image resolution is the first thing everyone should consider to improve performance. By choosing the right image resolution we would decrease the size and also decode image time by the browser. Smaller - faster!
+Resolution is the first thing I look at. The right size cuts the download and the time the browser spends decoding the image. Smaller is faster.
 
-If you open [https://imagesperf.vercel.app](https://imagesperf.vercel.app) you can see a list of images that are lazy-loaded. I did it just to show a basic page with images listing, it can be whatever you can think of from product listing to blog post about your monthly books. At the top, there is a list of filters that are directly connected to the URL.
+Open [imagesperf.vercel.app](https://imagesperf.vercel.app) and you will see a list of lazy-loaded images. It is only a sample page. The same layout could be a product grid or a blog post. The filters at the top are wired to the URL.
 
-For testing I am going to use [www.webpagetest.org](www.webpagetest.org) and use the same parameters for simplicity:
+For the tests I used [WebPageTest](https://www.webpagetest.org) with the same settings each time:
 
 - _Location_: Virginia
 - _Device_: Browser
 - _Connection_: 3G
 - _Number of tests to run_: 5
 
-There are a few things you could do in a few minutes that could easily make your page faster **10 times** without noticeable difference.
+A few minutes of work can make the page about **10 times** faster without a visible quality drop.
 
-### Not optimized images
+### Images with no optimization
 
-For the first test I selected the following configuration:
+The first run used this configuration:
 
-[https://imagesperf.vercel.app/?quality=100&format=jpg&width=2048&height=1536&fit=clip](https://imagesperf.vercel.app/?quality=100&format=jpg&width=2048&height=1536&fit=clip)
+[quality=100, JPEG, 2048×1536](https://imagesperf.vercel.app/?quality=100&format=jpg&width=2048&height=1536&fit=clip)
 
 - _Quality:_ 100
 - _Fit:_ clip
@@ -54,17 +53,17 @@ For the first test I selected the following configuration:
 - _Height:_ 1536
 - _Format:_ jpg
 
-On the image below, you can see the original page load for 16 images without any optimizations. It just loads all images from `unsplash.com` and renders them asynchronisly.
+The chart below is the original load of 16 images with no optimization. The page pulls them from Unsplash and renders them asynchronously.
 
 ![webpagetest-not-optimized-run](/static/img/articles/2021-10-22/webpagetest-not-optimized-run.png)
 
-### Enabling compression
+### Turn on compression
 
-There is a huge amount of improvements that could be done, let's focus on the most important ones.
+A lot could be improved. These are the changes that matter most.
 
-#### Set images quality to 70
+#### Set image quality to 70
 
-[https://imagesperf.vercel.app/?quality=70&format=jpg&width=2048&height=1536&fit=clip](https://imagesperf.vercel.app/?quality=70&format=jpg&width=2048&height=1536&fit=clip)
+[quality=70, JPEG, 2048×1536](https://imagesperf.vercel.app/?quality=70&format=jpg&width=2048&height=1536&fit=clip)
 
 - _Quality:_ 70
 - _Fit:_ clip
@@ -72,13 +71,13 @@ There is a huge amount of improvements that could be done, let's focus on the mo
 - _Height:_ 1536
 - _Format:_ jpg
 
-By decreasing quality, page size drops to ~3.8 Mb which is more than twice less original one!
+Dropping the quality brings the page down to about 3.8 MB, which is less than half the original size.
 
 ![webpagetest-q70](/static/img/articles/2021-10-22/webpagetest-q70.png)
 
-#### Set lower image resolution
+#### Use a smaller resolution
 
-[https://imagesperf.vercel.app/?quality=70&format=jpg&width=1024&height=756&fit=clip](https://imagesperf.vercel.app/?quality=70&format=jpg&width=2048&height=1536&fit=clip)
+[quality=70, JPEG, 1024×756](https://imagesperf.vercel.app/?quality=70&format=jpg&width=1024&height=756&fit=clip)
 
 - _Quality:_ 70
 - _Fit:_ clip
@@ -88,9 +87,9 @@ By decreasing quality, page size drops to ~3.8 Mb which is more than twice less 
 
 ![webpagetest-q70-w1024](/static/img/articles/2021-10-22/webpagetest-q70-w1024.png)
 
-#### Use WebP image format
+#### Use WebP
 
-[https://imagesperf.vercel.app/?quality=70&format=webp&width=1024&height=756&fit=clip](https://imagesperf.vercel.app/?quality=70&format=webp&width=2048&height=1536&fit=clip)
+[quality=70, WebP, 1024×756](https://imagesperf.vercel.app/?quality=70&format=webp&width=1024&height=756&fit=clip)
 
 - _Quality:_ 70
 - _Fit:_ clip
@@ -100,9 +99,9 @@ By decreasing quality, page size drops to ~3.8 Mb which is more than twice less 
 
 ![webpagetest-q70-w1024-webp](/static/img/articles/2021-10-22/webpagetest-q70-w1024-webp.png)
 
-#### Use AVIF image format
+#### Use AVIF
 
-[https://imagesperf.vercel.app/?quality=70&format=avif&width=1024&height=756&fit=clip](https://imagesperf.vercel.app/?quality=70&format=avif&width=2048&height=1536&fit=clip)
+[quality=70, AVIF, 1024×756](https://imagesperf.vercel.app/?quality=70&format=avif&width=1024&height=756&fit=clip)
 
 - _Quality:_ 70
 - _Fit:_ clip
@@ -112,36 +111,36 @@ By decreasing quality, page size drops to ~3.8 Mb which is more than twice less 
 
 ![webpagetest-q70-w1024-avif](/static/img/articles/2021-10-22/webpagetest-q70-w1024-avif.png)
 
-## Do Analysis
+## Read the results
 
-Web pages consist of a lot of images. We rely on images a lot to improve users experience. No one wants to throw low-quality images but what if we just make them good enough?
+Most pages depend on images to explain the product. Nobody wants to ship blurry pictures, but "good enough" is often far smaller than the original file.
 
-Looking back to the results of changing resolution and image format you can see huge differences in page size without actually changing the code. There is some incompatibility of using `webp` and `avif` formats but still, they can be used for some browsers.
+Changing resolution and format moves page weight a lot, and none of that requires an application rewrite. WebP and AVIF are not supported everywhere, and you can still serve them where the browser accepts them.
 
 - https://caniuse.com/avif
 - https://caniuse.com/webp
 
 ## Checklist
 
-The first step of automation is to create a checklist to do it manually. This is something I usually use to check `critical` issues with images performance. There is great feature in Github to have a [PR template](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository) to start with.
+The first step toward automation is a checklist you can run by hand. This is what I use for the critical image issues. GitHub [pull request templates](https://docs.github.com/en/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository) are a good place to keep it.
 
-- Is compression for images enabled?
-- Do we have different image resolutions(Mobile, tablet, laptop)?
-- Do we use the best image format based on the user device?
+- Is image compression enabled?
+- Do we ship different resolutions for phone, tablet, and laptop?
+- Do we pick the best format for the user's browser?
 
-As a note, take a look at https://github.com/calibreapp/image-actions to make images optimization as part of your build process.
+Also look at [calibreapp/image-actions](https://github.com/calibreapp/image-actions) if you want compression to run as part of the build.
 
 ## Conclusion
 
-Images are not as easy as we could think! I just wanted to get some attention over simple optimizations you always can do, even if you can you're working on something alone and don't have time to do things perfectly.
+Images are harder than they look. These are simple optimizations you can do even when you are working alone and do not have time to make everything perfect.
 
-I am also sharing some articles to get more knowledge about image performance and get further steps to improve.
+A few more places to go deeper:
 
-- [https://github.com/calibreapp/image-actions ](https://github.com/calibreapp/image-actions)- Github action to automatically compress your images as part of CI process.
-- Performance budget
-- [https://github.com/tkadlec/grunt-perfbudget](https://github.com/tkadlec/grunt-perfbudget)
-- [https://web.dev/use-lighthouse-for-performance-budgets/](https://web.dev/use-lighthouse-for-performance-budgets/)
-- [https://developers.google.com/web/tools/lighthouse](https://developers.google.com/web/tools/lighthouse)
+- [calibreapp/image-actions](https://github.com/calibreapp/image-actions) compresses images in CI.
+- Performance budgets
+- [tkadlec/grunt-perfbudget](https://github.com/tkadlec/grunt-perfbudget)
+- [Use Lighthouse for performance budgets](https://web.dev/use-lighthouse-for-performance-budgets/)
+- [Lighthouse](https://developers.google.com/web/tools/lighthouse)
 - Books
-  - [https://www.oreilly.com/library/view/using-webpagetest/9781491902783/](https://www.oreilly.com/library/view/using-webpagetest/9781491902783/)
-  - [https://www.smashingmagazine.com/2021/04/image-optimization-pre-release/](https://www.smashingmagazine.com/2021/04/image-optimization-pre-release/)
+  - [Using WebPageTest](https://www.oreilly.com/library/view/using-webpagetest/9781491902783/)
+  - [Image Optimization](https://www.smashingmagazine.com/2021/04/image-optimization-pre-release/)
