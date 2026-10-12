@@ -1,7 +1,6 @@
 import Image from 'next/image'
 import { BriefcaseIcon } from '@heroicons/react/24/solid'
 
-import logoFreelance from '../images/logos/freelance.svg'
 import farfetchLogo from '../images/logos/farfetch.svg'
 import logoKeeptabz from '../images/logos/keeptabz.png'
 import logoReflaunt from '../images/logos/reflaunt.png'
@@ -25,13 +24,6 @@ function Resume() {
       end: 'Dec 2025',
     },
     {
-      company: 'Freelance',
-      title: 'Software Engineer / Consultant',
-      logo: logoFreelance,
-      start: '2019',
-      end: null,
-    },
-    {
       company: 'Farfetch',
       title: 'Software Engineer - Performance',
       logo: farfetchLogo,
@@ -40,7 +32,7 @@ function Resume() {
     },
     {
       company: 'Wise Engineering',
-      title: 'Senior Software Engineer / Mentor',
+      title: 'Senior Software Engineer',
       logo: logoWise,
       start: '2017',
       end: '2020',
