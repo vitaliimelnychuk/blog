@@ -5,8 +5,10 @@ import { Analytics } from '@vercel/analytics/react'
 import '../src/styles/tailwind.css'
 import { Header } from '../src/components/Header'
 import { Footer } from '../src/components/Footer'
+import { baseUrl } from '../src/config'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(baseUrl),
   title: 'Vitalii - Software engineer, builder, and amateur runner.',
   description:
     'I’m Vitalii, a software engineer  based in Porto, Portugal. I occasinally build new stuff and share my learnings here.',

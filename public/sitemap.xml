@@ -2,21 +2,25 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://vitaliimelnychuk.com</loc>
+    <loc>https://vitalii.vercel.app</loc>
   </url>
 
   <url>
-    <loc>https://vitaliimelnychuk.com/books</loc>
+    <loc>https://vitalii.vercel.app/books</loc>
   </url>
 
   <url>
-    <loc>https://vitaliimelnychuk.com/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc>
+    <loc>https://vitalii.vercel.app/articles/2020-08-28-build-a-website-with-gatsby-and-strapi</loc>
   </url>
 
   <url>
-    <loc>https://vitaliimelnychuk.com/articles/2021-02-25-ci-cd-code-coverage</loc>
+    <loc>https://vitalii.vercel.app/articles/2021-02-25-ci-cd-code-coverage</loc>
   </url>
   <url>
-    <loc>https://vitaliimelnychuk.com/articles/2024-04-28-aws-preview-deployments</loc>
+    <loc>https://vitalii.vercel.app/articles/2024-04-28-aws-preview-deployments</loc>
+  </url>
+
+  <url>
+    <loc>https://vitalii.vercel.app/articles/2026-10-20-how-we-track-website-changes</loc>
   </url>
 </urlset>
