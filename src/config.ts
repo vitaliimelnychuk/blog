@@ -1,4 +1,4 @@
-export const baseUrl = 'https://vitaliimelnychuk.com'
+export const baseUrl = 'https://vitalii.vercel.app'
 
 export const twitterProfile = 'Vitaliyvvv'
 
