@@ -36,41 +36,71 @@ That combination is why noise removal stays hard. The web optimized for a fresh 
 
 ## What we actually run
 
-The pipeline at KeepTabz has three stages. The first two collect evidence. The third one refuses most of it.
+A cron job starts each check. [Firecrawl](https://www.firecrawl.dev) crawls the page, the snapshot goes into the database, a diff finds what moved, and an AI pass decides what is worth keeping. The diagram is that path. The labels on the right are the moments a screenshot is involved, and the panel at the bottom is the rule for when the model actually opens the picture.
 
-### Firecrawl pulls the content and a screenshot
+<img
+  src="/static/img/articles/2026-10-20/pipeline.svg"
+  alt="Pipeline from a cron job through a Firecrawl crawl, a database snapshot, a markdown diff, AI analysis, and a stored change. The screenshot is captured in the crawl, stored on the snapshot, and read by the model when the change is visual."
+  width="100%"
+/>
 
-We use [Firecrawl](https://www.firecrawl.dev) to fetch each tracked page. The content comes back as markdown: headings, paragraphs, prices, lists, the words a person can read. The same fetch takes a screenshot of the page at that moment.
+### The cron job starts the crawler
 
-Markdown is what we compare. It is close to the meaning of the page and far enough from the DOM that a reordered stylesheet does not look like a launch. The screenshot is the other half of the record. When someone opens an alert, they should be able to see the page as it was, next to the words that moved. A diff without a picture asks the reader to imagine the layout. A picture without a diff asks them to spot the edit by eye. We store both for every check.
+A cron job starts one check per tracked page. Firecrawl fetches it. The content comes back as markdown: headings, paragraphs, prices, the words a person can read. The same fetch takes a screenshot.
 
-### We analyze the difference
+Markdown is what the diff will compare. It is close to the meaning of the page, and far enough from the DOM that a reordered stylesheet does not look like a launch.
 
-Each new capture is compared with the previous one for that URL. Same words, and there is nothing to rate. Different words, and we get a set of concrete differences: this block was added, this sentence was replaced, this section disappeared.
+### The snapshot is stored before anyone judges it
 
-That set is still a pile. It includes the price, the typo fix, the rotated quote, and the chat opener, side by side. Analysis here means breaking the page movement into individual changes we can judge, with enough surrounding text that the judgment has a subject. "A paragraph changed" is too coarse. "The second pricing tier went from \$49 to \$39" is a change. "The chat greeting went from hello to a question about onboarding" is also a change, and it is a different kind.
+The crawl writes a snapshot row before there is a verdict: the URL, the time, the markdown, and the screenshot. An unchanged page still leaves that row. The history of a page is the sequence of snapshots, whether or not any of them became an alert.
 
-### Every change is rated, and it has to clear two bars
+### The diff compares markdown
 
-For each difference we ask two questions.
+Each new snapshot is set against the previous one for that URL. Same words, and the check stops. The screenshot stays on the snapshot. It is not the input to the diff. Different words, and we get a set of concrete differences: this block was added, this sentence was replaced, this section disappeared.
 
-**Is it important?** Importance is about what a competitor's move would mean to someone watching the company. A new price, a rewritten claim on the homepage, a product added or removed, a changelog or docs page that reveals a feature, a terms edit, a wave of roles on the hiring page: those are the edits a company makes when it has decided something. A swapped illustration, a footer year, a typo, a reordered logo strip: those are maintenance. We score the first group as important and the second as noise, and we keep a short reason with the rating so a person can see why it scored the way it did.
+That set is still a pile. It includes the price, the typo, the rotated quote, and the chat opener. "A paragraph changed" is too coarse to rate. "The hero line was replaced" is a change we can judge. "The chat greeting went from hello to a question about onboarding" is a different kind of change.
 
-**Is it significant enough?** A change can be real and still be too small to send. One adjective in a sentence that leaves the offer where it was. A testimonial rotating through a set list. A timestamp. Significance is the bar that keeps the tracker from narrating the page's ordinary life. The difference has to be large enough in meaning that a reader of the alert would update what they believe about the company.
+### AI analysis rates every difference
 
-Dynamic chat is where this bar does its most visible work. Messages inside the chatbot are generated for the visit. They change because the widget is supposed to change, so they stay out of the change log. The greeting, the suggested prompts, the "reply in a few minutes" line, the little transcript that quotes a feature already on the page: all of that is left untracked. The page around the widget is still compared. A pricing table that moved underneath an open chat panel is still rated, and it can still go out. The panel's own words stay out.
+For each difference we ask two questions, and we keep a short reason with the answer.
 
-Both bars have to pass. An important edit that is a single inconsequential word stays quiet. A large edit that is a chatbot rewriting its welcome stays quiet. A pricing row that changed, and changed enough that the offer is different, is the thing we keep.
+**Is it important?** Importance is what the edit would mean to someone watching the company. A new price, a rewritten homepage claim, a product added or removed, a docs or changelog page that reveals a feature, a terms edit, a wave of roles on the hiring page: those are decisions. A swapped illustration, a footer year, a typo, a reordered logo strip: those are maintenance. The first group scores as important. The second scores as noise.
+
+**Is it significant enough?** A change can be real and still be too small to send. One adjective that leaves the offer where it was. A testimonial rotating through a set list. A timestamp. The difference has to be large enough in meaning that a reader would update what they believe about the company.
+
+Dynamic chat is where this bar does its most visible work. Messages inside the chatbot are generated for the visit, so they stay out of the change log. The greeting, the suggested prompts, the "reply in a few minutes" line, the transcript that quotes a feature already on the page: all of that is left untracked. The page around the widget is still compared. A pricing table that moved underneath an open chat panel is still rated, and it can still be stored. The panel's own words stay out.
+
+Both bars have to pass. An important edit that is a single inconsequential word stays quiet. A large edit that is a chatbot rewriting its welcome stays quiet. A headline that changes what the company says it is, or a price that changes the offer, is the thing we keep.
+
+The screenshot is opened in this step in two cases. The edit is visual: a layout move, a new hero image, a block you have to see to judge. Or the words are ambiguous because a chatbot covers the same region as a real change. A headline rewrite is scored from the markdown. Either way the picture remains on the snapshot, with the check.
+
+### The change that passes is stored on its own
+
+A difference that clears both bars is written as its own row. The row holds a score, tags for severity and category, the before and after, a title, and why it matters. The snapshot remains the evidence. The change row is the decision, and it is what the product renders.
 
 ## What a tracked change looks like
 
-The same page can produce all three outcomes in one check:
+This card is that row. It is a real one from [KeepTabz](https://keeptabz.ai): Notion's homepage, checked on 6 October 2026.
 
-- The chat opener changed from "Hi, how can I help?" to "Want a hand picking a plan?" The words are new on the page. They belong to the widget. We leave them out.
-- The footer copyright rolled from 2025 to 2026. That is a real edit, and it is too small to matter. It stays in the history and out of the alert.
-- The Pro tier went from \$49 per user to \$39, and the line above it now says the plan includes SSO. That is important, and it is significant. That one is a tracked change: the before, the after, the screenshot, and the reason.
+<img
+  src="/static/img/articles/2026-10-20/change-card.png"
+  alt="KeepTabz change card. Notion's homepage on October 6, 2026, scored 82, tagged Major and Messaging. The hero headline changed from 'Your connected workspace for wiki, docs &amp; projects' to 'The AI workspace that works for you', and AI Agents was added to the main navigation. Why it matters: new positioning shift."
+  width="100%"
+/>
 
-History keeps the snapshots either way. The alert is the small set that survived the rating. Those are the ones that show up in the daily digest, with enough context that you can tell a packaging move from a widget having a conversation with itself.
+The pieces on the card are the fields we stored after the AI pass.
+
+- **Notion repositions its homepage around AI** is the title written for the change.
+- **82** is the score. **Major** and **Messaging** are the tags.
+- The body is the diff that survived rating. The hero headline was replaced, from "Your connected workspace for wiki, docs & projects" to "The AI workspace that works for you." "AI Agents" was added to the main navigation.
+- **Why it matters: new positioning shift** is the reason kept with the rating.
+- **notion.com** is the page the snapshot was taken from.
+
+The same check can produce lines that never earn a row, and so never show up on a card like this one.
+
+- The chat opener changed from "Hi, how can I help?" to "Want a hand picking a plan?" The words are new. They belong to the widget. They stay off the card.
+- The footer copyright rolled from 2025 to 2026. That edit is real, and it is too small. It stays in the snapshot history.
+- A pricing row that moves, and moves enough that the offer is different, is the kind of line that sits next to a hero rewrite. Before, after, score, and the reason.
 
 ## The standard we hold the system to
 
@@ -78,4 +108,4 @@ A tracker that reports every diff has perfect recall and no readers. A tracker t
 
 The chatbot is the example I keep coming back to because it is honest about the modern page. Some of the text is the company. Some of the text is a performance for the current visitor. They are delivered in the same response, often in the same visual region, sometimes using the same nouns. Removing the noise means reading the difference and being willing to call a brand-new sentence unchanged, when the sentence was always going to be new.
 
-That is the work. Firecrawl gives us the content and the screenshot. The rating decides which differences are allowed to become changes.
+That is the work. A cron job starts the crawl. Firecrawl returns the markdown and the screenshot, and the database keeps both. The diff finds the movement. The rating decides which differences are allowed to become a card.

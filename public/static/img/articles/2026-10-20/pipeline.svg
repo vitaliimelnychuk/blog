@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 1116" width="440" height="1116" role="img">
+<rect width="440" height="1116" rx="16" fill="#fafafa"/>
+<text x="220" y="32" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="700" fill="#18181b">From the cron job to a stored change</text>
+<g>
+<rect x="16" y="52" width="408" height="92" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="52" width="4" height="92" rx="2" fill="#0f766e"/>
+<text x="38" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f766e">1</text>
+<text x="60" y="82" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" fill="#18181b">Cron</text>
+<text x="60" y="104" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">Starts one check per tracked page.</text>
+</g>
+<line x1="220.0" y1="144" x2="220.0" y2="163" stroke="#a1a1aa" stroke-width="1.5"/>
+<path d="M 216.0 162 L 220.0 169 L 224.0 162" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linejoin="round"/>
+<g>
+<rect x="16" y="170" width="408" height="92" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="170" width="4" height="92" rx="2" fill="#0f766e"/>
+<text x="38" y="200" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f766e">2</text>
+<text x="60" y="200" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" fill="#18181b">Crawler · Firecrawl</text>
+<text x="60" y="222" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">Returns the page as markdown and</text>
+<text x="60" y="240" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">takes a screenshot in the same fetch.</text>
+<rect x="340.0" y="184" width="72.0" height="22" rx="11" fill="#fff7ed" stroke="#fdba74"/>
+<text x="376.0" y="199" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="650" fill="#9a3412">captured</text>
+</g>
+<line x1="220.0" y1="262" x2="220.0" y2="281" stroke="#a1a1aa" stroke-width="1.5"/>
+<path d="M 216.0 280 L 220.0 287 L 224.0 280" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linejoin="round"/>
+<g>
+<rect x="16" y="288" width="408" height="92" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="288" width="4" height="92" rx="2" fill="#3f3f46"/>
+<text x="38" y="318" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#3f3f46">3</text>
+<text x="60" y="318" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" fill="#18181b">Database · snapshot</text>
+<text x="60" y="340" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">Saves the URL, time, markdown,</text>
+<text x="60" y="358" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">and the screenshot for this check.</text>
+<rect x="340.0" y="302" width="72.0" height="22" rx="11" fill="#fff7ed" stroke="#fdba74"/>
+<text x="376.0" y="317" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="650" fill="#9a3412">stored</text>
+</g>
+<line x1="220.0" y1="380" x2="220.0" y2="399" stroke="#a1a1aa" stroke-width="1.5"/>
+<path d="M 216.0 398 L 220.0 405 L 224.0 398" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linejoin="round"/>
+<g>
+<rect x="16" y="406" width="408" height="92" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="406" width="4" height="92" rx="2" fill="#0f766e"/>
+<text x="38" y="436" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f766e">4</text>
+<text x="60" y="436" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" fill="#18181b">Diff</text>
+<text x="60" y="458" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">New markdown versus the last snapshot.</text>
+<text x="60" y="476" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">No text change: stop. Words are compared.</text>
+<rect x="340.0" y="420" width="72.0" height="22" rx="11" fill="#f4f4f5" stroke="#d4d4d8"/>
+<text x="376.0" y="435" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="650" fill="#3f3f46">text only</text>
+</g>
+<line x1="220.0" y1="498" x2="220.0" y2="517" stroke="#a1a1aa" stroke-width="1.5"/>
+<path d="M 216.0 516 L 220.0 523 L 224.0 516" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linejoin="round"/>
+<g>
+<rect x="16" y="524" width="408" height="92" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="524" width="4" height="92" rx="2" fill="#0f766e"/>
+<text x="38" y="554" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f766e">5</text>
+<text x="60" y="554" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" fill="#18181b">AI analysis</text>
+<text x="60" y="576" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">Rates importance, and whether the</text>
+<text x="60" y="594" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">edit is significant enough to keep.</text>
+<rect x="340.0" y="538" width="72.0" height="22" rx="11" fill="#fff7ed" stroke="#fdba74"/>
+<text x="376.0" y="553" text-anchor="middle" font-family="ui-sans-serif, system-ui, sans-serif" font-size="11" font-weight="650" fill="#9a3412">if visual</text>
+</g>
+<line x1="220.0" y1="616" x2="220.0" y2="635" stroke="#a1a1aa" stroke-width="1.5"/>
+<path d="M 216.0 634 L 220.0 641 L 224.0 634" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linejoin="round"/>
+<g>
+<rect x="16" y="642" width="408" height="92" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="642" width="4" height="92" rx="2" fill="#3f3f46"/>
+<text x="38" y="672" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#3f3f46">6</text>
+<text x="60" y="672" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" fill="#18181b">Database · change</text>
+<text x="60" y="694" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">Saves the score, tags, before and</text>
+<text x="60" y="712" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">after, and why the change matters.</text>
+</g>
+<line x1="220.0" y1="734" x2="220.0" y2="753" stroke="#a1a1aa" stroke-width="1.5"/>
+<path d="M 216.0 752 L 220.0 759 L 224.0 752" fill="none" stroke="#a1a1aa" stroke-width="1.5" stroke-linejoin="round"/>
+<g>
+<rect x="16" y="760" width="408" height="92" rx="12" fill="#ffffff" stroke="#e4e4e7"/>
+<rect x="16" y="760" width="4" height="92" rx="2" fill="#0f766e"/>
+<text x="38" y="790" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="700" fill="#0f766e">7</text>
+<text x="60" y="790" font-family="ui-sans-serif, system-ui, sans-serif" font-size="15" font-weight="650" fill="#18181b">Product card</text>
+<text x="60" y="812" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">Renders that row. This is the card</text>
+<text x="60" y="830" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" fill="#52525b">a person reads in the product.</text>
+</g>
+<rect x="16" y="872" width="408" height="228" rx="12" fill="#fff7ed" stroke="#fed7aa"/>
+<text x="36" y="900" font-family="ui-sans-serif, system-ui, sans-serif" font-size="14" font-weight="700" fill="#9a3412">When the screenshot is used</text>
+<text x="36" y="920" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="650" fill="#7c2d12">1. Captured in the crawl, with the markdown.</text>
+<text x="36" y="946" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="650" fill="#7c2d12">2. Stored on the snapshot row in the database.</text>
+<text x="36" y="972" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="650" fill="#7c2d12">3. Read by AI when the change is visual, or when</text>
+<text x="36" y="990" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" fill="#9a3412">a chatbot covers the same area as a real edit.</text>
+<text x="36" y="1016" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" fill="#9a3412">A headline change is scored from the words.</text>
+<text x="36" y="1042" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" fill="#9a3412">The picture stays stored either way.</text>
+<text x="36" y="1070" font-family="ui-sans-serif, system-ui, sans-serif" font-size="13" font-weight="400" fill="#9a3412">The diff compares markdown, not pixels.</text>
+</svg>
