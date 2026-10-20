@@ -1,0 +1,81 @@
+---
+title: How we track website changes
+date: 20 Oct 2026
+description: Fetching a page is the easy half. At KeepTabz we use Firecrawl to pull the content and a screenshot, then rate every difference so a chatbot greeting stays out of the change log.
+---
+
+Fetching a page and diffing it against yesterday's copy is a weekend project. Living with that diff is the actual job. At [KeepTabz](https://keeptabz.ai) we track competitor websites for the edits that mean something: a price, a positioning line, a product that appeared, a terms change, a hiring push. Most of what moves on those pages is none of those things.
+
+This is how we separate the two.
+
+## A page is a function, and functions return different values
+
+Open a product site twice, an hour apart, and the HTML will disagree with itself. A chat widget has a new opener. The suggested prompts rotated. "We usually reply in a few minutes" became "A teammate is online." A carousel advanced, a testimonial swapped, a view counter ticked, a consent banner shifted, an experiment served a different headline.
+
+Each of those is a real difference in the bytes. A person watching the company would not call any of them a change. The company did not decide anything. The page did what it was built to do, which is to be slightly different for every visit.
+
+That gap is the whole problem. Change tracking is useful when it tells you the company moved. It is useless when it tells you the page rendered.
+
+## Why the noise is harder to remove now
+
+A static brochure from ten years ago could be hashed. Ignore the footer, hash the main column, email someone when the hash flips. A lot of monitoring still works that way, and it falls over on the sites people actually care about.
+
+**The important edit and the disposable text look the same in a diff.** Both show up as lines added or lines replaced. "Starting at \$49" becoming "\$39" is a few characters. A chatbot transcript that rewrites itself is a few hundred. Size is a bad proxy. The price change is the story. The transcript is the widget working. Any filter that keeps the short edit and drops the long one has to know what the words are doing, because the diff itself will not say.
+
+**Chat copy often talks about the real change.** A widget that says "Ask me about our new team plan" on the day the pricing page gained a team plan looks, to a keyword check, like a second announcement. It is an echo. If you file the echo as its own event, the digest doubles and the source of the news gets blurry. We treat the dynamic message as something the page says in passing, and we keep the underlying page edit as the change.
+
+**You cannot cut the widget out and keep the page.** The chat bubble sits on top of the pricing table, the docs, the homepage. Drop the region that contains the widget and you can drop the price with it. Keep the region and you ingest the greeting. The filter has to be local. Each difference is judged on its own, in the context of the page it sits on, which is a slower kind of work than a CSS selector.
+
+**Screenshots disagree with the text, in both directions.** A chat panel, a skeleton loader, or a cookie bar moves pixels on a page whose offer is identical. A sentence in the terms can change the commercial relationship and barely move the layout. Pixel diffing and text diffing each miss a class of event the other one catches. We keep both, and we let the rating decide.
+
+**There is more disposable text than there used to be.** Experiments, personalization, recommendations, countdowns, social proof, and embedded chat are default parts of a marketing site. Each one is a small random variable. Multiply that by every page you watch, across every competitor, every day, and a tracker that alerts on raw diffs becomes a channel people mute. Once they mute it, the quiet pricing edit that landed two weeks before the launch post is just another unread line.
+
+**Significance is also about durability.** A line that is part of the page is still there the next time you look. A line that belongs to the session is gone, replaced by a cousin of itself. Waiting a week would make that obvious and would also throw away the lead time, which is the reason to watch the site in the first place. "Significant enough" is a judgment you make on this scrape, with the previous scrape in hand: is this difference big enough in meaning, and stable enough as part of the page, that someone should hear about it today?
+
+That combination is why noise removal stays hard. The web optimized for a fresh visit. Tracking optimized for a stable document. Those two goals share a URL.
+
+## What we actually run
+
+The pipeline at KeepTabz has three stages. The first two collect evidence. The third one refuses most of it.
+
+### Firecrawl pulls the content and a screenshot
+
+We use [Firecrawl](https://www.firecrawl.dev) to fetch each tracked page. The content comes back as markdown: headings, paragraphs, prices, lists, the words a person can read. The same fetch takes a screenshot of the page at that moment.
+
+Markdown is what we compare. It is close to the meaning of the page and far enough from the DOM that a reordered stylesheet does not look like a launch. The screenshot is the other half of the record. When someone opens an alert, they should be able to see the page as it was, next to the words that moved. A diff without a picture asks the reader to imagine the layout. A picture without a diff asks them to spot the edit by eye. We store both for every check.
+
+### We analyze the difference
+
+Each new capture is compared with the previous one for that URL. Same words, and there is nothing to rate. Different words, and we get a set of concrete differences: this block was added, this sentence was replaced, this section disappeared.
+
+That set is still a pile. It includes the price, the typo fix, the rotated quote, and the chat opener, side by side. Analysis here means breaking the page movement into individual changes we can judge, with enough surrounding text that the judgment has a subject. "A paragraph changed" is too coarse. "The second pricing tier went from \$49 to \$39" is a change. "The chat greeting went from hello to a question about onboarding" is also a change, and it is a different kind.
+
+### Every change is rated, and it has to clear two bars
+
+For each difference we ask two questions.
+
+**Is it important?** Importance is about what a competitor's move would mean to someone watching the company. A new price, a rewritten claim on the homepage, a product added or removed, a changelog or docs page that reveals a feature, a terms edit, a wave of roles on the hiring page: those are the edits a company makes when it has decided something. A swapped illustration, a footer year, a typo, a reordered logo strip: those are maintenance. We score the first group as important and the second as noise, and we keep a short reason with the rating so a person can see why it scored the way it did.
+
+**Is it significant enough?** A change can be real and still be too small to send. One adjective in a sentence that leaves the offer where it was. A testimonial rotating through a set list. A timestamp. Significance is the bar that keeps the tracker from narrating the page's ordinary life. The difference has to be large enough in meaning that a reader of the alert would update what they believe about the company.
+
+Dynamic chat is where this bar does its most visible work. Messages inside the chatbot are generated for the visit. They change because the widget is supposed to change, so they stay out of the change log. The greeting, the suggested prompts, the "reply in a few minutes" line, the little transcript that quotes a feature already on the page: all of that is left untracked. The page around the widget is still compared. A pricing table that moved underneath an open chat panel is still rated, and it can still go out. The panel's own words stay out.
+
+Both bars have to pass. An important edit that is a single inconsequential word stays quiet. A large edit that is a chatbot rewriting its welcome stays quiet. A pricing row that changed, and changed enough that the offer is different, is the thing we keep.
+
+## What a tracked change looks like
+
+The same page can produce all three outcomes in one check:
+
+- The chat opener changed from "Hi, how can I help?" to "Want a hand picking a plan?" The words are new on the page. They belong to the widget. We leave them out.
+- The footer copyright rolled from 2025 to 2026. That is a real edit, and it is too small to matter. It stays in the history and out of the alert.
+- The Pro tier went from \$49 per user to \$39, and the line above it now says the plan includes SSO. That is important, and it is significant. That one is a tracked change: the before, the after, the screenshot, and the reason.
+
+History keeps the snapshots either way. The alert is the small set that survived the rating. Those are the ones that show up in the daily digest, with enough context that you can tell a packaging move from a widget having a conversation with itself.
+
+## The standard we hold the system to
+
+A tracker that reports every diff has perfect recall and no readers. A tracker that only pings on a hand-maintained list of selectors stays quiet and misses the edit that showed up in a block nobody labeled. The useful behavior is in the middle, and it has to be re-earned on pages we have not special-cased.
+
+The chatbot is the example I keep coming back to because it is honest about the modern page. Some of the text is the company. Some of the text is a performance for the current visitor. They are delivered in the same response, often in the same visual region, sometimes using the same nouns. Removing the noise means reading the difference and being willing to call a brand-new sentence unchanged, when the sentence was always going to be new.
+
+That is the work. Firecrawl gives us the content and the screenshot. The rating decides which differences are allowed to become changes.
